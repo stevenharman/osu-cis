@@ -1,0 +1,17 @@
+									CIS321
+									Steve Harman
+									HW# 10
+									Long - 12:30
+1. <signed real constant> --> 	+ <digit seqnce> . <digit seqnce> |
+				+ <digit seqnce> . <digit seqnde> <exponent> |
+				+ <digit seqnce> . |
+				+ <digit seqnce> . <exponent> |
+				- <digit seqnce> . <digit seqnce> |
+				- <digit seqnce> . <digit seqnde> <exponent> |
+				- <digit seqnce> . |
+				- <digit seqnce> . <exponent> |
+				<digit seqnce> . <digit seqnce> |
+				<digit seqnce> . <digit seqnde> <exponent> |
+				<digit seqnce> . |
+				<digit seqnce> . <exponent>
+2. 

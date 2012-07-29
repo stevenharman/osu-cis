@@ -1,0 +1,52 @@
+			CIS222 hw#22		Steve Harman   
+ Push (
+	    consumes Item& x
+	)
+{
+    object Node_Ptr temp;
+
+    New (temp);
+    x &= (*temp)[data];
+    temp[next] = (*self)[top];
+    self[top] = temp;
+
+    self[length]++;
+}
+
+//-------------------------------------------------------------------------
+    Pop (
+	    produces Item& x
+	)
+{
+    object Node_Ptr temp;
+
+    (*self[top])[data] &= x;
+    temp = (*self[top])[next];
+    Delete(self[top]);
+    self[top] = temp;
+    
+    self[length]--;
+}
+
+//-------------------------------------------------------------------------
+    Length ()
+{
+    return self[length];
+}
+
+//-------------------------------------------------------------------------
+    Finalize ()
+{
+    object Node_Ptr temp;
+
+    temp = self[top];
+    while(self[length] > 1)
+    {
+	self[top] = (*temp)[next];
+	Delete(temp);
+	temp = self[top];
+
+	self[length]--;
+    }
+    Delete(temp);
+}

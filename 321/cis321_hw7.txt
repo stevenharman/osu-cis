@@ -1,0 +1,69 @@
+								CIS321
+								Steve Harman
+								Long - 12:30
+								HW#7
+1. Number_Of_Primitive_Instructions(s) = 3
+
+2. function_body Integer Number_Of_Primitive_Instructions(
+	preserves Statement& s
+	)
+{
+	object Integer counter;
+
+	
+	case_select(s.Kind())
+	{
+	
+	case BLOCK:
+		{
+			object Integer pos;
+			object Statement stmnt;
+			while(pos < s.Length_Of_Block())
+			{
+				s.Remove_From_Block(pos, stmnt);
+				counter = Number_Of_Primitive_Statements(stmnt);
+				s.Add_To_Block(pos, stmnt);
+				pos++;
+			}
+			return counter;
+		}break;
+	case IF:
+		{
+			object Integer cond;
+			object Statement if_blk;
+			s.Decompose_If(cond, ifblk);
+			counter = Number_Of_Primitive_Instructions(if_blk);
+			s.Compose_If(cond, if_blk);
+			return counter;
+		}break;
+	case IF_ELSE:
+		{
+			object Integer cond;
+			object Statement if_blk, else_blk;
+			s.Decompose_If_Else(cond, if_blk, else_blk);
+			counter = Number_Of_Primitive_Statements(if_blk) + Number_Of_Primitive_Statements(else_blk);
+			s.Compose_If_Else(cond, if_blk, else_blk);
+			return counter;
+		}break;
+	case WHILE:
+		{
+			object Integer cond;
+			object Statement while_blk;
+			s.Decompose_While(cond, while_blk);
+			counter = Number_Of_Primitive_Statements(while_blk);
+			s.Compose_While(cond, while_blk);
+			return counter;
+		}break;
+	case CALL:
+		{
+			object Text inst;
+			s.Decompose_Call(inst);
+			if(inst == "move" or "skip" or "turnright" or "turnleft" or "infect")
+			{
+				counter++;
+			}
+			s.Compose_Call(inst);
+			return counter;
+		}break;
+	}
+}

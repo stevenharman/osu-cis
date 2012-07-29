@@ -1,0 +1,5 @@
+(define (fib n)
+	(if (b< n 2) n 
+	    (b+ (fib (b- n 1)) (fib (b- n 2)))))
+	
+(fib 2)

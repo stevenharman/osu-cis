@@ -1,0 +1,14 @@
+Steve Harman
+CIS 630 HW #1
+2.
+	a) Intelligence: In a strong sense (as applied to humans), it is the ability to reason, plan, comprehend, solve problems, and most importantly, learn.  In a weaker case (as with animals or perhaps machines), it may be more the ability to adapt to their surroundings, or make changes to their surroundings (or environment) to enable their survival.
+	b) Artificial Intelligence: In a strong sense, AI is the ability to truly think (reason), solve problems, and learn from experiences (using the learned information to make better future decisions).  In a weak sense, AI is the ability of a machine to seem intelligent, though it is not actually reasoning nor solving problems.
+	c) Agent: an entity with its own will, goals, and ability to reason and make independent choices.
+
+3.  I suppose this chat agent (Jabberwock) comes close to my definition of weak artifical intelligence… at times the bot seemed to possess some type of intelligence, though when given a question that needed some type of opinion (“what do you think about steroids in baseball?”), the bot repeatedly gave a misdirected answer and attempted to take the conversation elsewhere.  So perhaps that is intelligent… changing the subject when you don’t have an answer.  However, I don’t believe the bot showed any type of reasoning skills/ability, so no, it doesn’t meet my definition for intelligence.  Just because someone can’t necessarily determine whether or not they are talking to a machine (after only 20 min of talking) doesn’t necessarily mean that the agent is intelligent, just that the programmers/designers were very cleaver in how they deal with casual human “chatting”.
+
+4.  I suppose I would try to convince the other person that I was actually a human by having them ask me for my opinion on things (like the “steroids in baseball” thing)… or for advice (like “love” advice).  I would imagine that it would be very hard for a machine to be able to talk about things such as love, as it would be very hard (if not impossible) to “program” or even describe love… it is something that one must experience.
+
+5.  No, this does not imply that the machine is more “intelligent” than its programmer… the machine is simply better at “looking up tables” of information that tell it what moves “decisions” to make.  As far as the often-cited criticism, I would say that until a machine can “learn” new things, and make decisions (reason) based on what it “knows” (and has learned), then it cannot truly be intelligent, because until then it is simply “appearing intelligent” because it’s creators were very cleaver in the machine’s design.
+
+6.  

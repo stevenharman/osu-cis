@@ -1,0 +1,61 @@
+				CIS222 hw#19		Steve Harman
+
+1.
+Undefine
+{
+	object D_R_Item x;
+	Move_To_Front (self[pairs_queue, d);
+	self[pair_queue][current].Dequeue(x);
+	d = x[d_item];
+	r = x[r_item];
+}
+
+Undefine_Any
+{
+	object D_R_Item x;
+	self[pair_queue][current].Dequeue(x);
+	d = x[d_item];
+	r = x[r_item];
+}
+
+2.a:
+global_procedure Sort (
+	alters Array_Of_Text a1;
+	) is_abstract;
+	/*!
+		requires
+			|a1| > 1
+		ensures
+			sorted(a1) = #a1
+	/*!
+
+b:
+procedure Sort (
+	alters Array_Of_Text a1
+	)
+{
+	object Integer count, i, j;
+	object Boolean done;
+	
+	done = false;
+
+	while(not done)
+	{
+		i = a1.Lower_Bound();
+		j = i + 1;
+		count = a1.Upper_Bound() - a1.Lower_Bound();
+		done  = true;
+		while(count > 0)
+		{
+			if(a1[i] != a1[j])
+			{
+				a1[i] &= a1[j];
+				done = false;
+			}
+			i++;
+			j++;
+			count--;
+		}
+	}	
+}
+				

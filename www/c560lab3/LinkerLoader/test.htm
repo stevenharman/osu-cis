@@ -1,0 +1,4348 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<html>
+
+<head>
+
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+
+<link rel=Preview href="./u_files/preview.wmf">
+
+<link rel=Edit-Time-Data href="./u_files/editdata.mso">
+
+<title>TEST PLAN</title>
+
+<style><!--
+
+.Normal
+
+	{font-size:10.0pt;
+
+	font-family:Arial;
+
+	letter-spacing:-.25pt;}
+
+.MsoToc1
+
+	{font-size:10.0pt;
+
+	font-family:"Times New Roman";
+
+	text-transform:uppercase;
+
+	letter-spacing:-.25pt;
+
+	font-weight:bold;}
+
+.MsoToc2
+
+	{font-size:10.0pt;
+
+	font-family:"Times New Roman";
+
+	font-variant:small-caps;
+
+	letter-spacing:-.25pt;}
+
+.MsoToc3
+
+	{font-size:10.0pt;
+
+	font-family:"Times New Roman";
+
+	letter-spacing:-.25pt;
+
+	font-style:italic;}
+
+.MsoTitle
+
+	{border:none;
+
+	padding:0in;
+
+	font-size:20.0pt;
+
+	font-family:"Arial Black";
+
+	letter-spacing:-1.5pt;}
+
+.MsoBodyText
+
+	{text-align:justify;
+
+	line-height:12.0pt;
+
+	font-size:10.0pt;
+
+	font-family:Arial;
+
+	letter-spacing:-.25pt;}
+
+.MsoSubtitle
+
+	{line-height:17.0pt;
+
+	font-size:16.0pt;
+
+	font-family:Arial;
+
+	letter-spacing:-.8pt;}
+
+.MsoHyperlink
+
+	{color:blue;
+
+	text-decoration:underline;
+
+	text-underline:single;}
+
+.PartLabel
+
+	{text-align:center;
+
+	line-height:18.0pt;
+
+	background:black;
+
+	font-size:13.0pt;
+
+	font-family:Arial;
+
+	color:white;
+
+	letter-spacing:-.8pt;}
+
+.PartTitle
+
+	{text-align:center;
+
+	line-height:33.0pt;
+
+	background:black;
+
+	font-size:42.0pt;
+
+	font-family:"Arial Black";
+
+	color:white;
+
+	letter-spacing:-2.0pt;}
+
+.CompanyName
+
+	{font-size:16.0pt;
+
+	font-family:"Arial Black";
+
+	letter-spacing:-1.25pt;}
+
+.TitleCover
+
+	{line-height:32.0pt;
+
+	tab-stops:0in;
+
+	border:none;
+
+	padding:0in;
+
+	font-size:32.0pt;
+
+	font-family:"Arial Black";
+
+	letter-spacing:-2.4pt;
+
+	font-weight:bold;}
+
+.ReturnAddress
+
+	{line-height:8.0pt;
+
+	tab-stops:1.5in;
+
+	font-size:7.0pt;
+
+	font-family:Arial;}
+
+.SubtitleCover
+
+	{line-height:24.0pt;
+
+	border:none;
+
+	padding:0in;
+
+	font-size:24.0pt;
+
+	font-family:Arial;
+
+	letter-spacing:-1.5pt;}
+
+-->
+
+</style>
+
+<link href="../OverDriveStyles.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+
+ <a name="top"></a>
+
+ <div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'> 
+
+<table width="100%" border="0">
+
+    <tr> 
+
+      <td><p class=TitleCover>Test Plan</p></td>
+
+      <td width="204" align="right"><a href="../index.htm"><img src="../Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+
+    </tr>
+
+  </table>
+
+</div>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+
+  <p class=SubtitleCover>Test Plan for the Linker/Loader</p>
+
+</div>
+
+<p class=MsoToc1> <span class="MsoToc1"><a href="#testplan">TEST PLAN</a></span></p>
+
+<ul>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#program">PROGRAM.ASM</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#subr">SUBR.ASM</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#val">VAL.ASM</a></span></li>
+
+</ul>
+
+<p class=MsoToc1><a href="#driver">BOTTOM-UP TESTING</a></p>
+
+<ul>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#indiv">INDIVIDUAL FILE TESTS</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#group">GROUP FILE TESTS</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#nofile">NO FILE TESTS</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#empty">EMPTY FILE TESTS</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#noload">NO LOAD ADDRESS TEST</a></span></li>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#read">READ ONLY FILE TEST</a></span></li>
+
+</ul>
+
+<p class=MsoToc1><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#overall" class="MsoToc1">TOP-DOWN TESTS</a></span></p>
+
+<ul>
+
+  <li><span
+
+
+
+
+
+
+
+class=MsoHyperlink><a href="#correct">CORRECT TEST</a></span><br clear=all
+
+
+
+
+
+
+
+style='page-break-before:always;'>
+
+  </li>
+
+</ul>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+
+  <p class=MsoTitle>Introduction</p>
+
+</div>
+
+<p class=MsoSubtitle>An introduction into Group Over-Drive’s W03_560 Test Plan</p>
+
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+
+
+
+
+background:black;'> 
+
+  <h1><a name="testplan" id="testplan"><span><font color="#FFFFFF">Test Plan</font></span></a></h1>
+
+</div>
+
+<p class=MsoBodyText align=left style='text-align:left'>This test plan describes 
+
+  what testing was done on the W03_560 Machine Linker/Loader. The plan was designed 
+
+  in order to fix all errors and meet all of the W03_560 Machine Linker/Loader 
+
+  specifications and requirements. This documentation includes a list of different 
+
+  categories of extreme cases and errors for which source code was tested.</p>
+
+<p class=MsoBodyText align=left style='text-align:left'>Our Test Plan consists 
+
+  of two sections; the first section tests specific errors in the input program, 
+
+  the second one tests the robustness and correctness of specific functions and 
+
+  operations. The following 3 assembly language programs were used for testing. 
+
+  The following programs are uncompiled but were compiled before each was used.</p>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td width="100%" valign=bottom nowrap bgcolor="black" class="Normal"> <div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> File Program.asm = obj1<a name="program"></a></font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'><font face="Courier New, Courier, mono">Main 
+
+        ORI</font></span><font face="Courier New, Courier, mono"><br>
+
+        EXT Disp1,V<br>
+
+        </font><font face="Courier New, Courier, mono">ENT Start<br>
+
+        EXT X<br>
+
+        ;<br>
+
+        </font><font face="Courier New, Courier, mono">Start BRS 3,Disp1 ;Display 
+
+        6..0 <br>
+
+        LD 1,V ;r1 &lt;- M[V]<br>
+
+        </font><font face="Courier New, Courier, mono">ST 1,X ;M[X] &lt;- r1<br>
+
+        BRS 3,Disp1 ;Display 2..0<br>
+
+        </font><font face="Courier New, Courier, mono">BR 0,0 ;halt<br>
+
+        END </font></p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td width="100%" valign=bottom nowrap bgcolor="black" class="Normal"> <div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> File Subr.asm = obj2<a name="subr"></a></font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"><p><font face="Courier New, Courier, mono">Mesg 
+
+        ORI<br>
+
+        ENT Disp1,X<br>
+
+        TOUT EQU 3<br>
+
+        NOUT EQU 2<br>
+
+        ;<br>
+
+        Txt CCD Va<br>
+
+        CCD lu<br>
+
+        CCD e<br>
+
+        CCD =<br>
+
+        x NMD 6<br>
+
+        SaveR Res 1<br>
+
+        ;<br>
+
+        Disp1 ST 0,SaveR ;m[SaveR] &lt;- r0<br>
+
+        LD 0,X ;r0 &lt;- M[x]<br>
+
+        BRN 0,Done ;if (r0 &lt; 0) goto Done<br>
+
+        Loop IO TOUT,Txt ;Display text &quot;Value = &quot;<br>
+
+        IO NOUT,X ;Display value in M[X]<br>
+
+        SUB 0,=1 ;r0--<br>
+
+        ST 0,x ;m[x] &lt;- r0<br>
+
+        BRN 0,Done ;if (r0 &lt; 0) goto Done<br>
+
+        BR 3,Loop ;goto Loop<br>
+
+        Done LD 0,SaveR ;r0 &lt;- M[SaveR]<br>
+
+        BR 3,0(3) ;return<br>
+
+        END</font></p>
+
+      </td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"> <div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> File Val.asm = obj3<a name="val"></a></font></span></b></div>
+
+      </td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> 
+
+      <p><font face="Courier New, Courier, mono">Data 
+
+        ORI<br>
+
+        EXT X<br>
+
+        ENT V<br>
+
+        V NMD 2<br>
+
+        TOUT BR 0,0<br>
+
+        Done BR 3,X<br>
+
+        LD 1,=1<br>
+
+        END Done</font></p></td>
+
+  </tr>
+
+</table>
+
+<p><br clear=all
+
+
+
+
+
+
+
+style='page-break-before:always;'>
+
+  <a href="#top">[top]</a> </p>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+
+  <p class=MsoTitle><a
+
+
+
+
+
+
+
+name="driver" id="driver"></a>Bottom-Up Testing</p>
+
+</div>
+
+<p class=MsoSubtitle>Checking for specific errors</p>
+
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+
+
+
+
+background:black;'> 
+
+  <h1><font color="#FFFFFF">Driver Testing</font></a></h1>
+
+</div>
+
+<h3><a name="indiv" id="indiv"></a><span>Individiual File Tests </span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> 
+
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> 
+
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file works<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> 
+
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> 
+
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file works<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded successfully<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded successfully</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file works<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;X&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;X&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ4</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file is out of range<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ5</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file is out of range<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="170" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OBJ6</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file is out of range<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;X&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;X&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<p><a href="#top">[top]</a> </p>
+
+<h3><a name="group" id="group"></a><span>Group File Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj2 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;V&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;V&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj3 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 obj3 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded successfully<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded successfully</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP4</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj2 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP5</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="20" colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj3 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXTernal symbol &quot;Disp1&quot; not defined</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP6</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 obj3 out 240</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Not enough memory to start at address 240</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP7</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj1 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;Start&quot;<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;Start&quot;</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP8</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 obj2 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;Disp1&quot;<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;Disp1&quot;</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">GRP9</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 obj3 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;V&quot;<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Multiple symbol definition: &quot;V&quot;</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+<p><a href="#top">[top]</a> </p>
+
+<h3><a name="nofile" id="nofile"></a><span>No File Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NOF1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      nonexistentfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file works<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NOF2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 nonexistentfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<br>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NOF3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 nonexistentfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<br>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NOF4</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 nonexistentfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<br>
+
+<p><a href="#top">[top]</a> </p>
+
+<h3><a name="empty" id="empty"></a><span>Empty File Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">EMP1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      emptyfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if individual file works<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">EMP2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 emptyfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">EMP3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 emptyfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">EMP4</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 emptyfile out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if both files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Incorrect input file format</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<p><a href="#top">[top]</a> </p>
+
+<h3><a name="noload" id="noload"></a><span>No Load Address Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NLA1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 out</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="19" nowrap class="Normal"> 
+
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NLA2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 out</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">NLA3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 out</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Usage output</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<p><a href="#top">[top]</a> </p>
+
+<h3><a name="read" id="read"></a><span>Read Only Output File Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">ROO1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 readonlyout</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="19" nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">ROO2</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj2 readonlyout</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="19" nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3></h3>
+
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">ROO3</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj3 readonlyout</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if file will load<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="19" nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Output file permissions incorrect</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<p><a href="#top">[top]</a> </p>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+
+  <p class=MsoTitle><a name="overall" id="overall"></a>Top-Down Testing</p>
+
+</div>
+
+<p class=MsoSubtitle>Testing Robustness and Correctness</p>
+
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+
+
+
+
+background:black;'> 
+
+  <h1><font color="#FFFFFF">Overall Tests</font></a></h1>
+
+</div>
+
+<h3><a name="correct" id="correct"></a><span>Correct Tests</span></h3>
+
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+
+  <tr align="center"> 
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+
+    <td valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OUTPUT1</font></span></b></div></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td colspan="2" nowrap class="Normal"><span style="font-family: &quot;Arial Unicode MS&quot;">Loader 
+
+      obj1 obj2 obj3 out 100</span></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Checks if files work together<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td height="19" nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded succesfully<br>
+
+        </span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>Program loaded succesfully</span></p></td>
+
+  </tr>
+
+  <tr valign="middle"> 
+
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+
+    <td class="Normal"> <p>NO</p></td>
+
+  </tr>
+
+</table>
+
+<h3> </h3>
+
+<p><a href="#top">[top]</a> </p>
+
+</body>
+
+</html>
+

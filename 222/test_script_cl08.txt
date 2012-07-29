@@ -1,0 +1,107 @@
+n
+//Test Case 1: push item onto empty stack 1
+a
+1
+001
+//Test Case 2: push item onto non-empty stack 1
+a
+1
+002
+// add a few more items to object 1
+a
+1
+333
+a
+1
+444
+a
+1
+555
+//Test Case 3: print non-empty stack
+p
+1
+//Test Case 4: print empty stack
+p
+2
+//Test Case 5: check length of empty stack
+l
+2
+//Test Case 6: check length of non-empty stack
+l
+1
+//Test Case 7: pop from stack 1
+r
+1
+000
+//Test Case 8: swap by accessor into stack 1
+[
+1
+676
+// print out stack 1 just to check it
+p
+1
+// add something to stack 2
+a
+2
+999
+//Test Case 9: pop from stack with length 1
+r
+2
+000
+//Test Case 10: swap empty and non-empty stack
+s
+1
+2
+//print stack 1 & 2 to check them
+p
+1
+p
+2
+//add some items to stack 1
+a
+1
+777
+//Test Case 11: swap two sacks of different sizes
+s
+1
+2
+// print s1 and s2 to check them
+p
+1
+p
+2
+// make stack 1 & 2 the same size
+a
+2
+444
+a
+2
+222
+a
+2
+111
+// print s1 and s2
+p
+1
+p
+2
+//Test Case 12: swap two stacks of the same size
+s
+1
+2
+// print s1 and s2
+p
+1
+p
+2
+//Test Case 13: clear a non-empty stack
+c
+1
+// print s1 to check it
+p
+1
+//Test Case 14: clear an empty stack
+c
+1
+// quit the test script
+q

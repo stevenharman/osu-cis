@@ -1,0 +1,45 @@
+								Steve Harman
+								CIS321 HW#17
+								Long - 12:30
+1. procedure_body Insert_In_Order(
+		alters Queue_Of_Integer& q,
+           	consumes Integer& x
+        	)
+{
+	Queue_Of_Integer tmp;
+	
+	while(q.Length() > 0)
+	{
+		object Integer i;
+		q.Dequeue(i);
+		if(i <= x)
+		{
+			tmp.Enqueue(i);
+		}
+		else
+		{
+			tmp.Enqueue(x);
+			tmp.Enqueue(i);
+			while(q.Length() > 0)
+			{
+				q.Dequeue(i);
+				tmp.Enqueue(x);
+			}
+		}
+	}
+	tmp &= q;
+}
+
+2.procedure_body Sort (
+            	alters Queue_Of_Integer& q
+        	)
+{
+	if(q.Length() > 1)
+	{
+		object Queue_Of_Integer q1, q2;
+		Split(q, q1, q2);
+		Sort(q1);
+		Sort(q2);
+		Merger(q, q1, q2);
+	}
+}

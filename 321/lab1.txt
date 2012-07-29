@@ -1,0 +1,50 @@
+procedure Remove_From_Tree(
+	alters Binary_Tree_Of_D_R_Pairs& pm_Tree,
+	preserves D_Item& d_item
+	)
+{
+	if(pm_tree.Size() > 0)
+	{
+		object D_R_Pair root;
+		object Binary_Tree_Of_D_R_Pair left, right;
+		
+		pm_tree.Decompose(root, left, right);
+
+		if(root[d_item].Is_Equal_To(d_item))
+		{
+			if(left.Size() > 0 and right.Size() == 0)
+			{
+				Remove_Most_Left(right);
+			}
+			else if(right.Size() > 0)
+			{
+				Remove_Most_Left(right);
+			}
+		}
+	}
+	else
+	{
+		pm_tree[cache] &= pm_tree[current];
+	}
+}
+
+
+procedure Remove_Most_Left(
+	alters Binary_Tree_Of_D_R_Pair& pm_tree
+	)
+{
+	object D_R_Pair root;
+	object Binary_Tree_Of_D_R_Pair left, right;
+
+	pm_tree.Decompose(root, left, right);
+
+	if(left.Size() > 0)
+	{
+		Remove_Most_Left(left);
+	}
+	else if(right.Size() > 0)
+	{
+		pm_tree[cache] &= root;
+	}
+}
+	

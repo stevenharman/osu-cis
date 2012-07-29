@@ -1,0 +1,962 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./u_files/preview.wmf">
+<link rel=Edit-Time-Data href="./u_files/editdata.mso">
+<title>USER'S GUIDE</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoToc3
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	letter-spacing:-.25pt;
+	font-style:italic;}
+.MsoList
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoListBullet
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+.BlockQuotation
+	{text-align:justify;
+	line-height:11.0pt;
+	background:#F2F2F2;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial Narrow";
+	letter-spacing:-.25pt;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+<link href="OverDriveStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+<div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'> 
+  <table width="100%" border="0">
+    <tr> 
+      <td><p class=TitleCover>User’s Guide</p></td>
+      <td width="100"><a href="index.htm"><img src="Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+    </tr>
+  </table>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Table Of Contents</p>
+</div>
+<p class=MsoToc1> <span
+
+class=MsoHyperlink><a href="#_Toc31727872">Basics</a></span><span style='font-variant:normal;text-transform:uppercase'></span></p>
+<ul>
+  <span style='font-variant:normal;text-transform:uppercase'>
+  <li><a
+
+href="#_Toc31727873">Architecture</a></li>
+  </span></p> 
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727874">Structure</a></span><span style='font-variant:normal;text-transform:uppercase'> 
+      </span></li>
+  </ul>
+  <span style='font-variant:normal;text-transform:uppercase'> 
+  <li><a href="#_Toc31727875">Instructions</a></li>
+  </span></p> 
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727876">Hex Opcode 0x0: LD R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727877">Hex Opcode 0x1: LDI R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727878">Hex Opcode 0x2: ST R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727879">Hex Opcode 0x3: ADD R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727880">Hex Opcode 0x4: SUB R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727881">Hex Opcode 0x5: MUL R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727882">Hex Opcode 0x6: DIV R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727883">Hex Opcode 0x7: OR R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727884">Hex Opcode 0x8: AND R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727885">Hex Opcode 0x9: SHL R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727886">Hex Opcode 0xA: SHR R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727887">Hex Opcode 0xB: IO R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727888">Hex Opcode 0xC: BR R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727889">Hex Opcode 0xD: BRZ R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727890">Hex Opcode 0xE: BRN R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727891">Hex Opcode 0xF: BRS R, S(X)</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727892">NOP</a></span></li>
+  </ul>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31727893">Usage</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31727894">Copying and Extracting</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31727895">Compiling</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31727896">Running</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31727897">Source File</a></span></p>
+<ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'> <a href="#_Toc31727898">Header 
+    Record</a></span></li></p>
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727899">Header Position 1:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727900">Header Position 2-3:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727901">Header Position 4-9:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727902">Header Position 10-11:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727903">Header Position 12-13:</a></span></li>
+  </ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'> <a href="#_Toc31727904">Text 
+    Record</a></span></li></p>
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727905">Text Position 1:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727906">Text Position 2-3:</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727907">Text Position 2-8:</a></span></li>
+  </ul>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31727908">Types of Errors</a></span></p>
+<ul><li><span style='font-variant:normal;text-transform:uppercase'>
+<a href="#_Toc31727909">Non-Fatal Errors</a></span></li></p>
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727910">Error Code #0</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727911">Error Code #1</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727912">Error Code #2</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727913">Error Code #3</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727914">Error Code #4</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727915">Error Code #5</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727916">Error Code #6</a></span></li>
+  </ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31727917">Fatal Errors</a></span></li></p>
+  <ul>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727918">Error Code #7</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727919">Error Code #8</a></span></li>
+    <li><span
+
+class=MsoToc3><a href="#_Toc31727920">Error Code #9</a></span></li>
+  </ul>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31727921">Output File</a></span></p>
+<br clear=all
+
+style='page-break-before:always;'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>1</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Introduction</p>
+</div>
+<p class=MsoSubtitle>An introduction into Group Over-Drive’s W03_560 Machine Simulator</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31557873"></a><a name="_Toc31557997"></a><a name="_Toc31670020"></a><a
+
+name="_Toc31673611"></a><a name="_Toc31697681"></a><a name="_Toc31727872"><span><font color="#FFFFFF">Basics</font></span></a></h1>
+</div>
+<p class=MsoBodyText align=left style='text-align:left'>The Simulator for the 
+  W03_560 Machine carries out the functions and executes the program designed 
+  for the W03_560 Machine.  The user in an input file gives the functions.  The 
+  simulator will read in each line of the input file and decode them into instructions 
+  and then properly perform them.  The entire process is described within the 
+  manual piece by piece.</p>
+<h2><a name="_Toc31557874"></a><a name="_Toc31557998"></a><a name="_Toc31670021"></a><a
+
+name="_Toc31673612"></a><a name="_Toc31697682"></a><a name="_Toc31727873"><span>Architecture</span></a> 
+</h2>
+<p class=MsoBodyText>The Simulator contains several integral pieces for obtaining 
+  the desired results, those pieces being the program counter, registers, memory, 
+  and the input/output</p>
+<h3><a name="_Toc31557875"></a><a name="_Toc31557999"></a><a name="_Toc31670022"></a><a
+
+name="_Toc31673613"></a><a name="_Toc31697683"></a><a name="_Toc31727874"><span>Structure</span></a></h3>
+<p class=MsoListBullet> <span style='font-size:8.0pt;
+
+font-family:Wingdings'>n<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Program Counter: Also known at the PC register is 20 bits long 
+  but only with 19 bits of data with the high order sign bit always a zero to 
+  indicate positive.  It will always contain the address of the next instruction 
+  to be obtained for execution</p>
+<p class=MsoListBullet> <span style='font-size:8.0pt;
+
+font-family:Wingdings'>n<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Registers: There are four registers named R0-R3, each of which 
+  are 20 bits in length, and can be used for computation and indexing, however, 
+  R0 cannot be used for indexing.</p>
+<p class=MsoListBullet> <span style='font-size:8.0pt;
+
+font-family:Wingdings'>n<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Memory: The simulator machine contains 256 20-bits words, which 
+  have addresses 0-255.  Memory can be directly addressed through a 20-bit quantity 
+  with the high order bit denoting the sign, it is important to note that the 
+  upper 12 bits must be zeros to access a valid address.</p>
+<p class=MsoListBullet> <span style='font-size:8.0pt;
+
+font-family:Wingdings'>n<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Input/Output: The simulator machine can access input and output 
+  directly from the user from an auxiliary file, further details will be mentioned 
+  in the IO instruction.</p>
+<h2><a name="_Toc31557876"></a><a name="_Toc31558000"></a><a name="_Toc31670023"></a><a
+
+name="_Toc31673614"></a><a name="_Toc31697684"></a><a name="_Toc31727875"><span>Instruction</span>s</a></h2>
+<p class=MsoBodyText>The Simulator contains 16 valid instructions, each of these 
+  instructions have to contain: a four bit opcode, a two bit register, an eight 
+  bit S value, and two bit indexing value.</p>
+<h3><a name="_Toc31670024"></a><a name="_Toc31673615"></a><a name="_Toc31697685"></a><a
+
+name="_Toc31727876">Hex Opcode 0x0: LD R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the load instruction.  The program will load 
+  the register given in the instruction with the contents of the memory location 
+  at S(X)</p>
+<h3> <a name="_Toc31670025"></a><a
+
+name="_Toc31673616"></a><a name="_Toc31697686"></a><a name="_Toc31727877">Hex 
+  Opcode 0x1: LDI R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the load immediate instruction.  The program 
+  will load the register with the value of S(X) itself instead of going out the 
+  memory location</p>
+<h3><a name="_Toc31670026"></a><a name="_Toc31673617"></a><a name="_Toc31697687"></a><a
+
+name="_Toc31727878">Hex Opcode 0x2: ST R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the store instruction.  The program will store 
+  the value of R into the memory location given of S(X)</p>
+<h3><a name="_Toc31670027"></a><a name="_Toc31673618"></a><a name="_Toc31697688"></a><a
+
+name="_Toc31727879">Hex Opcode 0x3: ADD R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the add instruction.  The program will add 
+  the value of the register with the value given by the memory location of S(X) 
+  and store the new value back into the register</p>
+<h3><a name="_Toc31670028"></a><a name="_Toc31673619"></a><a name="_Toc31697689"></a><a
+
+name="_Toc31727880">Hex Opcode 0x4: SUB R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the subtraction instruction.  The program will 
+  subtract the value of the register from the value given by the memory location 
+  of S(X) and store the new value back into the register</p>
+<h3><a name="_Toc31670029"></a><a name="_Toc31673620"></a><a name="_Toc31697690"></a><a
+
+name="_Toc31727881">Hex Opcode 0x5: MUL R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the multiply instruction.  The program will 
+  multiply the value of the register with the value given by the memory location 
+  of S(X) and store the new value back into the register</p>
+<h3><a name="_Toc31670030"></a><a name="_Toc31673621"></a><a name="_Toc31697691"></a><a
+
+name="_Toc31727882">Hex Opcode 0x6: DIV R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the division instruction.  The program will 
+  subtract the value of the register from the value given by the memory location 
+  of S(X) and store the new value back into the register.  It is important to 
+  note that division by zero will output an error code and that division is only 
+  integer division so only the quotient will be stored into the register.</p>
+<h3><a name="_Toc31670031"></a><a name="_Toc31673622"></a><a name="_Toc31697692"></a><a
+
+name="_Toc31727883">Hex Opcode 0x7: OR R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the OR instruction.  The program will do a 
+  bit-wise OR with the register and the contents of the memory location at S(X)</p>
+<h3><a name="_Toc31670032"></a><a name="_Toc31673623"></a><a name="_Toc31697693"></a><a
+
+name="_Toc31727884">Hex Opcode 0x8: AND R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the AND instruction.  The program will do a 
+  bit-wise AND with the register and the contents of the memory location at S(X)</p>
+<h3><a name="_Toc31670033"></a><a name="_Toc31673624"></a><a name="_Toc31697694"></a><a
+
+name="_Toc31727885">Hex Opcode 0x9: SHL R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the shift left instruction.  The program will 
+  shift the register left by S(X) places.  S(X) must be within the range of 0-19 
+  and all new introduced low end bits will be zeros.</p>
+<h3><a name="_Toc31670034"></a><a name="_Toc31673625"></a><a name="_Toc31697695"></a><a
+
+name="_Toc31727886">Hex Opcode 0xA: SHR R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the shift right instruction.  The program will 
+  shift the register right by S(X) places.  S(X) must be within the range of 0-19 
+  and all new introduced high end bits will have the same value of the original 
+  high end bit.</p>
+<h3><a name="_Toc31670035"></a><a name="_Toc31673626"></a><a name="_Toc31697696"></a><a
+
+name="_Toc31727887">Hex Opcode 0xB: IO R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the Input/Output immediate instruction.  The 
+  program will perform one of the following depending on the value of R given:</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 0, the first eight characters of the next input line is read 
+  in as a decimal integer, right justified and stored into the value for the address 
+  of S(X)</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 1, the first eight characters of the next input line is read 
+  in as a character string</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 2, an eight character line of output in decimal, right justified, 
+  which is the value of the contents at the address of S(X)</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 3, an eight character line of output in ASCII,</p>
+<h3><a name="_Toc31670036"></a><a name="_Toc31673627"></a><a name="_Toc31697697"></a><a
+
+name="_Toc31727888">Hex Opcode 0xC: BR R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the branch unconditional instruction.  The 
+  program will do one of the following based on the values given:</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 0, results in a halt</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 0, quiet</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 1, dump all of memory</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 2, dump all registers and PC</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 3, dump memory, registers, and PX</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 1, dump all registers, PC, and memory and branch to the address 
+  given by S(X)</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 2, branch to address PC + S(X)</p>
+<p class=MsoListBullet> <span
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 3, branch to address S(X)</p>
+<h3><a name="_Toc31670037"></a><a name="_Toc31673628"></a><a name="_Toc31697698"></a><a
+
+name="_Toc31727889">Hex Opcode 0xD: BRZ R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the branch if zero instruction.  The program 
+  will check to see if the value of the register is equal to zero and if so, branch 
+  to the address given by S(X)</p>
+<h3><a name="_Toc31670038"></a><a name="_Toc31673629"></a><a name="_Toc31697699"></a><a
+
+name="_Toc31727890">Hex Opcode 0xE: BRN R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the branch if negative instruction.  The program 
+  will check to see if the value of the register is negative and if so, branch 
+  to the address given by S(X)</p>
+<h3><a name="_Toc31670039"></a><a name="_Toc31673630"></a><a name="_Toc31697700"></a><a
+
+name="_Toc31727891">Hex Opcode 0xF: BRS R, S(X)</a></h3>
+<p class=MsoBodyText>      This is the branch to subroutine instruction.  The 
+  program will load the register with the value of the program counter and then 
+  branch to the address given by S(X)</p>
+<h3><a name="_Toc31673631"></a><a name="_Toc31697701"></a><a name="_Toc31727892">NOP</a></h3>
+<p class=MsoListBullet>This is the no operation instruction.  It is only used 
+  for errors, when an error occurs from the given instruction, the instruction 
+  will be changed to NOP and the simulator will continue simulating.  Errors will 
+  be discussed in the last section.</p>
+<br clear=all
+
+style='page-break-before:always;'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>2</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Using the Simulator</p>
+</div>
+<p class=MsoSubtitle>A brief overview on how to get the simulator to function 
+</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31670040"></a><a name="_Toc31673632"></a><a name="_Toc31697702"></a><a
+
+name="_Toc31727893"><font color="#FFFFFF">Usage</font></a></h1>
+</div>
+<p class=MsoBodyText>Before using the simulator it is important to have all the 
+  necessary files stored in the correct location and enough memory resources</p>
+<h2><a name="_Toc31670041"></a><a name="_Toc31673633"></a><a name="_Toc31697703"></a><a
+
+name="_Toc31727894">Copying and Extracting</a> </h2>
+<p class=MsoBodyText>The simulator uses close to 1MB hard-drive space so before 
+  attempting to copy the files over, make sure that there is enough space available.  
+  The directory name chosen is unimportant so the zip-file should be copied over 
+  to the directory of your choosing.  Then unzip the zip-file with any extracting 
+  means and make sure that Simulator.cpp, Processor.h, Machine.h, and Memory.h 
+  are all within the same directory</p>
+<h2><a name="_Toc31670043"></a><a name="_Toc31673634"></a><a name="_Toc31697704"></a><a
+
+name="_Toc31727895">Compiling</a></h2>
+<p class=MsoBodyText>Since the simulator was written in C++, it is important to 
+  use a C++ compiler for the next step.  The compiler used in testing was the 
+  GNU compiler.  It is important that you are in the directory where the 4 files 
+  are location and type in the following command:</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation>g++ -o Simulator Simulator.cpp</p>
+</div>
+<h2><a name="_Toc31673635"></a><a name="_Toc31697705"></a><a name="_Toc31727896">Running</a></h2>
+<p class=MsoBodyText>Before running the simulator it is absolutely necessary that 
+  the two input files exist and follow the necessary format, which will be described 
+  in the next chapter.  The output file names can be chosen at your discretion, 
+  just remember the names to view the output when you are done using the simulator.  
+  The following is the command line to use when using the simulator with the file 
+  names inserted accordingly:</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation>Simulator [main input file] [auxiliary input file] [main 
+    output file] [auxiliary output file]</p>
+</div>
+<br clear=all
+
+style='page-break-before:always;'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>3</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Valid Input Files</p>
+</div>
+<p class=MsoSubtitle>The most vital part for using the simulator is having a valid 
+  input file</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31670044"></a><a name="_Toc31673636"></a><a name="_Toc31697706"></a><a
+
+name="_Toc31727897"><font color="#FFFFFF">Source File</font></a></h1>
+</div>
+<p class=MsoBodyText>A valid input source file contains a one-line header record 
+  and a set of text records.  These segments will be described below.</p>
+<h2><a name="_Toc31670045"></a><a name="_Toc31673637"></a><a name="_Toc31697707"></a><a
+
+name="_Toc31727898">Header</a> <span> </span>Record</h2>
+<p class=MsoBodyText>The header record is a set of 13 characters and tells the 
+  program what the range for instructions and data to be stored will be in addition 
+  to the address of the first instruction.  A 6-character segment name is included 
+  as well into the header record.</p>
+<h3><a name="_Toc31673638"></a><a name="_Toc31697708"></a><a name="_Toc31727899">Header 
+  Position 1:</a></h3>
+<p class=MsoBodyText>      Must be the value ‘H’ to indicate a start of a header 
+  record</p>
+<h3><a name="_Toc31673639"></a><a name="_Toc31697709"></a><a name="_Toc31727900">Header 
+  Position 2-3:</a></h3>
+<p class=MsoBodyText>      A 2-character hex address telling the program the initial 
+  value of the program counter</p>
+<h3><a name="_Toc31673640"></a><a name="_Toc31697710"></a><a name="_Toc31727901">Header 
+  Position 4-9:</a></h3>
+<p class=MsoBodyText>      A 6-character segment name, which the simulator does 
+  not use</p>
+<h3><a name="_Toc31673641"></a><a name="_Toc31697711"></a><a name="_Toc31727902">Header 
+  Position 10-11:</a></h3>
+<p class=MsoBodyText>      A 2-character hex value denoting the initial program 
+  load address</p>
+<h3><a name="_Toc31673642"></a><a name="_Toc31697712"></a><a name="_Toc31727903">Header 
+  Position 12-13:</a></h3>
+<p class=MsoBodyText>      A 2-character hex value denoting the length of the 
+  segment also known as the maximum possible text records</p>
+<h2><a name="_Toc31670047"></a><a name="_Toc31673643"></a><a name="_Toc31697713"></a><a
+
+name="_Toc31727904">Text Record</a></h2>
+<p class=MsoBodyText>The text record is a set of 8 characters and tells the program 
+  what instruction to perform and what to do with data and a given address. Each 
+  individual text record must follow the previous one on a new line and the first 
+  text record must be on a new line from the header record.</p>
+<h3><a name="_Toc31673644"></a><a name="_Toc31697714"></a><a name="_Toc31727905">Text 
+  Position 1:</a></h3>
+<p class=MsoBodyText>      Must be the value ‘T’ to indicate a start of a text 
+  record</p>
+<h3><a name="_Toc31673645"></a><a name="_Toc31697715"></a><a name="_Toc31727906">Text 
+  Position 2-3:</a></h3>
+<p class=MsoBodyText>      A 2-character hex address telling the program where 
+  the instruction will be stored</p>
+<h3><a name="_Toc31673646"></a><a name="_Toc31697716"></a><a name="_Toc31727907">Text 
+  Position 2-8:</a></h3>
+<p class=MsoBodyText>      A 5-character hex string which will be the initial 
+  value at the given address</p>
+<br clear=all
+
+style='page-break-before:always;'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>4</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Error Messages</p>
+</div>
+<p class=MsoSubtitle>Error messages will be output when an invalid input has been 
+  given</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31670048"></a><a name="_Toc31673647"></a><a name="_Toc31697717"></a><a
+
+name="_Toc31727908"><font color="#FFFFFF">Types of Errors</font></a></h1>
+</div>
+<p class=MsoBodyText>The simulator contains two types of error messages for invalid 
+  instructions; those types are non-fatal and fatal errors.  When an error occurs, 
+  the simulator will generate an error code and an explanation of each error code 
+  is given below.</p>
+<h2><a name="_Toc31670049"></a><a name="_Toc31673648"></a><a name="_Toc31697718"></a><a
+
+name="_Toc31727909">Non-Fatal Errors</a> </h2>
+<p class=MsoBodyText>Non-fatal errors will generate the error code and change 
+  the instruction to a nop and continue simulating any remaining instructions.</p>
+<h3><a name="_Toc31673649"></a><a name="_Toc31697719"></a><a name="_Toc31727910">Error 
+  Code #0</a></h3>
+<p class=MsoBodyText>      No Error</p>
+<h3><a name="_Toc31673650"></a><a name="_Toc31697720"></a><a name="_Toc31727911">Error 
+  Code #1</a></h3>
+<p class=MsoBodyText>      U1 or U2 not equal to zero</p>
+<h3><a name="_Toc31673651"></a><a name="_Toc31697721"></a><a name="_Toc31727912">Error 
+  Code #2</a></h3>
+<p class=MsoBodyText>      Unknown opcode</p>
+<h3><a name="_Toc31673652"></a><a name="_Toc31697722"></a><a name="_Toc31727913">Error 
+  Code #3</a></h3>
+<p class=MsoBodyText>      Invalid memory address, not within 0-255 boundary</p>
+<h3><a name="_Toc31673653"></a><a name="_Toc31697723"></a><a name="_Toc31727914">Error 
+  Code #4</a></h3>
+<p class=MsoBodyText>      Arithmetic overflow</p>
+<h3><a name="_Toc31673654"></a><a name="_Toc31697724"></a><a name="_Toc31727915">Error 
+  Code #5</a></h3>
+<p class=MsoBodyText>      Divide by zero</p>
+<h3><a name="_Toc31673655"></a><a name="_Toc31697725"></a><a name="_Toc31727916">Error 
+  Code #6</a></h3>
+<p class=MsoBodyText>      Shift Exception, attempting to shift by greater than 
+  19 bits</p>
+<h2><a name="_Toc31673656"></a><a name="_Toc31697726"></a><a name="_Toc31727917">Fatal 
+  Errors</a> </h2>
+<p class=MsoBodyText>Fatal errors result in a dump and exit from the program</p>
+<h3><a name="_Toc31673657"></a><a name="_Toc31697727"></a><a name="_Toc31727918">Error 
+  Code #7</a></h3>
+<p class=MsoBodyText>      Time limit exceeded, over 200 instructions performed</p>
+<h3><a name="_Toc31673658"></a><a name="_Toc31697728"></a><a name="_Toc31727919">Error 
+  Code #8</a></h3>
+<p class=MsoBodyText>      Illegal characters in the input record</p>
+<h3><a name="_Toc31673659"></a><a name="_Toc31697729"></a><a name="_Toc31727920">Error 
+  Code #9</a></h3>
+<p class=MsoBodyText>      The program counter has gone over 255 and reached the 
+  maximum number of instructions<br
+
+clear=all style='page-break-before:always'>
+</p>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>4</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Sample Output Files</p>
+</div>
+<p class=MsoSubtitle>An Example of the Output Produced by the Simulator</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31727921"><font color="#FFFFFF">Output File</font></a></h1>
+</div>
+<p class="Normal"><strong>Example Program Output File:</strong></p>
+<p class="Normal">Being Program Output:</p>
+<p class="Normal"> hello</p>
+<p class="Normal">Dump Register, PC, and Memory Values:</p>
+<p class="Normal">R0:0<br>
+  R1:ff<br>
+  R2:1<br>
+  R3:0<br>
+  PC: 108</p>
+<p class="Normal">Memory Values:<br>
+  0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0<br>
+  8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0<br>
+  16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0<br>
+  24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0<br>
+  32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0<br>
+  40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0<br>
+  48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0<br>
+  56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0<br>
+  64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0<br>
+  72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0<br>
+  80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0<br>
+  88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0<br>
+  96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4<br>
+  104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0<br>
+  112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0<br>
+  120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0<br>
+  128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0<br>
+  136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0<br>
+  144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0<br>
+  152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0<br>
+  160:c0c0 161:c0c0 162:1 163:1 164:20200 165:20680 166:656c0 167:6c6f0<br>
+  168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0<br>
+  176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0<br>
+  184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0<br>
+  192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0<br>
+  200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0<br>
+  208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0<br>
+  216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0<br>
+  224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0<br>
+  232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0<br>
+  240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0<br>
+  248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0</p>
+<p class="Normal"><br>
+  :End Program Output</p>
+<p class="Normal"><strong>Example Trace Output File:</strong></p>
+<p>Initial Register, PC, and Memory values:</p>
+<p>R0:0<br>
+  R1:0<br>
+  R2:0<br>
+  R3:0<br>
+  PC: 100</p>
+<p>Memory Values:<br>
+  0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0<br>
+  8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0<br>
+  16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0<br>
+  24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0<br>
+  32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0<br>
+  40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0<br>
+  48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0<br>
+  56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0<br>
+  64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0<br>
+  72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0<br>
+  80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0<br>
+  88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0<br>
+  96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4<br>
+  104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0<br>
+  112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0<br>
+  120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0<br>
+  128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0<br>
+  136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0<br>
+  144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0<br>
+  152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0<br>
+  160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0<br>
+  168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0<br>
+  176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0<br>
+  184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0<br>
+  192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0<br>
+  200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0<br>
+  208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0<br>
+  216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0<br>
+  224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0<br>
+  232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0<br>
+  240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0<br>
+  248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0</p>
+<p><br>
+  Instruction#1</p>
+<p>Old PC: 100<br>
+  New PC: 101<br>
+  LDI<br>
+  S(X): 1<br>
+  Register: 2<br>
+  Old Contents: 0<br>
+  New Contents: 1</p>
+<p>Instruction#2</p>
+<p>Old PC: 101<br>
+  New PC: 102<br>
+  ST<br>
+  Register: 2<br>
+  Register Contents: 1<br>
+  Address: 162<br>
+  Old Contents: c0c0<br>
+  New Contents: 1</p>
+<p>Instruction#3</p>
+<p>Old PC: 102<br>
+  New PC: 103<br>
+  ST<br>
+  Register: 2<br>
+  Register Contents: 1<br>
+  Address: 163<br>
+  Old Contents: c0c0<br>
+  New Contents: 1</p>
+<p>Instruction#4</p>
+<p>Old PC: 103<br>
+  New PC: 104<br>
+  IO, R=1<br>
+  Input Value: hello<br>
+  Address:164<br>
+  Old Value:c0c0<br>
+  New Value:20200</p>
+<p>Address:165<br>
+  Old Value:c0c0<br>
+  New Value:20680</p>
+<p>Address:166<br>
+  Old Value:c0c0<br>
+  New Value:656c0</p>
+<p>Address:167<br>
+  Old Value:c0c0<br>
+  New Value:6c6f0</p>
+<p>Instruction#5</p>
+<p>Old PC: 104<br>
+  New PC: 105<br>
+  IO, R=3<br>
+  Outputting Addresses:164 through 168</p>
+<p>Instruction#6</p>
+<p>Old PC: 105<br>
+  New PC: 106<br>
+  LDI<br>
+  S(X): ff<br>
+  Register: 1<br>
+  Old Contents: 0<br>
+  New Contents: ff</p>
+<p>Instruction#7</p>
+<p>Old PC: 106<br>
+  New PC: 107<br>
+  DIV<br>
+  Register: 1<br>
+  Register Contents: ffValue to divide: 1<br>
+  New Contents: 255</p>
+<p>Instruction#8</p>
+<p>Old PC: 107<br>
+  New PC: 108<br>
+  BR: R=0, X=3</p>
+<p>Final Register, PC, and Memory Values:</p>
+<p>R0:0<br>
+  R1:ff<br>
+  R2:1<br>
+  R3:0<br>
+  PC: 108</p>
+<p>Memory Values:<br>
+  0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0<br>
+  8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0<br>
+  16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0<br>
+  24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0<br>
+  32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0<br>
+  40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0<br>
+  48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0<br>
+  56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0<br>
+  64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0<br>
+  72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0<br>
+  80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0<br>
+  88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0<br>
+  96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4<br>
+  104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0<br>
+  112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0<br>
+  120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0<br>
+  128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0<br>
+  136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0<br>
+  144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0<br>
+  152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0<br>
+  160:c0c0 161:c0c0 162:1 163:1 164:20200 165:20680 166:656c0 167:6c6f0<br>
+  168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0<br>
+  176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0<br>
+  184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0<br>
+  192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0<br>
+  200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0<br>
+  208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0<br>
+  216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0<br>
+  224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0<br>
+  232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0<br>
+  240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0<br>
+  248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0</p>
+<p><br>
+  Program ended normally.</p>
+</body>
+</html>

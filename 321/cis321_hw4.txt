@@ -1,0 +1,77 @@
+HW#4				CIS321			Steve Harman
+
+1.a.		matt
+	       /    \
+	     Lon    Zeke
+	    /	\    /
+	  John Lon  Pete
+	  /   \	     /
+	 /     \    /
+      Bess   Larry Mei
+	/	/   \
+      Adam    Kate  Merv
+
+b.		matt
+	       /    \
+	     Lon    Zeke
+	    /	\    /
+	  John Lon  Mei
+	  /   \	     \
+	 /     \     Merv
+      Bess   Larry 
+	/	/   
+      Adam    Kate  
+
+c.		matt
+	       /    \
+	     Lon    Zeke
+	    /	\    /
+	  Kate Lon  Mei
+	  /   \	     \
+	 /     \     Merv
+      Bess   Larry 
+	/
+      Adam
+
+d.		matt
+	       /    \
+	     Lon    Zeke
+	    /	     /
+	  Kate      Mei
+	  /   \	     \
+	 /     \     Merv
+      Bess   Larry 
+	/
+      Adam  
+
+e.		matt
+	       /    \
+	     Lon    Zeke
+	    /	     /
+	  Kate      Merv
+	  /   \	   
+	 /     \ 
+      Bess   Larry 
+	/
+      Adam
+
+2. global_procedure Print_Sorted_Items(
+	preserves Binary_Tree_Of_Text& t,
+	alters Character_OStream& outs
+	);
+{
+	if(t.Size() > 0)
+	{
+		object Binary_Tree_Of_Text left, right;
+		object Text root;
+
+		t.Decompose(root, left, right);
+		
+		Print_Sorted_Items(left, outs);
+		outs << root << '\n';		
+
+		Print_Sorted_Items(right, outs);
+
+		t.Compose(root, left, right);
+	}
+}

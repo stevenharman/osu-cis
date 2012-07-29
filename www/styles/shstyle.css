@@ -1,0 +1,39 @@
+.blockText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	color: #333333;
+}
+.detailText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+	color: #333333;
+}
+a {  text-decoration: none; color: #990000}
+.standardText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	font-size: 13px;
+	color: #333333;
+}
+.smallText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-decoration: none;
+	color: #333333;
+}
+body {SCROLLBAR-FACE-COLOR: #990000; SCROLLBAR-HIGHLIGHT-COLOR: #990000; SCROLLBAR-SHADOW-COLOR: #666666; SCROLLBAR-3DLIGHT-COLOR: #FFFFFF; SCROLLBAR-ARROW-COLOR:  #CCCCCC; SCROLLBAR-TRACK-COLOR: #FFFFFF; SCROLLBAR-DARKSHADOW-COLOR: #333333; }
+.headingText {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 24px; font-weight: bold; text-decoration: none; color: #333333}
+.biggerStandardText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	color: #333333;
+}
+.smallerStandardText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	color: #333333;
+}

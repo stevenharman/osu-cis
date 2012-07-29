@@ -1,0 +1,12 @@
+function res = p3_naive_gauss2(A, b)
+        n = length(b);  res = zeros(n);
+        for k = 1 : n-1
+          for i = k+1 : n
+            mult = A(i,k)/A(k,k);
+            for j = k+1 : n
+              A(i,j) = A(i,j) - mult * A(k,j);
+            end;
+            b(i) = b(i) - mult * b(k);
+          end;
+        end;
+        res = [A, b];

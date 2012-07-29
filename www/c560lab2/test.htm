@@ -1,0 +1,3528 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./u_files/preview.wmf">
+<link rel=Edit-Time-Data href="./u_files/editdata.mso">
+<title>TEST PLAN</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoToc3
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	letter-spacing:-.25pt;
+	font-style:italic;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.CompanyName
+	{font-size:16.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.25pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.ReturnAddress
+	{line-height:8.0pt;
+	tab-stops:1.5in;
+	font-size:7.0pt;
+	font-family:Arial;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+<link href="OverDriveStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+ <a name="top"></a>
+ <div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'> 
+<table width="100%" border="0">
+    <tr> 
+      <td><p class=TitleCover>Test Plan</p></td>
+      <td width="204" align="right"><a href="index.htm"><img src="Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+    </tr>
+  </table>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Test Plan for Assembler</p>
+</div>
+<p class=MsoToc1> <span class="MsoToc1"><a href="#testplan">TEST PLAN</a></span></p>
+<p class=MsoToc1><a href="#driver">BOTTOM-UP TESTING</a></p>
+<ul>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#syntax">SYNTAX ERROR TESTS</a></span></li>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#symbol">SYMBOL ERROR TESTS</a></span></li>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#literal">LITERAL ERROR TESTS</a></span></li>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#pseudo">PSEUDO-OP ERROR TESTS</a></span></li>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#fatal">MISC. ERROR TESTS</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+
+
+class=MsoHyperlink><a href="#overall" class="MsoToc1">TOP-DOWN TESTS</a></span></p>
+<ul>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#extreme">EXTREME TESTS</a></span></li>
+  <li><span
+
+
+
+class=MsoHyperlink><a href="#correct">CORRECT TESTS</a></span><br clear=all
+
+
+
+style='page-break-before:always;'>
+  </li>
+</ul>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Introduction</p>
+</div>
+<p class=MsoSubtitle>An introduction into Group Over-Drive’s W03_560 Test Plan</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><a name="testplan" id="testplan"><span><font color="#FFFFFF">Test Plan</font></span></a></h1>
+</div>
+<p class=MsoBodyText align=left style='text-align:left'>This test plan describes 
+  what testing was done on the W03_560 Machine Assembler. The plan was designed 
+  in order to fix all errors and meet all of the W03_560 Machine Assembler’s specifications 
+  and requirements. This documentation includes a list of different categories 
+  of extreme cases and errors for which source code was tested.</p>
+<p class=MsoBodyText align=left style='text-align:left'>Our Test Plan consists 
+  of two sections; the first section tests specific errors in the input program, 
+  the second one tests the robustness and correctness of specific functions and 
+  operations<br>
+  <br clear=all
+
+
+
+style='page-break-before:always;'>
+  <a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a
+
+
+
+name="driver" id="driver"></a>Bottom-Up Testing</p>
+</div>
+<p class=MsoSubtitle>Checking for specific errors</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><font color="#FFFFFF">Driver Testing</font></a></h1>
+</div>
+<h3><a name="syntax" id="syntax"></a><span>Syntax Error Tests </span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX001</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>sxline</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> ORI 1<br>
+        </span>X NMD 2<br>
+        Y<br>
+        END 1</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for a missing operand<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX001: Missing Op Code<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX001: Missing Op Code</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX002</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>sxinrl ORI 1<br>
+        X ADD 0 ; <br>
+        END 2</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if a line has valid operands<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX002: Illegal operand<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX002: Illegal operand</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX003</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdins ORI 1<br>
+        A ADD 2,3<br>
+        B NEW 2,4<br>
+        ;<br>
+        END</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if op field has a valid instruction name<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX003: Unknown instruction &quot;NEW&quot;<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX003: Unknown instruction &quot;NEW&quot;</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX004</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        X ST 2,4<br>
+        END<br>
+      </p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for valid spaces in a record 7-8<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX004: Characters 7-8 not blank<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p>No Error</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">YES</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX005</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdRfld ORI 1<br>
+        X NMD 20<br>
+        X1 LD 4,1<br>
+        END 2</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if R field is in the range [0,3]<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX005: R field integer &quot;4&quot; not in range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX005: R field integer &quot;4&quot; not in range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="170" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX006</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdSfld ORI 1<br>
+        LD 1,-500<br>
+        ADD 1, <br>
+        END ;the end</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if S field is in range [0, 255]<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX006: S field integer &quot;-500&quot; not in range 
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX006: S field integer &quot;-500&quot; not in range 
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX007</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdXfld ORI 1<br>
+        Y NMD 33<br>
+        SHR 0,1(4)<br>
+        END ;the end</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if X field is in range [0,3] <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX007: X field integer &quot;4&quot; not in range<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX007: X field integer &quot;4&quot; not in range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX008</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 7<br>
+        X ST 0,4<br>
+        LD 1,0<br>
+        ;the end</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if END pseudo-op exists<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX008: Invalid memory address attempted<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX008: Invalid memory address attempted</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX009</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdori LD 7,6<br>
+        X ST 0,4<br>
+        ADD 0,3<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if first non-comment record is ORI<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX009: First non-comment record &quot;LD&quot; (not 
+        ORI) </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX009: First non-comment record &quot;LD&quot; (not 
+        ORI) </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX010</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>mnyORI ORI 1<br>
+        NMD 8<br>
+        ORI 2<br>
+        LD 2,1<br>
+        X ST 0,4<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for multiple IRO pseudo-ops<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX010: Unexpected ORI<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX010: Unexpected ORI</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX011</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdops ORI 1<br>
+        LD 2,7<br>
+        X EQU <br>
+        END 5 </p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>C</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>hecks for operand presence/absenc<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX011: No operand for &quot;EQU&quot; operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX011: No operand for &quot;EQU&quot; operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="182" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX012</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdops ORI 1,3<br>
+        LD 0,0 ii<br>
+        X ST 0,9<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for too many operands <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX012: Unexpected operand<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p>NO ERR MESSAGE, but excess operands ignored</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>YES</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="209" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="377" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="376" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SX013</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdops ORI 1<br>
+        NMD 21<br>
+        LD 2,1<br>
+        X ST 0,1<br>
+        END 5<br>
+        ADD 1,2 ;bad opn</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for source records after END pseudo-op </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX013: Instruction/Comment/Label following an END 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SX013: Instruction/Comment/Label following an END 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<h3><a name="symbol" id="symbol"></a><span>Symbol Error Tests</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SB001</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        A NMD 3<br>
+        X ST 0,Y ;bad one<br>
+        END</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for un-defined symbol in operand field<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB001: Unknown symbol &quot;Y&quot;<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB001: Unknown symbol &quot;Y&quot;</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SB002</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        A NMD 3<br>
+        LD 1,1<br>
+        A NMD 5<br>
+        X ST 0,A<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for multiply defined symbols<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB002: &quot;A&quot; symbol defined twice<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB002: &quot;A&quot; symbol defined twice</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SB003</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdsmb ORI 1<br>
+        X ST 0,3<br>
+        Y NMD 4<br>
+        1 ADD 2,3<br>
+        B AND 2,4<br>
+        C RES 2<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if a first character in the symbol field has alphabetic 
+        representation<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB003: Invalid Label/Symbol &quot;1&quot;<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB003: Invalid Label/Symbol &quot;1&quot;</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SB004</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdsmb ORI 7<br>
+        X ST 0,2<br>
+        Y*() ADD 2,3<br>
+        B AND 2,4<br>
+        C RES 2<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for acceptable (alphabetic or numeric) symbols in 
+        the symbol field<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB004: Invalid Label/Symbol &quot;Y*()&quot;<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB004: Invalid Label/Symbol &quot;Y*()&quot;</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">SB005</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        BR SHR 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for use Op or Pseudo-op name as Symbol/Label name<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error SB005: Use of Op/Pseudo-op as symbol/label name<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p>NO ERROR OUTPUT, but will cause bad output</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>YES</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><a href="#top">[top]</a> </p>
+<h3><a name="literal" id="literal"></a><span>Literal Error Tests</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT001</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ADD 2,3<br>
+        B SUB 2,=600000<br>
+        C RES 2<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if literal value is in range [-2^19, 2^19 - 1]<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT001: Literal not an integer in range.<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT001: Literal not an integer in range.</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT002</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test SHR 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with SHR op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT002: Attempt to use a literal with &quot;SHR&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT002: Attempt to use a literal with &quot;SHR&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT003</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test BR 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with BR op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT003: Attempt to use a literal with &quot;BR&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT003: Attempt to use a literal with &quot;BR&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT004</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test BRZ 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with BRZ op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT004: Attempt to use a literal with &quot;BRZ&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT004: Attempt to use a literal with &quot;BRZ&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT005</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test BRN 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with BRN op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT005: Attempt to use a literal with &quot;BRN&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT005: Attempt to use a literal with &quot;BRN&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT006</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test BRS 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with BRS op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT006: Attempt to use a literal with &quot;BRS&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT006: Attempt to use a literal with &quot;BRS&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT007</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test ST 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with ST op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT007: Attempt to use a literal with &quot;ST&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT007: Attempt to use a literal with &quot;ST&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT008</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test SHL 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with SHL op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT008: Attempt to use a literal with &quot;SHL&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT008: Attempt to use a literal with &quot;SHL&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT009</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdspc ORI 1<br>
+        Z ST 2,Z<br>
+        test IO 2,=6<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for existence of literal values with IO op<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT009: Attempt to use a literal with &quot;IO&quot; 
+        operation </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT009: Attempt to use a literal with &quot;IO&quot; 
+        operation</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">LT010</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdXfld ORI 1<br>
+        LDI 1,1<br>
+        Z ADD 2,=3(1)<br>
+        END<br>
+      </p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for the indexing of a literal<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT010: Attempt to index a literal<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error LT010: Attempt to index a literal</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<h3><a name="pseudo" id="pseudo"></a><span>Pseudo-Op Error Tests</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS001</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p> ORI 1<br>
+        Z NMD 23<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if ORI pseudo-op has a label<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS001: ORI operation has no label<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS001: ORI operation has no label</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS002</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdEuat ORI 1<br>
+        Z NMD 23<br>
+        EQU 2<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks EQU pseudo-op has a lable<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS002: EQU operation has no label<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS002: EQU operation has no label</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="172" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS003</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdEuat ORI 1<br>
+        ZZ NMD 23<br>
+        en END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if END pseudo-op does not have a label<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS003: END operation has label &quot;en&quot;<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS003: END operation has label &quot;en&quot;</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS004</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdEuat ORI 1<br>
+        ZZ NMD 23<br>
+        END 500</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if END pseudo-op has an operand in range [0,255]<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS005: Operand in END pseudo-op &quot;500&quot; not 
+        an integer in range<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS005: Operand in END pseudo-op &quot;500&quot; not 
+        an integer in range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS005</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdEuat ORI 1<br>
+        Z NMD 23<br>
+        lk EQU 2222<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if EQU pseudo-op has an operand in range [0,255]<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS002: EQU operand &quot;2222&quot; not in range.<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS002: EQU operand &quot;2222&quot; not in range.</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="169" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS006</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdrang ORI 1<br>
+        Z NMD 23<br>
+        NMD 600000<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks NMD pseuod-op has an operand in range<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS006: Operand in NMD pseudo-op not an integer in 
+        range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS006: Operand in NMD pseudo-op not an integer in 
+        range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="166" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">PS007</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdEuat ORI 1<br>
+        Z NMD 23<br>
+        lk RES 0<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks RES pseudo-op has an operand in range<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS007: Operand in RES pseudo-op not an integer in 
+        range<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error PS007: Operand in RES pseudo-op not an integer in 
+        range</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<h3><a name="fatal" id="fatal"></a><span>Misc. Error Tests</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL001</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>tolong ORI 1<br>
+        X RES 255<br>
+        Y RES 255<br>
+        Z NMD 255 <br>
+        END 1</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for a max segment length of 200<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL001: Invalid memory address attempted<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL001:I nvalid memory address attempted</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL002</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>tolong ORI 1<br>
+        Z NMD 23 ;1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950 
+        this line is too looooooooooooooooooooong<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if for line with more than 80 characters.</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL002: Line length limit exceeded<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL004</span>: Blank line(s) in the file</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">YES</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<h3></h3>
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL003</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p><br>
+        bdfile ORI 1<br>
+        ZZ NMD 21<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks if the first line is blank<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL004</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p>bdfile ORI 1<br><br>
+        ZZ NMD 21<br>
+        END 5</p>
+      </td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for blank lines in the middle of the file<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL005</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p> bdfile ORI 1<br>
+        ZZ NMD 21<br>
+        END 5<br><br><br><br></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks blank lines after END<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>No error<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>No 
+        error </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><br>
+<table width="80%" height="168" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">FL006</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <p> tab ORI 1<br>
+        &lt;tab&gt;NMD 21<br>
+        END 5</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Checks for TAB character in source record<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Unknown</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>No 
+        error produced, but could cause bad output</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>YES</p></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="overall" id="overall"></a>Top-Down Testing</p>
+</div>
+<p class=MsoSubtitle>Testing Robustness and Correctness</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><font color="#FFFFFF">Overall Tests</font></a></h1>
+</div>
+<h3><a name="extreme" id="extreme"></a><span>Extreme Cases</span></h3>
+<table width="80%" height="130" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">.GIF FILE</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal">Overdrivelogo.gif -&gt; Assembler</td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="18" nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our Assembly program handles source file of 
+        a .gif file <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="20" nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal">Unknown </td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="18" nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p>Invalid Label &quot;GIF89a&Igrave;&quot;<br>
+      </p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="18" nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">.JPG FILE</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal">dependency_diagram.jpg -&gt; Assembler</td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our Assembly program handles source file of 
+        a .jpg file <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal">Unknown </td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p>Error Message: Invalid Label &quot;&yuml;&Oslash;&yuml;&agrave;&quot;</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="143" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">ALL EMPTY SPACES</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal">&nbsp; </td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our program handles an empty file<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'></span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="155" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">ALL COMMENTS</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"><p>;<br>
+        ;<br>
+        ;this is a comment<br>
+		;so is this<br>
+		;<br>
+		;</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our program handles a file with all comments<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="18" nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'></span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL003</span>: Blank line(s) in the file<span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'></span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table><h3></h3>
+<table width="80%" height="153" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'><font color="#FFFFFF">EXACTLY 
+        200 INSTRUCTIONS</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"><p>input assembly file had exactly 200 
+        instructions</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td height="39" nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our program handles the limit of 200 instructions<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span></p>
+      </td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">N</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="156" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'><font color="#FFFFFF">MORE 
+        THAN 200 INSTRUCTIONS</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"><p>input assembly file had 201 instructions</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how our program handles more than the limit of 
+        200 instructions<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL006: Number of source records exceeded 200<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Error FL006: Number of source records exceeded 200</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">N</span></p></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<h3><a name="correct" id="correct"></a><span>Correct Tests</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OUTPUT1</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <pre>test    ORI
+start   LDI  1,8 
+        ADD  0,=2 
+        SUB  0,=5
+regxer  EQU  2
+        LDI  2,1
+        ST   regxer,space2(regxer)      ;comments here
+space2  ST   0,space2(2)
+space   RES  1 
+        END  start</pre></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Biggest size of operand<br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p>NO</p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="253" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OUTPUT2</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <pre>;blah
+test    ORI          ;This is the Begining.
+start   LDI  1,8
+        CCD  AU
+        ADD  0,=2      ;The Begining.
+who     EQU  6 
+        ST   0,space
+great   NMD  25
+space   RES  1
+        END  start     ;The B
+       </pre>
+      </td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check if the program accepts an empty line between <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">NO</span></p></td>
+  </tr>
+</table>
+<h3></h3>
+<table width="80%" height="386" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> TEST CASE</font></span></b></div></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"><div align="left"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">OUTPUT3</font></span></b></div></td>
+  </tr>
+  <tr valign="middle"> 
+    <td colspan="2" nowrap class="Normal"> <pre>; This is an example<br>EG1     ORI  19<br>Y       NMD  32            ;[Y] = 32<br>Buff    RES  4             ;Buffer for input<br>Acc     EQU  1             ;Acc = 1<br>;<br>Start   LD   Acc,Y         ;Acc &lt;- 32<br>        IO   1,Buff        ;Input text to Buff<br>        IO   0,IncVal      ;Input integer<br>        MUL  Acc,=2        ;Acc &lt;- Acc*2<br>        OR   Acc,Buff(0)<br>        ADD  Acc,IncVal<br>        BR   3,Finish      ;Done<br>ByeMsg  CCD  Go<br>        CCD  od<br>        CCD   B<br>        CCD  ye<br>Finish  IO   3,ByeMsg      ;Display msg<br>        BR   0,Acc(3)      ;Halt<br>IncVal  RES  1<br>        END</pre></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>REASON</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>To check how a correct large input program runs on our machine 
+        <br>
+        </span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXPECTED RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>ACTUAL RESULT</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Outputs valid object and listing files</span>*</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FAILED (YES/NO)</span></p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">NO</span></p></td>
+  </tr>
+</table>
+<div align="center">NOTE: * = These files and their outputs can be found in the 
+  tests directory.<br>
+</div>
+<p><a href="#top">[top]</a> </p>
+</body>
+</html>

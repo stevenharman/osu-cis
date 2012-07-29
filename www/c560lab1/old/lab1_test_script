@@ -1,0 +1,1348 @@
+Lab1 Test Plan
+
+Description:
+	Our"w03-560 Machine is designed into four elements: Memory, Processor,
+Machine, and Simulator. The Memory element is responsible as the major component 
+for loading input information into the machine. The Machine and Processor elements
+work along with the Simulator element in simulating the interpretation of the 
+machinine's instruction(s).
+
+Format: names of files used for testing
+	ts_i - a file containing the header and text records
+	ts_2 - a secondary input file for the IO instruction(s)
+	ts_o - program output for the IO instruction(s)
+	ts_to - trace output 
+the test script is designed as the following:
+-----------------------------------------------------------------------------------
+1) running the Simulator, giving it the four files
+"Simulator ts_i ts_2 ts_o ts_to"
+
+2) the contents of each input file in the call will be displayed below it  
+ts_i:
+(its contents)
+
+ts_2:
+(its contents)
+
+===================================================================================
+3) the contents of each output in the call will be displayed below it
+ts_o:
+(its contents)
+
+ts_to:
+(its contents)
+
+4) the comments and/or reasoning for each testing
+COMMENT:
+===================================================================================
+
+Testing:
+Case 1
+-----------------------------------------------------------------------------------
+Simulator ts_i ts_o ts_to
+ts_i:
+H64SAMPLE6403
+T64030a7
+T6501066
+T6600008
+===================================================================================
+Usage: Simulator <executable_input> <program_input> <program_output> <trace_output>
+
+COMMENT:
+The first test did not run because the call was invalid. It was missing the second-
+ary input file "ts_2". This invalid call was to check whether Simulator had opened 
+all the lines of input and output to each pertaining file.
+===================================================================================
+
+Case 2
+-----------------------------------------------------------------------------------
+Simulator ts_2 ts_i ts_o ts_to
+ts_i:
+H64SAMPLE6403
+T64030a7
+T6501066
+T6600008
+
+ts_2:
+testcase
+===================================================================================
+
+ts_o:
+
+ts_to:
+Error Code #8
+
+COMMENT:
+The second test was valid call except the input files were mixed up in the wrong 
+order. The simulator reported in the file "ts_to" that there was an illegal char-
+acter in the input record. This test was actually a mistake in the call and had 
+reported back that an error did occur.
+====================================================================================
+
+Case 3
+-----------------------------------------------------------------------------------
+Simulator ts_i ts_2 ts_o ts_to
+ts_i:
+H64SAMPLE6403
+T64030a7
+T6501066
+T6600008
+
+ts_2:
+testcase
+===================================================================================
+
+ts_o:
+
+ Being Program Output:
+ 
+ts_to:
+Initial Register, PC, and Memory values:
+R0: 0
+R1: 0
+R2: 0
+R3: 0
+PC: 100
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:30a7 101:1066 102:8 103:c0c0
+104:c0c0 105:c0c0 106:c0c0 107:c0c0 108:c0c0 109:c0c0 110:c0c0 111:c0c0
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+Instruction#1
+
+Old PC: 100
+New PC: 101
+LD
+Address: 167
+Address Content: c0c0
+Register: 3
+Old Contents: 0
+New Contents: c0c0
+
+Instruction#2
+
+Old PC: 101
+New PC: 102
+LD
+Address: 102
+Address Content: 8
+Register: 1
+Old Contents: 0
+New Contents: 8
+
+Instruction#3
+
+Old PC: 102
+New PC: 103
+LD
+Address: 8
+Address Content: c0c0
+Register: 0
+Old Contents: 0
+New Contents: c0c0
+
+Instruction#4
+
+Error Code #1
+
+Instruction#5
+
+Error Code #1
+
+Instruction#6
+
+Error Code #1
+
+Instruction#7
+
+Error Code #1
+
+Instruction#8
+
+Error Code #1
+
+Instruction#9
+
+Error Code #1
+
+Instruction#a
+
+Error Code #1
+
+Instruction#b
+
+Error Code #1
+
+Instruction#c
+
+Error Code #1
+
+Instruction#d
+
+Error Code #1
+
+Instruction#e
+
+Error Code #1
+
+Instruction#f
+
+Error Code #1
+
+Instruction#10
+
+Error Code #1
+
+Instruction#11
+
+Error Code #1
+
+Instruction#12
+
+Error Code #1
+
+Instruction#13
+
+Error Code #1
+
+Instruction#14
+
+Error Code #1
+
+Instruction#15
+
+Error Code #1
+
+Instruction#16
+
+Error Code #1
+
+Instruction#17
+
+Error Code #1
+
+Instruction#18
+
+Error Code #1
+
+Instruction#19
+
+Error Code #1
+
+Instruction#1a
+
+Error Code #1
+
+Instruction#1b
+
+Error Code #1
+
+Instruction#1c
+
+Error Code #1
+
+Instruction#1d
+
+Error Code #1
+
+Instruction#1e
+
+Error Code #1
+
+Instruction#1f
+
+Error Code #1
+
+Instruction#20
+
+Error Code #1
+
+Instruction#21
+
+Error Code #1
+
+Instruction#22
+
+Error Code #1
+
+Instruction#23
+
+Error Code #1
+
+Instruction#24
+
+Error Code #1
+
+Instruction#25
+
+Error Code #1
+
+Instruction#26
+
+Error Code #1
+
+Instruction#27
+
+Error Code #1
+
+Instruction#28
+
+Error Code #1
+
+Instruction#29
+
+Error Code #1
+
+Instruction#2a
+
+Error Code #1
+
+Instruction#2b
+
+Error Code #1
+
+Instruction#2c
+
+Error Code #1
+
+Instruction#2d
+
+Error Code #1
+
+Instruction#2e
+
+Error Code #1
+
+Instruction#2f
+
+Error Code #1
+
+Instruction#30
+
+Error Code #1
+
+Instruction#31
+
+Error Code #1
+
+Instruction#32
+
+Error Code #1
+
+Instruction#33
+
+Error Code #1
+
+Instruction#34
+
+Error Code #1
+
+Instruction#35
+
+Error Code #1
+
+Instruction#36
+
+Error Code #1
+
+Instruction#37
+
+Error Code #1
+
+Instruction#38
+
+Error Code #1
+
+Instruction#39
+
+Error Code #1
+
+Instruction#3a
+
+Error Code #1
+
+Instruction#3b
+
+Error Code #1
+
+Instruction#3c
+
+Error Code #1
+
+Instruction#3d
+
+Error Code #1
+
+Instruction#3e
+
+Error Code #1
+
+Instruction#3f
+
+Error Code #1
+
+Instruction#40
+
+Error Code #1
+
+Instruction#41
+
+Error Code #1
+
+Instruction#42
+
+Error Code #1
+
+Instruction#43
+
+Error Code #1
+
+Instruction#44
+
+Error Code #1
+
+Instruction#45
+
+Error Code #1
+
+Instruction#46
+
+Error Code #1
+
+Instruction#47
+
+Error Code #1
+
+Instruction#48
+
+Error Code #1
+
+Instruction#49
+
+Error Code #1
+
+Instruction#4a
+
+Error Code #1
+
+Instruction#4b
+
+Error Code #1
+
+Instruction#4c
+
+Error Code #1
+
+Instruction#4d
+
+Error Code #1
+
+Instruction#4e
+
+Error Code #1
+
+Instruction#4f
+
+Error Code #1
+
+Instruction#50
+
+Error Code #1
+
+Instruction#51
+
+Error Code #1
+
+Instruction#52
+
+Error Code #1
+
+Instruction#53
+
+Error Code #1
+
+Instruction#54
+
+Error Code #1
+
+Instruction#55
+
+Error Code #1
+
+Instruction#56
+
+Error Code #1
+
+Instruction#57
+
+Error Code #1
+
+Instruction#58
+
+Error Code #1
+
+Instruction#59
+
+Error Code #1
+
+Instruction#5a
+
+Error Code #1
+
+Instruction#5b
+
+Error Code #1
+
+Instruction#5c
+
+Error Code #1
+
+Instruction#5d
+
+Error Code #1
+
+Instruction#5e
+
+Error Code #1
+
+Instruction#5f
+
+Error Code #1
+
+Instruction#60
+
+Error Code #1
+
+Instruction#61
+
+Error Code #1
+
+Instruction#62
+
+Error Code #1
+
+Instruction#63
+
+Error Code #1
+
+Instruction#64
+
+Error Code #1
+
+Instruction#65
+
+Error Code #1
+
+Instruction#66
+
+Error Code #1
+
+Instruction#67
+
+Error Code #1
+
+Instruction#68
+
+Error Code #1
+
+Instruction#69
+
+Error Code #1
+
+Instruction#6a
+
+Error Code #1
+
+Instruction#6b
+
+Error Code #1
+
+Instruction#6c
+
+Error Code #1
+
+Instruction#6d
+
+Error Code #1
+
+Instruction#6e
+
+Error Code #1
+
+Instruction#6f
+
+Error Code #1
+
+Instruction#70
+
+Error Code #1
+
+Instruction#71
+
+Error Code #1
+
+Instruction#72
+
+Error Code #1
+
+Instruction#73
+
+Error Code #1
+
+Instruction#74
+
+Error Code #1
+
+Instruction#75
+
+Error Code #1
+
+Instruction#76
+
+Error Code #1
+
+Instruction#77
+
+Error Code #1
+
+Instruction#78
+
+Error Code #1
+
+Instruction#79
+
+Error Code #1
+
+Instruction#7a
+
+Error Code #1
+
+Instruction#7b
+
+Error Code #1
+
+Instruction#7c
+
+Error Code #1
+
+Instruction#7d
+
+Error Code #1
+
+Instruction#7e
+
+Error Code #1
+
+Instruction#7f
+
+Error Code #1
+
+Instruction#80
+
+Error Code #1
+
+Instruction#81
+
+Error Code #1
+
+Instruction#82
+
+Error Code #1
+
+Instruction#83
+
+Error Code #1
+
+Instruction#84
+
+Error Code #1
+
+Instruction#85
+
+Error Code #1
+
+Instruction#86
+
+Error Code #1
+
+Instruction#87
+
+Error Code #1
+
+Instruction#88
+
+Error Code #1
+
+Instruction#89
+
+Error Code #1
+
+Instruction#8a
+
+Error Code #1
+
+Instruction#8b
+
+Error Code #1
+
+Instruction#8c
+
+Error Code #1
+
+Instruction#8d
+
+Error Code #1
+
+Instruction#8e
+
+Error Code #1
+
+Instruction#8f
+
+Error Code #1
+
+Instruction#90
+
+Error Code #1
+
+Instruction#91
+
+Error Code #1
+
+Instruction#92
+
+Error Code #1
+
+Instruction#93
+
+Error Code #1
+
+Instruction#94
+
+Error Code #1
+
+Instruction#95
+
+Error Code #1
+
+Instruction#96
+
+Error Code #1
+
+Instruction#97
+
+Error Code #1
+
+Instruction#98
+
+Error Code #1
+
+Instruction#99
+
+Error Code #1
+
+Instruction#9a
+
+Error Code #1
+
+Instruction#9b
+
+Error Code #1
+
+Instruction#9c
+
+Error Code #1
+
+Instruction#9d
+
+Error Code #9
+Final Register, PC, and Memory Values:
+R0: c0c0
+R1: 8
+R2: 0
+R3: c0c0
+PC: 256
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:30a7 101:1066 102:8 103:c0c0
+104:c0c0 105:c0c0 106:c0c0 107:c0c0 108:c0c0 109:c0c0 110:c0c0 111:c0c0
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+COMMENT:
+The third test used the correct order for files of Case 2. There were three 
+loading instructions. Each instruction was interpreted at all the 256 memory 
+addresses. After the three instructions, the simulator reported "no
+op" for rest of output until the PC >200 and the final  values for the 
+registers and memory was reported in the file "ts_to". The file "ts_o" 
+remains because no output instruction was identified.
+============================================================================
+
+Case 4
+-----------------------------------------------------------------------------------
+Simulator ts_i ts_2 ts_o ts_to
+ts_i
+H64SAMPLE6411
+T64B0070
+T65B1071
+T66B2070
+T67B3071
+T680106D
+T690046D
+T6A3106F
+T6B90402
+T6CC0C00
+T6D00001
+T6E00005
+T6F00002
+
+ts_2
+testcase
+===================================================================================
+
+ts_o:
+
+Being Program Output:
+
+256
+
+        
+
+Dump Register, PC, and Memory Values:
+R0: 28
+R1: 1
+R2: 0
+R3: 0
+PC: 109
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:b0070 101:b1071 102:b2070 103:b3071
+104:106d 105:46d 106:3106f 107:90402 108:c0c00 109:1 110:5 111:2
+112:100 113:20200 114:20200 115:20200 116:20200 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+:End Program Output
+
+ts_to:
+Initial Register, PC, and Memory values:
+R0: 0
+R1: 0
+R2: 0
+R3: 0
+PC: 100
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:b0070 101:b1071 102:b2070 103:b3071
+104:106d 105:46d 106:3106f 107:90402 108:c0c00 109:1 110:5 111:2
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+Instruction#1
+
+Old PC: 100
+New PC: 101
+IO, R=0
+Input Value:256
+Address:112
+Old Value:c0c0
+New Value:256
+
+Instruction#2
+
+Old PC: 101
+New PC: 102
+IO, R=1
+Input Value:        
+Address:113
+Old Value:c0c0
+New Value:20200
+
+Address:114
+Old Value:c0c0
+New Value:20200
+
+Address:115
+Old Value:c0c0
+New Value:20200
+
+Address:116
+Old Value:c0c0
+New Value:20200
+
+Instruction#3
+
+Old PC: 102
+New PC: 103
+IO, R=2
+Outputting Address:70
+
+Instruction#4
+
+Old PC: 103
+New PC: 104
+IO, R=3
+Outputting Addresses:113 through 117
+
+Instruction#5
+
+Old PC: 104
+New PC: 105
+LD
+Address: 109
+Address Content: 1
+Register: 1
+Old Contents: 0
+New Contents: 1
+
+Instruction#6
+
+Old PC: 105
+New PC: 106
+LD
+Address: 110
+Address Content: 5
+Register: 0
+Old Contents: 0
+New Contents: 5
+
+Instruction#7
+
+Old PC: 106
+New PC: 107
+Error Code #4
+
+Error Code #4
+
+Instruction#8
+
+Old PC: 107
+New PC: 108
+SHL
+Register: 0
+Shift by 3 bits
+Original Content: 5
+New Content: 28
+
+Instruction#9
+
+Old PC: 108
+New PC: 109
+BR: R=0, X=3
+
+Final Register, PC, and Memory Values:
+R0: 28
+R1: 1
+R2: 0
+R3: 0
+PC: 109
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:b0070 101:b1071 102:b2070 103:b3071
+104:106d 105:46d 106:3106f 107:90402 108:c0c00 109:1 110:5 111:2
+112:100 113:20200 114:20200 115:20200 116:20200 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+Program ended normally.
+
+COMMENT:
+The fourth test involved a more robust input in the file "ts_i". It is the sample
+input file from the write of Lab1 in our packet. The script contains an example of 
+all the machine's instructions. The sample input file was used to check for more 
+errors and the correctness of our program.
+===================================================================================
+
+Case 5
+-----------------------------------------------------------------------------------
+Simulator ts_2 ts_i ts_o ts_to
+ts_i:
+H64SAMPLE6408
+T6412001
+T65220A2
+T66220A3
+T67B10A4
+T68B30A4
+T69110FF
+T6A610A2
+T6BC0C00
+
+ts_2:
+hello
+===================================================================================
+ts_o:
+Being Program Output:
+
+   hello
+
+Dump Register, PC, and Memory Values:
+
+R0:0
+R1:ff
+R2:1
+R3:0
+PC: 108
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4
+104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:1 163:1 164:20200 165:20680 166:656c0 167:6c6f0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+:End Program Output
+
+ts_to:
+Initial Register, PC, and Memory values:
+
+R0:0
+R1:0
+R2:0
+R3:0
+PC: 100
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4
+104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:c0c0 163:c0c0 164:c0c0 165:c0c0 166:c0c0 167:c0c0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+Instruction#1
+
+Old PC: 100
+New PC: 101
+LDI
+S(X): 1
+Register: 2
+Old Contents: 0
+New Contents: 1
+
+Instruction#2
+
+Old PC: 101
+New PC: 102
+ST
+Register: 2
+Register Contents: 1
+Address: 162
+Old Contents: c0c0
+New Contents: 1
+
+Instruction#3
+
+Old PC: 102
+New PC: 103
+ST
+Register: 2
+Register Contents: 1
+Address: 163
+Old Contents: c0c0
+New Contents: 1
+
+Instruction#4
+
+Old PC: 103
+New PC: 104
+IO, R=1
+Input Value:   hello
+Address:164
+Old Value:c0c0
+New Value:20200
+
+Address:165
+Old Value:c0c0
+New Value:20680
+
+Address:166
+Old Value:c0c0
+New Value:656c0
+
+Address:167
+Old Value:c0c0
+New Value:6c6f0
+
+Instruction#5
+
+Old PC: 104
+New PC: 105
+IO, R=3
+Outputting Addresses:164 through 168
+
+Instruction#6
+
+Old PC: 105
+New PC: 106
+LDI
+S(X): ff
+Register: 1
+Old Contents: 0
+New Contents: ff
+
+Instruction#7
+
+Old PC: 106
+New PC: 107
+DIV
+Register: 1
+Register Contents: ffValue to divide: 1
+New Contents: 255
+
+Instruction#8
+
+Old PC: 107
+New PC: 108
+BR: R=0, X=3
+
+Final Register, PC, and Memory Values:
+
+R0:0
+R1:ff
+R2:1
+R3:0
+PC: 108
+
+Memory Values:
+0:c0c0 1:c0c0 2:c0c0 3:c0c0 4:c0c0 5:c0c0 6:c0c0 7:c0c0
+8:c0c0 9:c0c0 10:c0c0 11:c0c0 12:c0c0 13:c0c0 14:c0c0 15:c0c0
+16:c0c0 17:c0c0 18:c0c0 19:c0c0 20:c0c0 21:c0c0 22:c0c0 23:c0c0
+24:c0c0 25:c0c0 26:c0c0 27:c0c0 28:c0c0 29:c0c0 30:c0c0 31:c0c0
+32:c0c0 33:c0c0 34:c0c0 35:c0c0 36:c0c0 37:c0c0 38:c0c0 39:c0c0
+40:c0c0 41:c0c0 42:c0c0 43:c0c0 44:c0c0 45:c0c0 46:c0c0 47:c0c0
+48:c0c0 49:c0c0 50:c0c0 51:c0c0 52:c0c0 53:c0c0 54:c0c0 55:c0c0
+56:c0c0 57:c0c0 58:c0c0 59:c0c0 60:c0c0 61:c0c0 62:c0c0 63:c0c0
+64:c0c0 65:c0c0 66:c0c0 67:c0c0 68:c0c0 69:c0c0 70:c0c0 71:c0c0
+72:c0c0 73:c0c0 74:c0c0 75:c0c0 76:c0c0 77:c0c0 78:c0c0 79:c0c0
+80:c0c0 81:c0c0 82:c0c0 83:c0c0 84:c0c0 85:c0c0 86:c0c0 87:c0c0
+88:c0c0 89:c0c0 90:c0c0 91:c0c0 92:c0c0 93:c0c0 94:c0c0 95:c0c0
+96:c0c0 97:c0c0 98:c0c0 99:c0c0 100:12001 101:220a2 102:220a3 103:b10a4
+104:b30a4 105:110ff 106:610a2 107:c0c00 108:c0c0 109:c0c0 110:c0c0 111:c0c0
+112:c0c0 113:c0c0 114:c0c0 115:c0c0 116:c0c0 117:c0c0 118:c0c0 119:c0c0
+120:c0c0 121:c0c0 122:c0c0 123:c0c0 124:c0c0 125:c0c0 126:c0c0 127:c0c0
+128:c0c0 129:c0c0 130:c0c0 131:c0c0 132:c0c0 133:c0c0 134:c0c0 135:c0c0
+136:c0c0 137:c0c0 138:c0c0 139:c0c0 140:c0c0 141:c0c0 142:c0c0 143:c0c0
+144:c0c0 145:c0c0 146:c0c0 147:c0c0 148:c0c0 149:c0c0 150:c0c0 151:c0c0
+152:c0c0 153:c0c0 154:c0c0 155:c0c0 156:c0c0 157:c0c0 158:c0c0 159:c0c0
+160:c0c0 161:c0c0 162:1 163:1 164:20200 165:20680 166:656c0 167:6c6f0
+168:c0c0 169:c0c0 170:c0c0 171:c0c0 172:c0c0 173:c0c0 174:c0c0 175:c0c0
+176:c0c0 177:c0c0 178:c0c0 179:c0c0 180:c0c0 181:c0c0 182:c0c0 183:c0c0
+184:c0c0 185:c0c0 186:c0c0 187:c0c0 188:c0c0 189:c0c0 190:c0c0 191:c0c0
+192:c0c0 193:c0c0 194:c0c0 195:c0c0 196:c0c0 197:c0c0 198:c0c0 199:c0c0
+200:c0c0 201:c0c0 202:c0c0 203:c0c0 204:c0c0 205:c0c0 206:c0c0 207:c0c0
+208:c0c0 209:c0c0 210:c0c0 211:c0c0 212:c0c0 213:c0c0 214:c0c0 215:c0c0
+216:c0c0 217:c0c0 218:c0c0 219:c0c0 220:c0c0 221:c0c0 222:c0c0 223:c0c0
+224:c0c0 225:c0c0 226:c0c0 227:c0c0 228:c0c0 229:c0c0 230:c0c0 231:c0c0
+232:c0c0 233:c0c0 234:c0c0 235:c0c0 236:c0c0 237:c0c0 238:c0c0 239:c0c0
+240:c0c0 241:c0c0 242:c0c0 243:c0c0 244:c0c0 245:c0c0 246:c0c0 247:c0c0
+248:c0c0 249:c0c0 250:c0c0 251:c0c0 252:c0c0 253:c0c0 254:c0c0 255:c0c0
+
+
+Program ended normally.
+
+COMMENT:
+The fifth test includes several different instructions: loading, loading constants,
+storing, arithmetic(division), input/output and an unconditional branch. The script
+is to check some instructions not in the sample input file from the packet i.e, the
+arithmetic division and the unconditional branch, along with building an exact and 
+complete program.
+======================================================================================== 

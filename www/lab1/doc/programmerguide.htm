@@ -1,0 +1,450 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="../.././Doc4_files/filelist.xml">
+<link rel=Edit-Time-Data href="../.././Doc4_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>steve</o:Author>
+  <o:LastAuthor>steve</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Created>2003-01-16T23:57:00Z</o:Created>
+  <o:LastSaved>2003-01-16T23:57:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Lines>1</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1040"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<title>CIS560 Lab1 Programmer's Guide</title></head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style='tab-interval:.5in' lang=EN-US>
+<div class=Section1> 
+  <p align="center" class=MsoNormal><strong><font color="#333333">Programmer's 
+    Guide: Draft</font></strong> 
+  <p align="center" class=MsoNormal><img src="../images/Model.gif" width="364" height="270">
+  <span style='mso-ignore:vglayout'> </span> 
+  <table width="95%" border="1" align="center" id="Guide">
+    <tr> 
+      <td bgcolor="#CCCCCC">
+<div align="left"><strong>Main( ):</strong> Will be responsible for 
+          the UI</div></td>
+    </tr>
+    <tr>
+      <td bgcolor="#CCCCCC">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><strong>Machine Class:</strong> Will be responsible for loading, executing, 
+        and controlling the ‘Machine’</td>
+    </tr>
+    <tr>
+      <td height="62">
+<div align="left"><strong>Functions &amp; Procedures:</strong> <br>
+          <ul>
+            int Text_To_Hex(char [ ] );<br>
+            void Simulate_This( char* fname); 
+          </ul>
+        </div></td>
+    </tr>
+    <tr>
+      <td bgcolor="#CCCCCC"><strong>Processor Class:</strong> Will be responsible 
+        for emulating the PC and R[0]-R[3]<br>
+        <li>PC: emulated by a 19-bit integer (even though the PC is 20-bits)</li>
+<li>R[0]-R[4]: emulated by 4 20-bit integers</li></td>
+    </tr>
+    <tr> 
+      <td bgcolor="#CCCCCC">
+          <strong>Functions &amp; Procedures:</strong><br>
+            <ul>
+          <p>void Increment_PC( );<br>
+            void Set_PC(int n);<br>
+            int Get_PC( );<br>
+            void Load_Register( int reg_num, int reg_value);<br>
+            int Get_Register( int reg_num); <br>
+            void Put_Regs();</p>
+        </ul></td>
+    </tr>
+    <tr>
+      <td><strong>Memory Class:</strong> Will be responsible for emulation Memory<br>
+        <li>Memory: emulated my array of 256 integers in decimal format</li></td>
+    </tr>
+    <tr>
+      <td><strong>Functions &amp; Procedures:</strong><br>
+        <ul>void Load_Memory(int mem_location, int mem_value);<br>
+        int Get_Memory( int mem_location);<br>
+          void Put_Mem(); 
+        </ul></td>
+    </tr>
+    <tr>
+      <td bgcolor="#CCCCCC"><strong>Error Class:</strong> Will be responsible 
+        for reporting errors that occur during Runtime</td>
+    </tr>
+    <tr>
+      <td height="42" bgcolor="#CCCCCC"><strong>Functions &amp; Procedures:</strong><br>
+        <ul>void Report_Error(err_num);</ul></td>
+    </tr>
+  </table>
+  <p><strong>Data Element Dictionary:</strong></p>
+  <table width="90%" border="1" align="center" id="Date Element Dictionary">
+    <tr> 
+      <td width="19%"><div align="center">Variable Name</div></td>
+      <td width="12%"><div align="center">Local/Global</div></td>
+      <td width="7%"><div align="center">Type</div></td>
+      <td width="23%"><div align="center">Declaring Module</div></td>
+      <td width="39%"><div align="center">Purpose</div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">instruction _counter</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">Keep track of # of instructions executed</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">hex_num</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">holds an int in 'hex format'</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">P_Counter</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Processor Class</font></div></td>
+      <td><div align="center"><font size="2">hold value of the Program Counter</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">reg_num</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Processor Class</font></div></td>
+      <td><div align="center"><font size="2">int to for indexing R[0] - R[3]</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">reg_value</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Processor Class</font></div></td>
+      <td><div align="center"><font size="2">data to/from R[0] - R[3]</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">infile</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">istream</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"> 
+          <p><font size="2">input file stream</font></p>
+        </div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">header_buffer</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char[ ]</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">string to hold header of infile</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">two_ch_buffer</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char[ ]</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">temp string for 2 hex chars</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">init_seg_addr</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">address where initial loading of 
+          program begins</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">segment_length</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">length of the memory segment</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">text_buffer</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char[ ]</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">8 char array to hold incoming text 
+          records of infile</font></div></td>
+    </tr>
+    <tr> 
+      <td> <div align="center"><font size="2">addr</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char[ ]</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">holds memory addr where text records 
+          begin </font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">data</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char[ ]</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">holds data to/from memory</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">hex_text</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char*</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">string of hex chars</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">n</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">temporary int for counting</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">x</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">temporary int for counting</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">mem_array</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int[ ]</font></div></td>
+      <td><div align="center"><font size="2">Memory Class</font></div></td>
+      <td><div align="center"><font size="2">array of 256 ints representing memory</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">mem_location</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Memory Class</font></div></td>
+      <td><div align="center"><font size="2">int to hold address of memory</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">mem_value</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Memory Class</font></div></td>
+      <td><div align="center"><font size="2">int to hold value to/from memory</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">n</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Memory Class</font></div></td>
+      <td><div align="center"><font size="2">temporary int for counting</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">reg_array</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int[ ]</font></div></td>
+      <td><div align="center"><font size="2">Processor Class</font></div></td>
+      <td><div align="center"><font size="2">array of 4 ints to represent R[0] 
+          - R[3]</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">n</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Processor Class</font></div></td>
+      <td><div align="center"><font size="2">temporary int</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">in</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Simulator</font></div></td>
+      <td><div align="center"><font size="2">user's menu choice</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">fname</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">char*</font></div></td>
+      <td><div align="center"><font size="2">Simulator</font></div></td>
+      <td><div align="center"><font size="2">name of incoming file</font></div></td>
+    </tr>
+    <tr> 
+      <td height="24"> <div align="center"><font size="2">HALT</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">bool</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"> 
+          <p><font size="2">Stop/No Stop execution</font></p>
+        </div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">mem_value</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">value at a memory address</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">P_Counter</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">value of Program Counter</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">fname</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">name of incoming file</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">OP</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">int of OPCode from instruction</font></div></td>
+    </tr>
+    <tr> 
+      <td height="24"> 
+        <div align="center"><font size="2">U1</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">Unused Field 1</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">U2</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">Unused Field 2</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">R</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">Register involved in instruction, 
+          or branch mode &amp; IO</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">X</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">indicates indexing, 1=indexing, 0=no 
+          indexing </font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">S</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Machine Class</font></div></td>
+      <td><div align="center"><font size="2">value to be used in instruction/operation</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2">err_num</font></div></td>
+      <td><div align="center"><font size="2">local</font></div></td>
+      <td><div align="center"><font size="2">int</font></div></td>
+      <td><div align="center"><font size="2">Error Class</font></div></td>
+      <td><div align="center"><font size="2">number of error to be reported</font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+    <tr> 
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+      <td><div align="center"><font size="2"></font></div></td>
+    </tr>
+  </table>
+  <p><strong></strong></p>
+</div>
+
+</body>
+
+</html>

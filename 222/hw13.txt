@@ -1,0 +1,52 @@
+				CIS222 HW#13			Steve Harman
+procedure_body Get_Price_Map (
+	preserves Text file_name,
+	produces Price_Map& p_map
+    )
+{
+    object Text t, word, t_price;
+    object Integer price;
+    object Character_IStream input;
+    input.Open(file_name);
+
+    while(not input.At_EOS())
+    {
+
+	input >> t;
+
+	Remove_First_Word(t,word);
+	Remove_First_Word(t,t_price);
+	price = To_Integer(t_price);
+
+	p_map.Define(word,price);
+
+    }
+
+    input.Close();
+}
+
+//----------------------------------------------------------------------
+
+procedure_body Get_One_Order (
+        alters Character_IStream& input,
+	preserves Price_Map& sp_map,
+	preserves Price_Map& tp_map,
+	produces Integer& price
+    )
+{
+    object Text size, topping;
+
+    input >> size;
+    price += sp_map[size];
+    
+    while(not input.At_EOS())
+    {
+	input >> topping;
+	if(topping != "")
+	{
+	    price += tp_map[topping];
+	}
+    }
+	
+	
+}

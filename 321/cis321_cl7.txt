@@ -1,0 +1,317 @@
+							Steve Harman - Tim Logan
+								CIS321 CL#7
+								Long - 12:30
+class Sorting_Machine_Kernel_3 :
+    implements
+        abstract_instance Sorting_Machine_Kernel <Item, Item_Are_In_Order>,
+    encapsulates
+        concrete_instance Rep
+        /*!
+            convention
+               // students to fill this in
+	       Rep is modeled by(
+	           inserting_rep: Boolean
+		   contents_rep: Queue_Of_Item
+		   )
+            correspondence
+               self = (self.inserting_rep,
+                       elements (self.contents_rep))
+        !*/
+
+
+//  /*----------------------------------------------------------------------*\
+//  |   Concrete Template Body : Sorting_Machine_Kernel_3
+//  \*----------------------------------------------------------------------*/
+
+#ifndef CT_SORTING_MACHINE_KERNEL_3_BODY
+#define CT_SORTING_MACHINE_KERNEL_3_BODY 1
+
+///------------------------------------------------------------------------
+/// Global Context --------------------------------------------------------
+///------------------------------------------------------------------------
+
+#include "CT/Sorting_Machine/Kernel_3.h"
+
+///------------------------------------------------------------------------
+/// Public Operations -----------------------------------------------------
+///------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Insert (
+            consumes Item& x
+        )
+{
+    // students to fill this in
+    self[contents_rep].Enqueue(x);
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Remove_First (
+            produces Item& x
+        )
+{
+    // students to fill this in
+    self.Change_To_Extraction_Phase();
+    self[contents_rep].Dequeue(x);
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Remove_Any (
+            produces Item& x
+        )
+{    
+    // students to fill this in
+    self[contents_rep].Dequeue(x);
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Change_To_Extraction_Phase ()
+{
+    // students to fill this in
+    self[inserting_rep] = false;
+    Sort(self[contents_rep]);
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+function_body Boolean Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Is_In_Extraction_Phase ()
+{
+    // students to fill this in
+    return (not self[inserting_rep]);
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+function_body Integer Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Size ()
+{
+    // students to fill this in
+    return self[contents_rep].Length();
+}
+
+///------------------------------------------------------------------------
+/// Protected Operations --------------------------------------------------
+///------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+
+    // students to add bodies for additional protected operations if needed
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > :: Partition (
+             consumes Queue_Of_Item& q,
+             preserves Item& p,
+             produces Queue_Of_Item& q1,
+             produces Queue_Of_Item& q2
+         )
+{
+    // students to fill this in
+    q1.Clear();
+    q2.Clear();
+    while(q.Length() > 0)
+    {
+	 object Item x;
+	 q.Dequeue(i);
+
+	 if(Item_Are_In_Order::Are_In_Order(x,p)) // x <= p
+	 {
+	     q1.Enqueue(x);
+	 }
+	 else // x > p
+	 {
+	     q2.Enqueue(x);
+	 }
+    } // while(q.Length()>0)
+}    
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > :: Combine (
+             produces Queue_Of_Item& q,
+             consumes Item& p,
+             consumes Queue_Of_Item& q1,
+             consumes Queue_Of_Item& q2
+         )
+{
+    // students to fill this in
+    q.Clear();
+    // move q1 into q
+    while(q1.Length() > 0)
+    {
+	object Integer i;
+
+	q1.Dequeue(i);
+	q.Enqueue(i);
+    }// #q1 = q
+    
+    // put p in q
+    q.Enqueue(p);
+    // #q * #p = q
+    
+    // move q2 into q
+    while(q2.Length() > 0)
+    {
+	object Integer i;
+	
+	q2.Dequeue(i);
+	q.Enqueue(i);
+    }// #q * #q2 = q
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > :: Sort (
+            alters Queue_Of_Item& q
+        )
+{
+    // students to fill this in
+    if(q.Length() > 1)
+    {
+	object Item x;
+	object Queue_Of_Item q1, q2;
+
+        q.Dequeue(x);
+	Partition(q, q1, q2);
+	Sort(q1);
+	Sort(q2);
+	Combine(q, x, q1, q2);
+    }
+}
+
+//-------------------------------------------------------------------------
+
+concrete_template <
+        concrete_instance class Item,
+        concrete_instance class Item_Are_In_Order,
+        concrete_instance class Queue_Of_Item,
+        concrete_instance class Rep
+    >
+procedure_body Sorting_Machine_Kernel_3 <
+        Item,
+        Item_Are_In_Order,
+        Queue_Of_Item,
+        Rep
+    > ::
+    Initialize ( )
+
+{    
+    // students to fill this in
+    object Queue_Of_Item q;
+    object Boolean inserting;
+
+    inserting = true;
+
+    self[contents_rep] &= q;
+    self[inserting_rep] &= inserting;
+}
+
+//-------------------------------------------------------------------------
+
+#endif // CT_SORTING_MACHINE_KERNEL_3_BODY

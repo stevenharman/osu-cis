@@ -1,0 +1,52 @@
+								CIS321
+								Steve Harman - Tim Logan
+global_procedure Get_Tree(					Closed Lab 3
+	alters Text& tree_as_text,				Long - 12:30
+	produces Tree_Of_Character& t
+	);
+{
+	if(tree_as_text.Size() > 0)
+	{
+		Object Tree_Of_Character subtree;
+		Object Character ch, junk;
+		
+		object Integer pos;
+		
+		tree_as_text.Remove(0,ch);
+		tree_as_Text.Remove(0,junk);
+				
+		if (tree_as_text[0] == ')')
+		{
+			tree_as_text.Remove(0, junk);
+		}
+		
+		Get_Tree(tree_as_text, t);				
+		pos = t.Number_Of_Children);
+		t.Add(pos, subtree);
+	}
+}
+
+
+global_procedure Put_Tree(
+	preserves Tree_Of_Character& t,
+        alters    Character_OStream& outs,
+	preserves Integer indentation_factor
+	);
+{
+	Object Binary_Tree_Of_Character subtree;
+	object Integer pos;
+
+	while(t.Number_Of_Children() > pos)
+	{
+		outs << t[current] << '\n';
+		indentation_factor++;
+
+		t.Remove(pos, subtree);
+		Put_Tree(subtree, outs, indentation_factor);
+
+		pos++;
+		indentation_factor--;
+	}
+}
+
+

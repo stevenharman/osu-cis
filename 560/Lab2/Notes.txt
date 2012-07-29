@@ -1,0 +1,37 @@
+----- Taken Care Of ---------
+VincentVega66: in the documentation
+VincentVega66: it should say
+VincentVega66: that if the user attempts to index a literal
+VincentVega66: there WILL be an error message produced
+VincentVega66: and the program WILL halt
+VincentVega66: it sends the message "Attempt to index a literal" to the listing file
+VincentVega66: and exit(1)'s
+
+
+PaRaDoX 1 9 9: well hmm the spacing tests didnt work
+VincentVega66: yeah
+VincentVega66: me and steve were talkiung about taht
+VincentVega66: there's no remedying that
+VincentVega66: it needs to either go into eratta
+VincentVega66: or be a note to the user
+VincentVega66: or something
+VincentVega66: the way we used strtok
+VincentVega66: there's just no way of fixing that
+
+
+
+VincentVega66: with no symbol 'ii' defined (extra operands check)
+VincentVega66: ...it will output a 0 to the s field
+VincentVega66: that needs to be in erratta
+same for Y,X error (symbol not defined check)
+
+symbol tests 1 and 5
+literal 2 in branch [FIX B to BR in testplan doc]
+ and 3(the index one)
+
+----- Taken Care Of ---------
+pseduo 5 (EQU not in range)
+----- Taken Care Of ---------
+ and 7 (RES not in range)
+
+, and misc 3(the blank line issue (also in another test))

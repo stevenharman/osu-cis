@@ -1,0 +1,76 @@
+HW#3				CIS 321			Steve Harman
+
+1.
+global_procedure Is_Binary_Search_Tree(
+	preservers Binary_Tree_Of_Integer& t
+	);
+{
+	object Boolean answer;
+
+	if(t.Size() > 0)
+	{
+		object Binary_Tree_Of_Integer left, right;
+		object Integer root;
+
+		t.Decompose(root, left, right);
+
+		answer = Is_Binary_Search_Tree(left) and Is_Binary_Search_Tree(right);
+
+		if (answer == true)
+			answer = Verify_Tree(root, left, "left_sub");
+		
+		if (answer == true)
+			answer = Verify_Tree(root, right, "right_sub");
+
+		t.Compose(root, left, right);
+	}
+
+	return answer;
+}
+
+
+
+global_procedure Verify_Tree(
+	preserves Integer r,
+	preserves Binary_Tree_Of_Integer t,
+	preserves Text which_sub
+	);
+{
+	object Boolean answer;
+	
+	if(t.Size() > 0)
+	{
+		object Integer root;
+		object Binary_Tree_Of_Integer left, right;
+		
+		t.Decompose(root, left, right);
+
+		if(which_sub == "left_sub")
+			answer = (r > root);
+		if(which_sub == "right_sub")
+			answer = (r <= root);
+
+		t.Compose(root, left, right);		
+	}
+
+	return answer;
+}
+
+
+global_function Verify_Tree(
+	preserves Integer r,
+	preserves Binary_Tree_Of_Integer t,
+	preserves Text which_sub
+	);
+/*!
+	requires
+		ARE_IN_ORDER(t)
+	ensures
+		true iff (when which_sub = left_sub, r > root of t, and
+			  when which_sub = right_sub, r <= root of t)
+!*/ 
+
+NOTES: I know that i need to somehow make sure that there are no nodes in the right subtree
+which are less than the root, and no nodes in the left sub tree which are greater or equal
+to the root... but i can't figure out how to do this w/out going thru the entire tree again.
+I know it can be done, but can't figure it out.

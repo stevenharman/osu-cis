@@ -1,0 +1,75 @@
+								CIS321
+2.function_body Height(						Steve Harman
+	preserves Tree_Of_Item& t				Long - 12:30
+	);							HW#5
+{
+	object Integer height;
+
+	if(t.Size() > 1)
+	{
+		object Integer i:
+		
+		while(t.Number_Of_Children() > i)
+		{
+			object Tree_Of_Item child_tree;
+			
+			t.Remove(i, child_tree);
+			
+			child_height = Height(child_tree);
+
+			if(height < child_height)
+			{
+				height = child_height;
+			}
+
+			i++;
+			t.Add(i, child_tree);
+		}
+		height++;
+	}
+	else
+	{
+		height++;
+	}
+	return height;
+}
+
+3.function_body Max(
+	preserves Tree_Of_Integer& t
+	);
+{
+	object Integer max;
+	
+	if(t.Size() > 1)
+	{
+		object Integer i;
+		
+		while(t.Number_Of_Children() > i)
+		{
+			object Tree_Of_Integer child_tree;
+			object Integer int;
+
+			t.Remove(i, child_tree)
+		
+			int = Max(child_tree);
+
+			if(max < int)
+			{
+				max = child_tree[current];
+			}
+			
+			t.Add(i, child_tree);
+			i++;
+		}
+		
+		if(max < t[current])
+		{
+			max = t[current];
+		}
+	}
+	else
+	{
+		max = t[current];
+	}	
+	return max;
+}

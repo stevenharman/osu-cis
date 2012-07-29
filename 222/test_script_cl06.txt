@@ -1,0 +1,135 @@
+n
+//Test Case 1: add something to empty seq at pos 0
+a
+1
+0
+this was empty
+//Test Case 2: add to non empty seq at pos 1
+a
+1
+1
+now add this on
+//Test Case 3: check length of empty seq
+l
+2
+//Test Case 4: add empty string to non-empty seq at pos 2
+a
+1
+2
+
+//Test Case 5: check length of non-empty seq
+l
+1
+//Test Case 6: Print non-empty seq
+p
+1
+//Test Case 7: print empty seq
+p
+3
+//Test Case 8: print non-empty seq w/ empty string
+p
+2
+//Test Case 9: remove empty string from seq
+r
+1
+2
+this will be overwritten
+// Test Case 10: Swap non-empty and empty seq
+s
+1
+2
+//Test Case 11: Swap two empty seq
+s
+1
+3
+//Test Case 12: clear an emtpy seq
+c
+1
+//Test Case 13: clear non-empty seq
+c
+2
+// put some stuff back into seq 1 and 2
+a
+1
+0
+this is in s1
+a
+1
+1
+and this is in s1
+a
+1
+2
+this is 3 in s1
+a
+2
+0
+i am in s2
+a
+2
+1
+hello, i'm in s2
+a
+2
+2
+holy cow, i'm also in s2
+// Test Case 14: remove something from the end of a non-empty seq
+r
+2
+2
+this was x
+//Test Case 15: remove something from front of non-empty seq
+r
+2
+0
+now i'm x
+//Test case 16: remove something from insde non-emtpy seq
+r
+1
+1
+me is not x
+// Test Case 17: swap 2 non-empty strings of different Length
+s
+1
+2
+// add back to s1 to get same length as s2
+a
+1
+1
+put me in s1
+//Test case 18: swap 2 non-empty seq of same length
+s
+1
+2
+//Test case 19: swap string by accessor from end of non-empty seq
+[
+1
+2
+i am being swapped in
+//Test case 20: swap string by accessor from front of non-empty seq
+[
+1
+0
+now i am the front of s1
+//Test case 21: swap empty string by accessor into front of non-empty seq
+[
+2
+0
+
+//Test Case 22: swap non-empty string by accessor into front of non-empty seq, with empty pos 0
+[
+2
+0
+hello, i am now front of s2
+// add back to s1
+a
+1
+2
+add me in
+//Test Case 23: swap by accessor to the middle of a seq
+[
+1
+1
+i'm going in
+// quit the program
+q

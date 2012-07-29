@@ -1,0 +1,55 @@
+								Steve Harman
+								CIS321 HW#18
+								Long - 12:30
+1. procedure_body Split (
+            consumes Queue_Of_Integer& q,
+            produces Queue_Of_Integer& q1,
+            produces Queue_Of_Integer& q2
+            )
+{
+	while(q.Length() > 1)
+	{
+		object Integer x1, x2;
+		q.Dequeue(x1);
+		q.Dequeue(x2);
+		if(x1 <= x2)
+		{
+			q1.Enqueue(x1);
+			q2.Enqueue(x2);
+		}
+		else
+		{
+			q1.Enqueue(x2);
+			q2.Enqueue(x1);
+		{
+	}
+}
+
+procedure_body Merge (
+            consumes Queue_Of_Integer& q1,
+            consumes Queue_Of_Integer& q2,
+            produces Queue_Of_Integer& q
+            )
+{
+	while(q1.Length() > 0 and q2.Length() > 0)
+	{
+		object Integer x;
+
+		if(q1[current] <= q2[current])
+		{
+			q1.Dequeue(x);
+			q.Enqueue(x);
+		}
+		else
+		{
+			q2.Dequeue(x);
+			q.Enqueue(x);
+		}
+	}
+	if(q1.Length() > 0)
+	{
+		object Integer x;
+		q1.Dequeue(x);
+		q.Enqueue(x);
+	}
+}

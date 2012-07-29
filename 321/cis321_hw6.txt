@@ -1,0 +1,33 @@
+								CIS321
+2.a.		 _______________				Steve Harman
+		|IF_ELSE	|				Long - 12:30
+		|NEXT_IS_EMPTY	|				HW#6
+		|_______________|
+			/\
+		________  ________
+		|BLOCK	| |BLOCK  |
+		|_______| |_______|
+		   |	      |
+		
+		CALL	   IF
+		move	   NEXT_IS_WALL
+
+			  /     |        \
+		        BLOCK	BLOCK	BLOCK
+			
+		    cALL       CALL	 CALL
+		    turnright  turnright move
+
+ b.		________________________________
+		|WHILE				|
+		|TRUE				|
+		  /    	   |		       \
+	      BLOCK	IF_ELSE			BLOCK
+	      |		NEXT_IS_ENEMY		
+	     CALL	/	\		CALL
+	    turnright  BLOCK	BLOCK		turnleft
+	    
+		      CALL	CALL
+		   TurnAround	skip
+
+3.The inital value of a Statement is a tree with the root being the statement label, and having no children.

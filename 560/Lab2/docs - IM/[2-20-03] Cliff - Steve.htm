@@ -1,0 +1,41 @@
+<HTML><BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000" LANG="0">USS Herm<!-- (9:36:23 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>hey man, you around?</FONT><BR>
+<BODY BGCOLOR="#000080"><HR>
+<B><FONT COLOR="#0000ff" SIZE=3>Auto response from VincentVega66<!-- (9:36:23 PM)--></B></FONT><FONT COLOR="#0000ff">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#00ff80" FACE="Comic Sans MS">Leave a 
+message
+<HR>
+</FONT><BR>
+<BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000">USS Herm<!-- (9:38:28 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>i've got a question for you... i have compiled 
+the current version of the assembler (found in the CVSREP) 
+and run it with input = source2 (which is exactly the example 
+assembly file wayne gave us in class, that way i know 
+*exactly* what the object file should look like)... anyhow, 
+there is a big problem with the assembler.  except for the IO's, 
+none of the S(x) values are being stored correctly...</FONT><BR>
+<BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000" SIZE=3>USS Herm<!-- (9:42:04 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>so i started going thru the code and i think i've 
+isolated the problem... its in Pass_Two().  when tokenizing the 
+buffer to get the R field we seem to be assuming that it is 
+always a decimal number, and never allowing it to be a 
+symbol.  What I mean is we are doing the following:<BR>
+<BR>
+temp_tok=strtok(token2, ",");<BR>
+data+=atoi(temp_tok);<BR>
+data*=16;<BR>
+<BR>
+I think this is wrong and instead after we tokenize instead of 
+doing the "data+=atoi(temp_tok):"  we should be doing:<BR>
+<BR>
+data+= Get_Data(temp_tok, symbol_table, litteral_table);</FONT><BR>
+<BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000" SIZE=3>USS Herm<!-- (9:42:32 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>if you get time take a look and let me know 
+what you think... i'm going to try in on my local copy (I LOVE 
+CVS!!!!) and see if it works.</FONT><BR>
+<BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000" SIZE=3>USS Herm<!-- (10:39:29 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>Ok... well it took care of getting the correct 
+value for the R value (b/c earlier i actually meant the R and 
+S(x) values were wrong)... but still havin trouble with S(x)...</FONT><BR>
+<BODY BGCOLOR="#000080"><HR>
+<B><FONT COLOR="#0000ff" SIZE=3>Auto response from VincentVega66<!-- (10:39:30 PM)--></B></FONT><FONT COLOR="#0000ff">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#00ff80" FACE="Comic Sans MS">Leave a 
+message
+<HR>
+</FONT><BR>
+<BODY BGCOLOR="#ffffff"><B><FONT COLOR="#ff0000">USS Herm<!-- (10:40:14 PM)--></B></FONT><FONT COLOR="#ff0000">:</FONT><FONT COLOR="#000000"> </FONT><FONT COLOR="#4f4f4f" FACE="Century Gothic" SIZE=1>I've looked at the S(X) stuff and it all look good, 
+so unless it's in Pass_One when the symbols are being stored... 
+uhhh! can't figure this out!</FONT></BODY></HTML>

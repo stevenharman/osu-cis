@@ -1,0 +1,542 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./pg_files/preview.wmf">
+<link rel=Edit-Time-Data href="./pg_files/editdata.mso">
+<title>PROGRAMMER'S GUIDE</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoList
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoListNumber
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+.BlockQuotation
+	{text-align:justify;
+	line-height:11.0pt;
+	background:#F2F2F2;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial Narrow";
+	letter-spacing:-.25pt;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+<link href="../OverDriveStyles.css" rel="stylesheet" type="text/css">
+</head>
+<a name="top"></a>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+<div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'> 
+  <table width="100%" border="0">
+    <tr> 
+      <td>
+<p class=TitleCover>Programmer's Guide</p></td>
+      <td width="204" align="right"><a href="../index.htm"><img src="../Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+    </tr>
+  </table>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Table Of Contents</p>
+</div>
+<p class=MsoToc1><a href="#Implementation">IMPLEMENTATION</a></p>
+<p class=MsoToc1><a href="#DataElements">Data Elements</a></p>
+<p class=MsoToc1><a href="#DesignModules">Design Modules</a></p>
+<ul>
+  <li><a href="#AssemblerCPP">Loader.cpp</a></li>
+  <ul> 
+    <li><em><a href="#AssemblerPC">Loader Pseudo Code</a></em></li>
+    <li><em><a href="#FlowDiagram">Overall Flow Diagram</a></em></li>
+  </ul>
+  <li><a href="#LoaderOneH">Loader.h</a></li>
+  <ul>
+    <li><em><a href="#Loader_OnePC">Loader_One Pseudo Code</a></em></li>
+    <li><em><a href="#Create_TablePC">Create_Table Pseudo Code</a></em></li>
+    <li><em><a href="#InterFile">Sample Intermediate File</a></em></li>
+  </ul>
+  <li><a href="#Loader2H">Loader2.h</a></li>
+  <ul>
+    <li><em><a href="#Loader_TwoPC">Loader_Two Pseudo Code</a></em></li>
+  </ul>
+  <li><a href="#TableH">Table.h</a></li>
+  <ul>
+    <li><em><a href="#TableClassPC">Table Class Reuires/Ensures</a></em></li>
+    <li><em><a href="#ENTTableClassPC">ENT_Table Class Requires/Ensures</a></em></li>
+    <li><a href="#NVPDescription"><em>Name_Value_Pair Class</em></a></li>
+  </ul>
+</ul>
+<p class=MsoToc1><span
+
+
+
+class=MsoTOC1><a href="#KnownErrors">Errata Section</a></span></p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="Implementation"></a>Implementation</p>
+</div>
+<p class=MsoSubtitle>The implementation of the Linker/Loader for the W03_560 Machine</p>
+<hr>
+<p>The Group OverDrive Linking Loader is a useful tool for the W03-560 Machine 
+  user who wants to write code segments in seperate files. Using external reference 
+  symbols as a means of attachment, it has the ability to take several file names 
+  (along with an Initial Program Load Address, or IPLA) as input from the command 
+  line and output one absolute object file that is executable by the Simulater 
+  for the W03-560 Machine. The following documentation will detail the operation 
+  and modification of the Group OverDrive Linking Loader.</p>
+<p><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt; background:black;'>
+<h1><font color="#FFFFFF"><a name="DataElements"></a>Data Elements</font></h1>
+</div>
+<p class=MsoBodyText>Listed below is the table of the data elements used for the 
+  Linker/Loader for the W03_560 Machine.</p>
+<table border="1" align="center" class="Normal">
+  <tr> 
+    <td width="120" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Variable Name</font></span></b></p></td>
+    <td width="109" valign=bottom nowrap bgcolor="black" class="Normal"> <p><font color="#FFFFFF"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Type</span></b></font></p></td>
+    <td width="192" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Declaring Module</font></span></b></p></td>
+    <td width="413" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Purpose</font></span></b></p></td>
+  </tr>
+  <tr> 
+    <td>address</td>
+    <td>int</td>
+    <td>Create_Table</td>
+    <td>holds address of external symbol</td>
+  </tr>
+  <tr> 
+    <td><a name="data_BeginExection"></a>Begin_Execution</td>
+    <td>int</td>
+    <td>Loader</td>
+    <td>holds address of first executable instruction</td>
+  </tr>
+  <tr> 
+    <td>buffer</td>
+    <td>char[80]</td>
+    <td>Create_Table/Loader_One/Loader_Two</td>
+    <td>takes lines of input from files attached to inputs</td>
+  </tr>
+  <tr> 
+    <td>data</td>
+    <td>int</td>
+    <td>Loader_Two</td>
+    <td>holds data field of current text record</td>
+  </tr>
+  <tr> 
+    <td><a name="data_ESTable" id="data_ESTable"></a>ES_Table</td>
+    <td>Table(50)</td>
+    <td>Loader</td>
+    <td>holds External Symbol Table</td>
+  </tr>
+  <tr> 
+    <td>File_Number</td>
+    <td>int</td>
+    <td>Loader/Loader_One/Loader_Two</td>
+    <td>keeps track of which input stream is being accessed</td>
+  </tr>
+  <tr> 
+    <td>init</td>
+    <td>char[3]</td>
+    <td>Loader_Two</td>
+    <td>holds the PLA of the current segment</td>
+  </tr>
+  <tr> 
+    <td><a name="data_inputs"></a>inputs</td>
+    <td>ifstream*</td>
+    <td>Loader</td>
+    <td>array of input streams attached to assembled objects files</td>
+  </tr>
+  <tr> 
+    <td><a name="data_IPLA"></a>IPLA</td>
+    <td>int</td>
+    <td>Loader</td>
+    <td>Initial Program Load Address</td>
+  </tr>
+  <tr> 
+    <td><a name="data_middle"></a>middle</td>
+    <td>ifstream/ofstream</td>
+    <td>Loader</td>
+    <td>attached to file that holds program load addresses</td>
+  </tr>
+  <tr> 
+    <td><a name="data_numfiles"></a>number_of_files</td>
+    <td>int</td>
+    <td>Loader_One/Loader_Two</td>
+    <td>holds the total number of input files which are to be processed</td>
+  </tr>
+  <tr> 
+    <td>object_out</td>
+    <td>ofstream</td>
+    <td>Loader</td>
+    <td>output stream attached to absolute linked and loaded object file</td>
+  </tr>
+  <tr>
+    <td><a name="data_outs"></a>outs</td>
+    <td>ofstream</td>
+    <td>Loader_Two</td>
+    <td>output stream attached to loaded object file</td>
+  </tr>
+  <tr> 
+    <td>PLA</td>
+    <td>int</td>
+    <td>Loader_One/Loader_Two</td>
+    <td>holds Program Load Address of the current segment</td>
+  </tr>
+  <tr> 
+    <td>Segment_Length</td>
+    <td>int</td>
+    <td>Loader_One</td>
+    <td>holds the length of the current segment</td>
+  </tr>
+  <tr> 
+    <td>symbol</td>
+    <td>char*</td>
+    <td>Create_Table </td>
+    <td>holds name of external symbol</td>
+  </tr>
+  <tr> 
+    <td>temp_PLA</td>
+    <td>int</td>
+    <td>Loader_One</td>
+    <td>holds initial unmodified PLA of the current segment</td>
+  </tr>
+  <tr> 
+    <td>token</td>
+    <td>char*</td>
+    <td>Loader_One/Loader_Two</td>
+    <td>holds tokenized pieces of buffer</td>
+  </tr>
+  <tr> 
+    <td><a name="data_TotalLength"></a>Total_Length</td>
+    <td>int</td>
+    <td>Loader/Loader_One</td>
+    <td>holds total length of "footprint" in memory</td>
+  </tr>
+</table>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'> 
+  <p class=MsoTitle><a name="DesignModules"></a><font color="#FFFFFF">Design Modules</font></p>
+</div>
+<p class=MsoSubtitle>The Design Modules Used in the Linker/Loader</p>
+<table border="0" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle">Dependency Diagram for the Linker/Loader</div></td>
+  </tr>
+  <tr> 
+    <td><div align="center" class="CommentSmall">Notice: Clicking certain parts 
+        of this diagram will take you to the respective pseudo-op, description, 
+        or definition.</div></td>
+  </tr>
+  <tr>
+    <td><p><img src="dependancy_diagram.jpg" border="0" usemap="#DependancyMap"> 
+        <map name="DependancyMap" id="DependancyMap">
+          <area shape="rect" coords="54,321,92,333" href="#data_inputs">
+          <area shape="rect" coords="514,190,597,202" href="#data_numfiles">
+          <area shape="rect" coords="514,179,551,189" href="#data_middle">
+          <area shape="rect" coords="331,140,429,187" href="#InterFile">
+          <area shape="rect" coords="834,229,928,273" href="user.htm#samobj">
+          <area shape="rect" coords="3,228,332,272" href="#Loader_OnePC">
+          <area shape="rect" coords="430,229,763,275" href="#Loader_TwoPC">
+          <area shape="rect" coords="13,371,260,410" href="#Create_TablePC">
+          <area shape="rect" coords="38,306,89,320" href="#data_ESTable">
+          <area shape="rect" coords="25,334,88,345" href="#data_TotalLength">
+          <area shape="rect" coords="36,154,91,169" href="#data_ESTable">
+          <area shape="rect" coords="56,170,91,181" href="#data_inputs">
+          <area shape="rect" coords="11,182,91,195" href="#data_numfiles">
+          <area shape="rect" coords="7,196,91,209" href="#data_BeginExection">
+          <area shape="rect" coords="514,99,565,112" href="#data_ESTable">
+          <area shape="rect" coords="514,113,542,125" href="#data_IPLA">
+          <area shape="rect" coords="514,126,599,138" href="#data_BeginExection" target="_blank">
+          <area shape="rect" coords="514,139,584,151" href="#data_TotalLength">
+          <area shape="rect" coords="514,152,550,164" href="#data_inputs">
+          <area shape="rect" coords="514,165,543,178" href="#data_outs">
+          <area shape="rect" coords="110,2,747,52" href="#MainPseudo">
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+<p class=Normal><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="LoaderCPP" id="LoaderCPP"></a>Loader.cpp</font></h1>
+</div>
+<p class=MsoBodyText align="center">Need Description of loader here!!!</p>
+<p class=MsoBodyText align="center">Below is the <a href="#LoaderPC">pseudo code</a> 
+  and <a href="#FlowDiagram">overall flow diagram</a> for the Linker/Loader.</p>
+<a href="#top">[top]</a> <br>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td>
+<div align="center" class="MsoSubtitle"><a name="LoaderPC" id="LoaderPC"></a>Loader.cpp 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"> <pre><a name="MainPseudo"></a>void main(int argc, char* argv[], char* envp[])<br>{<br>	if(number of arguments &lt; 4)<br>	{<br>		error: invalid call<br>		exit program<br>	}<br>	<br>	EST_Table =  table for external symbols, up to 50 elements<br>	inputs = input stream set up like an array, for (argc - 3) arguments<br>	File_Number = integer == 0<br>	while(File_Number &lt; (argc - 3))<br>	{<br>		input line to file is opened<br>		File_Number++<br>	}<br>	<br>	Total_Length, Begin_Execution = integers == 0<br>	Total Length = return value from Loader_One(ES_Table, inputs, argc, Begin_Execution)<br>	if(Total_Length &gt; 255)<br>	{<br>		error: program is too large for memory<br>		exit program<br>	}<br>	<br>	object_out = output line from Loader to object file<br>	object_out = open to file (argc - 2)<br>	IPLA = integer value that is equal to integer (argc - 1)<br>	if((IPLA + Total_Length) &gt; 255)<br>	{<br>		error: not enough memory for program<br>		exit program<br>	}<br>	<br>	middle = input line for file to Loader<br>	middle input stream = open to file &quot;intermediate&quot;<br>	Loader_Two(ES_Table, IPLA, Begin_Execution, Total_Length, inputs, object_out, middle, argc)<br>	output &quot;Promgram ended successfully&quot;<br>	exit program<br>}<a href="#top">
+[top]</a></pre></td>
+  </tr>
+  <tr>
+    <td ><div align="center" class="MsoSubtitle"><a name="FlowDiagram"></a>Overall 
+        Flow Diagram</div></td>
+  </tr>
+  <tr>
+    <td ><div align="center"><img src="LL_Flow.jpg" width="357" height="902"></div></td>
+  </tr>
+</table>
+<p class=MsoBodyText align="center"><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="LoaderOneH" id="LoaderOneH"></a>Loader.h</font></h1>
+</div>
+<p><a href="#Loader_OnePC">Loader_One</a> is responsible for creating an external 
+  symbol table (which it does by calling Create_Table for each file which it processes). 
+  It also parses the header record of each loaded object file that it processes, 
+  in order to do the following:
+<ol>
+  <li> Find the first executable instruction (which is the first executable instruction 
+    of the first assembled object file that the user inputs on the command line)</li>
+  <li> Define each segment name as an external symbol in the EST</li>
+  <li> Output the program load address (PLA) to the <a href="#InterFile">intermediate 
+    file</a></li>
+  <li> Calculate the total length of all loaded segments</li>
+</ol>
+Finally, the total length of all loaded segments is the return value of the 
+  Loader_One function.</p>
+<p>The <a href="#Create_TablePC">Create_Table</a> procedure is responsible for 
+  building an External Symbol Table (EST), which will be used for linking purposes 
+  by the Loader. In order to do this, the input which must be passed to it is 
+  as follows:
+<ol>
+  <li> An EST header; this header should be one line, and have the format:<br>
+    <br>
+    ***Begin External Symbol Table***<br>
+  </li>
+  <li> Lines of input containing the external symbol names and addresses (seperated 
+    by one space), with a terminating period:<br>
+    <br>
+    symb1 &lt;address(in decimal)&gt;.<br>
+    symb2 &lt;address(in decimal)&gt;.<br>
+    symb3 &lt;address(in decimal)&gt;.<br>
+	...</li>
+  <br>
+  <br>
+  <li> an EST footer; this footer should be one line, and have the format: <br>
+    <br>
+    ***End External Symbol Table***</li>
+</ol>
+ 
+<p>It is important to note that the External Symbol Table is modified by Create_Table, 
+  NOT produced (i.e., overwritten). Thus, it can be called multiple times, passing 
+  the same Table each time, in order to create an external symbol table for multiple 
+  files.</p> </p>
+<p><a href="#top">[top]</a> </p>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="Loader_OnePC" id="Loader_OnePC"></a>Loader_One 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>int Loader_One(Table&amp; ES_Table, ifstream*&amp; inputs, int number_of_files,  <br>               int&amp; Begin_Execution)<br>{<br>    while (there are still files to be processed)<br>    {<br>        pass the current file to Create_Table;<br>        remove the header record from the current input stream;<br>	if (the header record is incomplete/incorrect)<br>	{<br>	    error; halt;<br>	}<br>	if (the segment name is already in the External Symbol Table (EST))<br>	{<br>	    error; halt;<br>	}<br>	put the segment name and address into the EST;<br>	add the segment length to Total_Length;<br>	output (program load address + segment length) to intermediatefile;<br>	start on the next input file;<br>    }<br>    return Total_Length;<br>}<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center" class="MsoSubtitle"><a name="Create_TablePC" id="Create_TablePC"></a>Create_Table 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>void Create_Table(Table&amp; ES_Table, ifstream&amp; inputs, int Total_Length)<br>{<br>    remove External Symbol Table (EST) header line from assembled object file;<br>    get the next line of input;<br>    while (the next line of input is not the EST footer line)<br>    {<br>        char* symbol = current line's symbol name;<br>	int address = current line's symbol address;<br>	if (the symbol is already defined)<br>	{<br>	    error; halt execution;<br>	}<br>	put the symbol into the table;<br>	get the next line of input;<br>    }<br>}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p ><a name="InterFile"></a><span class="MsoSubtitle">Sample Intermediate File</span><br>
+  The intermediate file is created by Loader_One and then passed into Loader_Two. 
+  This file is responsible for temporarily holding the relative PLA of each segment 
+  being loaded.</p>
+<p><img src="Intermediate_File.jpg" width="198" height="166"></p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'>  
+  <h1><font color="#000000"><a name="Loader2H" id="Loader2H"></a>Loader2.h</font></h1>
+  <p><a href="#Loader_TwoPC">Loader_Two</a> is responsible for outputting the 
+    absolute (i.e., linked and loaded) <a href="user.htm#samobj">object file</a>. 
+    It does this by first outputting a header record containing the necessary 
+    information, and then parsing all text records of all input files, modifying 
+    each using the IPLA, the EST, and the relative address of each segment. After 
+    the necessary values have been modified, it outputs the updated text record 
+    to the absolute object file.</p>
+  <a href="#top">[top]</a> </div>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="Loader_TwoPC" id="Loader_TwoPC"></a>Loader_Two 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>void Loader_Two(Table ES_Table, int IPLA, int Begin_Execution, int<br>                Total_Length, ifstream*&amp; inputs, ofstream&amp; outs,<br>		ifstream&amp; middle, int number_of_files)<br>{<br>    int PLA = (first line of intermediate file + IPLA);<br>    output header record;<br>    while (there are still files to be processed)<br>    {<br>        while (the current file is not empty)<br>	{<br>	    take in the first line of input;<br>	    output (address from text record + PLA);<br>	    if (S field is not relocatable)<br>	    {<br>		do nothing;<br>	    }<br>	    else if (S field is internally relocatable)<br>	    {<br>	        data field of text record += PLA;<br>	    }<br>	    else if (S field is externally relocatable)<br>	    {<br>	        if (the external relocation symbol is not defined)<br>		{<br>		    error; halt;<br>		}	<br>		data field of text record += (IPLA + value of symbol);<br>	    }<br>	    output data field of text record;<br>	}<br>	start on the next input file;<br>	PLA = (load address of next segment + IPLA);<br>    }<br>    <br>}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p class=MsoBodyText>&nbsp;</p>
+<p class=MsoBodyText>&nbsp;</p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="TableH"></a>Table.h</font></h1>
+  <p>As it is used in the Linker/Loader, the Table Class essentially functions 
+    exactly as it did for the Assembler. The Table Class consists of three basic 
+    data elements. The first is an array of <a href="#NVPDescription">Name_Value_Pair</a>, 
+    which is used to hold the op table, symbol table, or literal table names and 
+    values. The second is an integer value which represents the maximum number 
+    of items that can be held in the table. This value is set at initialization 
+    time. (Note: If this number is NOT set by the programmer at initialization 
+    time, the Table object declared will be initialized as an op table). The third 
+    data element is another integer value, which represents the number of items 
+    currently in the table. </p>
+  <a href="#top">[top]</a> </div>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="TableClassPC"></a>Table 
+        Class Requires/Ensures</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>class Table {<br>public:<br>    Table(int number_of_pairs); <br>	Requires:<br>		0 &lt;= number_of_pairs &lt;= 2^32  <br>	Ensures:<br>		An empty table capable of holding number_of_pairs elements<br>		will be created<br>
+    Table(); <br>	Ensures:<br>		An operation table for the WI03-560 Machine will be created.<br>
+    int Size();<br>	Ensures:<br>		Returns the number of name-value pairs held by the Table object<br>
+    bool Is_In_Table(char* name);<br>	 Ensures:<br>		Returns true if name is in Table; else returns false.<br>
+    int Get_Value(char* Name);<br>	 Requires:<br>		Is_In_Table(name)<br>	 Ensures:<br>		Returns value associated with name in table.<br>
+    void Put_In_Table(char* name, int value);<br>	 Requires:<br>		Table.Size() &lt; maximum size of table<br>         Ensures:<br>		Pair (name, value) will be put into the table<br>
+    int Update_Values(int added_value);<br>	 Ensures:<br>		Final value of each name-value pair will be #self + added_value and<br>		Returns added_value + [the number of name-value pairs in the table]<br>
+    void Put_Table(ofstream&amp; out);<br>	 Requires:<br>		out.is_open()<br>	 Ensures:<br>		All entries in table output to file connected to out.<br>
+    void Put_Literals(ofstream&amp; out, int loc);<br>	 Requires:<br>		out.is_open() and<br>		#self is a table of literals<br>	 Ensures:<br>		All entries in the table will be output as object<br>		code in accordance with W03-560 Machine<br>		specifications, starting at loc and ending at <br>		loc + [the number of literals in the table]<br>
+private:<br>    Name_Value_Pair* nvp; //contains an array of name-value pairs<br>    int table_size; //the maximum allowable number of pairs in the Table<br>    int number_of_items; //the current number of pairs in the Table<br>};
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="ENTTableClassPC" id="ENTTableClassPC"></a>ENT_Table 
+        Class Requires/Ensures</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>class ENT_Table:public Table {<br>public:<br>    ENT_Table(int number_of_pairs); <br> Requires:<br>		0 &lt;= number_of_pairs &lt;= 2^32  <br>	Ensures:<br>		An empty table capable of holding number_of_pairs elements<br>		will be created<br>
+    void Define_This(char* name, int value);<br> Requires:<br>		ENT_Table.size() &lt; maximum size of table.<br> Ensures:<br>    If name is in ENT_Table, then nvp.name=#nvp.name, nvp.value=value, and nvp.Is_Defined=true. 
+
+    bool All_Defined();<br>	Ensures:<br>    returns True if for all i , nvp[i].Is_Defined=true, else returns False.<br>
+    void Put_ENT_Table(ofstream&amp; outs);<br> Requires:<br>    out.is_open();
+ Ensures:
+    All entries in table output to file connected to outs.<br>};
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p><a name="NVPDescription"></a>The Name_Value_Pair Class is a simple class containing 
+  only 3 data elements (char*, int, and bool) with no member functions. It can 
+  be used in order to match a text description to an integer value and determine 
+  if the &quot;pair&quot; has been defined.</p>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td ><div align="center"> 
+        <p class="MsoSubtitle"><a name="NVPPC"></a>Name_ValuePair, Table &amp; 
+          ENT_Table Classes</p>
+      </div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><div align="center"><img src="../Assembler/object_diagram.jpg" width="392" height="257"></div></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'>
+<p class=MsoTitle><font color="#FFFFFF"><a name="KnownErrors"></a>Errata Section</font></p>
+</div>
+<p class=MsoSubtitle>Errata section of the Linker/Loader for the W03_560 Machine</p>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000">Known Errors</font></h1>
+</div>
+<ul>
+  <li>At this time there are no know errors, but this is not to say that none 
+    exist. </li>
+</ul>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+(define double (lambda (x) (b+ x x)))
+(double (double (double 2)))
+
+(define sqr (lambda (x) (b* x x)))
+(sqr (sqr (sqr (sqr (double 1)))))

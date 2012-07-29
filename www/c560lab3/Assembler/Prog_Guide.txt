@@ -1,0 +1,81 @@
+Pseudocode for Create_Table:
+
+void Create_Table(Table& ES_Table, ifstream& inputs, int Total_Length)
+{
+    remove External Symbol Table (EST) header line from assembled object file;
+    get the next line of input;
+    while (the next line of input is not the EST footer line)
+    {
+        char* symbol = current line's symbol name;
+	int address = current line's symbol address;
+	if (the symbol is already defined)
+	{
+	    error; halt execution;
+	}
+	put the symbol into the table;
+	get the next line of input;
+    }
+}
+
+Pseudocode for Loader_One:
+
+int Loader_One(Table& ES_Table, ifstream*& inputs, int number_of_files,  
+               int& Begin_Execution)
+{
+    while (there are still files to be processed)
+    {
+        pass the current file to Create_Table;
+        remove the header record from the current input stream;
+	if (the header record is incomplete/incorrect)
+	{
+	    error; halt;
+	}
+	if (the segment name is already in the External Symbol Table (EST))
+	{
+	    error; halt;
+	}
+	put the segment name and address into the EST;
+	add the segment length to Total_Length;
+	output (program load address + segment length) to intermediatefile;
+	start on the next input file;
+    }
+    return Total_Length;
+}
+
+Pseudocode for Loader_Two:
+
+void Loader_Two(Table ES_Table, int IPLA, int Begin_Execution, int
+                Total_Length, ifstream*& inputs, ofstream& outs,
+		ifstream& middle, int number_of_files)
+{
+    int PLA = (first line of intermediate file + IPLA);
+    output header record;
+    while (there are still files to be processed)
+    {
+        while (the current file is not empty)
+	{
+	    take in the first line of input;
+	    output (address from text record + PLA);
+	    if (S field is not relocatable)
+	    {
+		do nothing;
+	    }
+	    else if (S field is internally relocatable)
+	    {
+	        data field of text record += PLA;
+	    }
+	    else if (S field is externally relocatable)
+	    {
+	        if (the external relocation symbol is not defined)
+		{
+		    error; halt;
+		}	
+		data field of text record += (IPLA + value of symbol);
+	    }
+	    output data field of text record;
+	}
+	start on the next input file;
+	PLA = (load address of next segment + IPLA);
+    }
+    
+}

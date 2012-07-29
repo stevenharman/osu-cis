@@ -1,0 +1,54 @@
+Closed Lab #01 - Prelab			CIS 321			Steve Harman
+
+global_procedure Put_Tree(
+	preserves Binary_Tree_Of_Character& t,
+	alters    Character_OStream& outs
+	);
+{
+	Object Character root;
+	Object Binary_Tree_Of_Character left, right;
+
+	if (t.Size() > 0)
+	{
+		t.Decompose(root, left, right);
+		outs << root << '(';
+
+		Put_Tree(left, outs);
+		Put_Tree(right, outs);
+
+		outs << ')';
+	}
+	else
+	{
+		outs << "()";
+	}
+}
+
+
+global_procedure Get_Tree(
+	alters Text& tree_as_text,
+	produces Binary_Tree_Of_Character& t
+	);
+{
+	Object Binary_Tree_Of_Character tree, left, right;
+	Object Character ch, junk;
+	
+		
+
+	if (tree_as_text[0] == '(')
+	{
+		tree_as_text.Remove(0,ch);
+		tree_as_text.Remove(0, ch);
+		t.Clear();
+	}
+	else
+	{
+		tree_as_text.Remove(0,ch);
+		tree_as_Text.Remove(0,junk);
+		Get_Tree(tree_as_text, left);
+		Get_Tree(tree_as_text, right);
+		tree_as_text.Remove(0, junk);		
+
+		t.Compose(ch, left, right);
+	}
+}

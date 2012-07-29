@@ -1,0 +1,44 @@
+							Steve Harman
+							CIS321 HW#14
+							Long - 12:30
+1. 
+procedure_body BL_Tokenizing_Machine_Get_1 <
+        BL_Tokenizing_Machine_Base
+    > ::
+    Get_Next_Token (
+            alters Character_IStream& str,
+            produces Text& token_text,
+            produces Integer& token_kind
+        )
+{
+	while(not self.Is_Ready_To_Dispense() and not str.At_EOS())
+	{
+		object Character ch;
+		str.Read(ch);
+		self.Insert(ch);
+	}
+	if(self.Is_Ready_To_Dispense())
+	{
+		self.Dispense(token_text, token_kind);
+	}
+	else
+	{
+		self.Flush_A_Token(token_text, token_kind);
+	}
+}
+
+procedure_body BL_Tokenizing_Machine_Get_1 <
+        BL_Tokenizing_Machine_Base
+    > ::
+    Get_Next_Non_Separator_Token (
+            alters Character_IStream& str,
+            produces Text& token_text,
+            produces Integer& token_kind
+        )
+{
+	self.Get_Next_Token(str, token_text, token_kind);
+	while((token_kind == WHITESPACE) or (token_kind == COMMENT))
+	{
+		self.Get_Next_Token(str, token_text, token_kind);
+	}
+}

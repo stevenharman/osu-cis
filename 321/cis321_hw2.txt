@@ -1,0 +1,56 @@
+HW#2				CIS 321			Steve Harman
+
+1.
+global_procedure Copy_It (
+	preserves Binary_Tree_Of_Integer& t1,
+	produces Binary_Tree_Of_Integer& t2
+	);
+{
+	Object Integer root, root_copy;
+	Object Binary_Tree_Of_Integer tree1, tree2, tree1_copy, tree2_copy;
+
+	if ( t1.Size() > 0 )
+	{
+		root_copy = t1[current];
+		t1.Decompose(root, tree1, tree2);
+		
+		Copy_It (tree1, tree1_copy);
+		Copy_It (tree2, tree2_copy):
+		
+		t1.Compose(root, tree1, tree2);
+		t2.Compose(root_copy, tree1_copy, tree2_copy);
+	}
+}
+
+
+2.
+global_function Boolean Is_Fibonacci_Tree (
+	preserves Binary_Tree_Of_Item& t,
+	preserves Integer n
+	);
+{
+	Object Item root;
+	Object Boolean Is_Fib = True;
+	Object Binary_Tree_Of_Item t1, t2;
+	
+	if (t.Height() = n)
+	{
+		if (t.Size() > 1)
+		{
+			t.Decompose(root, t1, t2);
+			n--;
+			
+			Is_Fib = Is_Fibonacci_Tree(t1, n);
+			Is_Fib = Is_Fibonacci_Tree(t2, n-1);
+	
+			t.Compose(root, t1, t2);
+			n++;
+		}
+
+		Is_Fib = True
+	}
+	else
+		Is_Fib = False;
+
+	return Is_Fib;
+}

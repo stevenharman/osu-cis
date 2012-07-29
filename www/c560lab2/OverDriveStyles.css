@@ -1,0 +1,13 @@
+a { color: #9A1515; text-decoration: none;}
+body { SCROLLBAR-FACE-COLOR: #9A1515; SCROLLBAR-HIGHLIGHT-COLOR: #990000; SCROLLBAR-SHADOW-COLOR: #666666; SCROLLBAR-3DLIGHT-COLOR: #FFFFFF; SCROLLBAR-ARROW-COLOR:  #CCCCCC; SCROLLBAR-TRACK-COLOR: #FFFFFF; SCROLLBAR-DARKSHADOW-COLOR: #333333;
+	text: #999999; leftmargin: 0; topmargin: 0; marginwidth: 0; marginheight: 0; color: #333333; background-color: #FFFFFF;}.CommentSmall {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+.PseudoCode {
+	font-size: 9pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+
+}

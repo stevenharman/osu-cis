@@ -1,0 +1,93 @@
+/////////////////////
+// Matthew Wolf    //
+// CIS 630 - HW #1 //
+// Oct. 4, 2003    //
+/////////////////////
+
+-----------------------
+
+(2) Since the definition of 'rational' involves acting to achieve the best outcome (or best
+    expected outcome), then a reflex reaction such as moving your hand away from a hot stove
+    is considered rational since you are selecting the best outcome given the situation. Although
+    this reflex reaction is considered rational, this type of reaction might not be considered
+    intelligent though. Since an intelligent reaction is considered more of a deliberate thought
+    process, a reflex reaction such as the hot stove situation does not appear to possess these
+    qualities, and therefore is not considered to be an intelligent action, even though it is
+    rational.
+
+-----------------------
+
+(3) A good approach to this situation is to use sensory abilities as much as possible in order to
+    prove that you are not a chatbot. Since an advanced chatbot would be able to reason with valid
+    sentences provided by the person at the other end, it is important to try getting the person to
+    give sentences and phrases that are not complete or standard in any way, yet are able to be read
+    by an ordinary human. More specifically, humans are able to recognize words primarily by the
+    first and last letters in the word, and usually skim across the words in the middle. Since this
+    is the case, the person at the other end can create words that almost look like words humans
+    know, so that the chatbot would become confused with the word, yet a human can recognize it. To
+    illustrate what I mean by saying this, most humans should be able to read the following few
+    sentences:
+
+    It deosn't mttaer in waht oredr the ltteers in a wrod are, the olny iprmoatnt tihng is taht the
+    frist and lsat ltteer be at the rghit pclae. The rset can be a total mses and you can sitll raed
+    it wouthit porbelm. Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the
+    wrod as a wlohe.
+
+-----------------------
+
+(4) A test to determine the intelligence between two humans should first include some sort of
+    environment. This should be set up in a competitive multiagent environment, since the point of
+    the experiment is to find out which of the two humans is more intelligent. From this competitive
+    environment, a performance measure should be deciphered, so that both parties can strive to
+    obtain the higest performance measure. Since it is a competitive environment, the positive
+    actions made by one human negatively affects the performance measure of the other, and vice versa.
+    A good test would also include a variety of environments as well, to make sure that the human
+    with the highest performance measure in one environment is better in practically all the
+    environments. This would of course make the test more robust as a whole. An example of one such
+    competitive environment that could used is the game of chess. This sort of game fits all the
+    criteria listed above, with the performance measure being to win the game.
+
+-----------------------
+
+(5) If a chess program can continuously beat its creator at chess, then it is capable of storing more
+    information about future occurances and the consequences of its actions than the actual programmer.
+    This simply means that the chess program has made better rational decisions in the environment
+    than the programmer at chess, indicating that the program is more intelligent at chess. It is
+    important to distinguish overall intelligence and intelligence at a specific task though, since
+    the programmer is of course more intelligent than the program at all other tasks possible.
+    Considering the quote about machines not being intelligent, this statement is invalid considering
+    a machine is able to compute many more possibilities in a much shorter time than humans currently
+    are able to, thus allowing the machine to make better rational decisions in chess. This technically
+    means that the machine is more intelligent than the programmer for the specific task of chess since
+    the machine can make these kinds of extremely rational calculations.
+
+-----------------------
+
+(6) Copper Caper (1999)
+
+    In this particular story, Wayne incorrectly identified the piece of metal to be a copper pipe, instead
+    of the aluminum pipe holding 11,000 volts of power. Basically, his sensors failed to realize what the
+    "world is like now", and therefore, after his actions of cutting the pipe, he got unexpected results.
+    In more technical terms, Wayne initially failed to correctly translate perceptions into knowledge,
+    which in turn led to the failure of correctly choosing actions.
+
+    Bees 1, Humans 0 (2002)
+
+    In this beehive story, the farm keeper positively identified the situation with his sensors, made a
+    good decision/action in terms of protecting his head from the bees with the plastic bag, but failed
+    to identify fully what his actions would do. Although the bag would have protected his head from the
+    bees to a certain extent, he did not grasp the fact that putting the bag over his head would also
+    take all his oxygen away from his lungs. More technically, the farm keeper failed to correctly model
+    the effect of his actions on the state of the world, and therefore did not identify one particular
+    effect that turned out to be fatal.
+
+    I Can't Swim! (2002)
+
+    In this swimming story, the boat operator positively identified the water, yet failed to realize
+    his own capabilities, and acted in a poor manner. The boat operator correctly identified "what the
+    world is like now", yet failed to realize "what it will be like if he jumps in the water". Apparently,
+    he didn't realize the fact that he can't swim at the moment when he jumped in the water. More
+    technically, the boat operator failed to correctly assess which actions he could perform given the
+    state of the world, and therefore ended up drowning.
+
+-----------------------

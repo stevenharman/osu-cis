@@ -1,0 +1,310 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Processor_files/filelist.xml">
+<title>Processor</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author> </o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor> </o:LastAuthor>
+  <o:Revision>9</o:Revision>
+  <o:TotalTime>82</o:TotalTime>
+  <o:Created>2003-01-29T04:30:00Z</o:Created>
+  <o:LastSaved>2003-01-29T05:52:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>614</o:Words>
+  <o:Characters>3505</o:Characters>
+  <o:Company> </o:Company>
+  <o:Lines>29</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4111</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span class=SpellE><b style='mso-bidi-font-weight:normal'><u>Processor.h</u></b></span><b
+style='mso-bidi-font-weight:normal'><u><o:p></o:p></u></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u><o:p><span
+ style='text-decoration:none'>&nbsp;</span></o:p></u></b></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>In addition
+to holding the array of integers that represents the registers of the W03-560
+machine, the Processor class does the bulk of the work for the Simulator, as is
+suggested by the name of the function <span class=SpellE>Processor::Do_This</span>.
+A programmer who wants to understand or modify the inner workings of the
+machine would do well to understand the various operations and data structures
+that the Processor class makes use of in order to execute the instructions
+given to the simulator.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u>Global Variables<o:p></o:p></u></b></p>
+
+<p class=MsoNormal>&lt;<span class=GramE>insert</span> table of global
+variables here, including constants defined globally&gt;</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><b
+style='mso-bidi-font-weight:normal'><u>Constants:<o:p></o:p></u></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-tab-count:1'>            </span>The
+16 constants defined globally for any Processor object are utilized by <span
+class=SpellE>Do_This</span> in order to simplify the main switch statement in <span
+class=SpellE>Processor::Do_This</span>. The switch parameter is the op code
+which has been parsed from the instruction in <span class=SpellE>Machine.h</span>.</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><b
+style='mso-bidi-font-weight:normal'><u>Private Data and Operations:<o:p></o:p></u></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-tab-count:1'>            </span>Processor
+objects hold 2 pieces of data crucial to the operation of the Simulator for the
+W03-560 machine. The first is <span class=SpellE>P_Counter</span>, which is an
+integer representing the machine’s program counter (or PC). The second is <span
+class=SpellE>reg_array</span>, an array of integers that holds the values of
+the W03-560’s 4 general purpose registers. <span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'>The private
+operations for Processor objects mainly do small but important and repetitive
+tasks. Due to their extensive use, however, it is necessary to understand their
+operation to some level of detail. It is also important to keep in mind that,
+because the Simulator has been written in C++, using its built-in 32-bit data
+type <span class=SpellE><i style='mso-bidi-font-style:normal'>int</i></span><i
+style='mso-bidi-font-style:normal'> </i>extensively, many of these helper
+functions have no other purpose but to make the conversions that are necessary
+to correctly represent 20-bit values. Perhaps most interesting are the <span
+class=SpellE>Is_Negative_Value</span> and <span class=SpellE>Leading_Ones</span>
+functions, which test the lower 20 bits determine whether or not the value of
+an integer is negative in 20-bit two’s complement, and convert an integer to a
+32-bit two’s complement integer, respectively. Conversely, there is the <span
+class=SpellE>Leading_Zeroes</span> function, which effectively converts said
+negative integer back to a form <span class=SpellE>representable</span> in
+20-bit two’s complement.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Leading_<span class=GramE>Ones</span></span><span
+class=GramE>(</span><span class=SpellE>int</span> x)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+style='mso-spacerun:yes'> </span><span style='mso-spacerun:yes'> </span>Return value
+#x|0xfff00000</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Leading_<span class=GramE>Zeroes</span></span><span
+class=GramE>(</span><span class=SpellE>int</span> x)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>return</span> value #x&amp;0x000fffff</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Is_Negative_<span class=GramE>Value</span></span><span
+class=GramE>(</span><span class=SpellE>int</span> x)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>if <span style='mso-spacerun:yes'> </span>(</span>x &gt;=
+0x00080000)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+style='mso-tab-count:1'>            </span><span class=GramE>then</span> <span
+class=SpellE>Is_Negative_Value</span>(x) </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::S_Of_<span class=GramE>X</span></span><span
+class=GramE>(</span><span class=SpellE>int</span> s, <span class=SpellE>int</span>
+x)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>if</span> (x = 0)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+style='mso-tab-count:1'>            </span><span class=GramE>then</span> return
+value s</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>else</span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:3'>                                    </span><span
+class=GramE>return</span> value s + <span style='mso-spacerun:yes'> </span><span
+class=SpellE>reg_array</span>[x]</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Is_<span class=GramE>Overflow</span></span><span
+class=GramE>(</span><span class=SpellE>int</span> x)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>if</span> (x <span style='mso-spacerun:yes'> </span>&gt; 0x000fffff
+and x &lt; 0xfff80000)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+style='mso-tab-count:1'>            </span><span class=GramE>then</span> <span
+class=SpellE>Is_Overflow</span>(x)<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Is_Printable_<span
+class=GramE>Ascii</span></span><span class=GramE>(</span>char c)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Ensures</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span><span
+class=GramE>if</span> c has an ASCII value is the set {9, [32, 126]}</p>
+
+<p class=MsoNormal><span style='mso-tab-count:3'>                                    </span><span
+class=GramE>the</span> <span class=SpellE>Is_Printable_Ascii</span>(c) </p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><b
+style='mso-bidi-font-weight:normal'><u>Public Operations:<o:p></o:p></u></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-tab-count:1'>            </span>When
+considering calls made to them by other classes of the W03-560 machine
+simulator, the public operations of the Processor class are used just as
+frequently as the private operations. They are more in the forefront of the
+simulation of instructions, however. It may help to think of the private
+operations in terms of those which do non-trivial “behind-the-scenes” work,
+whereas the public operations cause actual changes to occur in data. They are indispensable
+for data access, both in terms of input <i style='mso-bidi-font-style:normal'>and
+</i>output. Because of the obvious nature of the workings of most of the public
+operations, as well as the fact that most of them are one or two lines of code at
+the most, the <span class=SpellE>Do_This</span> function will be concentrated
+on here. For more information on the other public functions, a simple glance at
+the source code should suffice</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE>Processor::Do_This</span>(Memory&amp;, <span
+class=SpellE>int</span> OP, <span class=SpellE>int</span> R, <span
+class=SpellE>int</span> X, <span class=SpellE>int</span> S, <span class=SpellE>fstream</span>&amp;
+<span class=SpellE>aux_in</span>, <span class=SpellE>fstream</span>&amp; outs, <span
+class=SpellE>fstream</span>&amp; <span class=SpellE>t_outs</span>)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Requires<span style='mso-tab-count:1'>           </span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>0 &lt;= OP
+&lt;= 15 and</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>0 &lt;= R
+&lt;= 3 and</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>0 &lt;= X
+&lt;= 3 and</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>0 &lt;= S
+&lt;= 255 and<o:p></o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=SpellE>aux_in.is_<span class=GramE>open</span></span><span class=GramE>(</span>)
+and</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=SpellE>outs.is_<span class=GramE>open</span></span><span class=GramE>(</span>)
+and</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=SpellE>t_outs.is_<span class=GramE>open</span></span><span class=GramE>()</span></p>
+
+<p class=MsoNormal>Ensures</p>
+
+<p class=MsoNormal style='margin-left:.5in'>[The required operation, as
+specified by OP, will be executed in accordance with the instruction format of
+the W03-560 machine, returning a value of false after each instruction if instruction
+execution is to continue, and true if instruction execution is to halt after
+the current instruction.]<o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+				CIS222 Hw#11			Steve Harman
+1)a.	the while loops don't have to check |t|>0 b/c the character X is added at
+	the very beginning, so you know that |t|>0.  There will be no violated 
+	assertion where t is an empty string b/c t is no longer empty.
+
+  b.	RFW_3, if t.Length() > 0 and there exists a separator in t[0] it is added 
+	to the front of w (the if statement nested inside the nest else statement).
+
+  c.	RFW_2, it checks to see if there is anything in t (t.Length() > 0) before 
+	doing anything else and therefore not wasting as much time as the sentinel 
+	version.
+
+2)	object Stack_Of_Character temp;
+   	object Character ch;
+
+	while (self.Length() > 0)
+	{
+	  self.Pop(ch);
+	  temp.Push(ch);
+	}
+
+	self &= temp;

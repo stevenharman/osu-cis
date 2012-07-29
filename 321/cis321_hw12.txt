@@ -1,0 +1,11 @@
+									Steve Harman
+									CIS321 HW# 12
+									Long - 12:30
+2. The value of self after a call to the Parse operation for Program would be each of the
+tokens for all of the terminal symbols with all the whitespaces, comments, and other "for
+human consumption" elements  removed.
+
+3. Parse will parse all of the blocks which are not of kind BLOCK, and Parse_Block will
+parse block of the type BLOCK.
+
+4.

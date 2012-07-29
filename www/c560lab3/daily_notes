@@ -1,0 +1,151 @@
+3/3/2003 Created lab3 directory in /n/silver/2/c560ab04/ and copied
+over all files from lab 2 (renaming Assembler.cpp to
+Loader.cpp). Added lab3 to CVS.
+
+--later on-- Changed Loader.cpp back to Assembler.cpp.
+
+~Cliff
+
+3/4/2003 Moved all of the docs for the Assembler into lab3/doc folder
+(we're going to need them anyhow) and added an APPENDIX to the user
+and prog. guide.  I guess meeting minutes will need updated, as will
+the final source code for Assembler (and of course we're going to need
+to add stuff the the APENDIX of both prog and user guides as we change
+the actual code).  Not sure if test.htm will need updated or not?
+prob will.  you should be able to get everything by useing 'cvs
+update'.  also, we'll prob need a different type of index.htm, since this
+lab deals with the assembler, linker/loader, and to some extent the
+simulator.
+
+Later-- Added to table.h- ENT_Table class is derived from Table,
+added new data field to Name_Value_Pair class (it's bool Is_Defined).
+Pass_One now checks for the existence of ENT and EXT pseudo-ops (but
+it doesn't do anything with them.
+~Steve
+
+3/5/2003 Started in on creating the Loader (Loader.cpp,
+Loader.h). Basically, what I need the modified Assembler to do is
+output the ENT tables at the beginning of each assembled file that it
+outputs. That way, when Loader is reading in each of the files that
+are passed to it, it can assemble its own external symbol table
+accordingly. I was thinking we could output it in the following
+format:
+
+***Begin External Symbol Table***
+symb1 <address(in decimal)>.
+symb2 <address(in decimal)>.
+symb3 <address(in decimal)>.
+***End External Symbol Table***
+
+That way, it will be easy for the loader to determine how far to parse
+into each input file.
+
+--later--
+
+Okay...as of right now, Loader will take input files correctly and
+create a correct symbol table (w/o error checking). I also created an
+ent_table and an ext_table in main(), and filled in the IF/ELSE part 
+that pertains to the respective pseudo-ops ENT and EXT. Added the
+output of the ENT table to the beginning of Pass_Two (by adding a
+Put_ENT_Table into the ENT_Table class). I'm also going to try and add
+something that will let us update the values in the ENT table (like a
+Get_ENT_Symbol in the ENT_Table class, or some such). B/c we need to
+have some way to define the addresses of the internal symbols. Lastly
+(I hope), I'm going to put in some kind of a boolean to check and see
+if the symbol being used in the S field of a line is an external
+symbol. If it IS, I'll have it output the appropriate external symbol
+preceeded by an X (as opposed to the M).
+
+--later still--
+
+Got Loader_One and Loader_Two to compile...haven't tested them yet,
+but I think they're about done. Added in checks to make sure that all
+the programs being loaded don't go past M[255]. 
+
+~Cliff
+
+3/5/2003 Ok, Fixed the Assembler to handle (Using Pass_One to parse
+source code for ENT and EXT symbols, build the ent_table and
+ext_table, ect... and Pass_Two to output corresponding text records, 
+etc...)  The good news, it compiles, the bad news... Segmentation
+Fault at run time!!!
+~Steve
+
+3/6/2003 (the wee hours) Steve - it took me a while, but I found the
+problem. strcpy doesn't like it when you try and pass it a char* as
+the destination. So I changed symbol to a char[6], and it seems to be
+working now. Just gotta set up P2 to output a correct header, and we
+might be in business...
+
+Got the header file o/p'ing correctly...gotta go in and change
+Table::Output_Literals now. Okay...had to fix a few minor things (like
+putting a relocatable = false in Get_S)...testing again...
+
+
+--4AM-- Okay...it's so friggin' close, I can't stand it. Something is
+wrong with the way the loader handles relocatable addresses, and I
+can't quite figure out what it is.
+
+
+--almost 6-- Well...it's a problem with literals. I've narrowed it
+down that far, at least. Just can't quite figure out where the problem
+lies...
+
+
+--6:10AM-- SUCCESS!! :D The Assembler assembles it, the Loader loads
+it, and dammit, the Simulator simulates it! That damned literal error
+was the only problem...but it WORKS now! :)
+
+~Cliff
+
+3/6/2003  Okay...I fixed up Loader so that it puts the Segment Names
+into the EST (of course, checking to make sure they're not already
+defined). Also, I changed that damned "Being program output" in
+Simulator to "BEGIN program output". :) 
+
+~Cliff
+
+3/9/2003 Changed Loader.h slightly, so that it will spit out an error
+message and halt if the user attempts to load an absolute program.
+
+~Cliff
+
+3/12/2003 Started in on Programmer's Guide. So far, I've got
+pseudocode for Loader_One, Loader_Two, and Create_Table. Still need to
+talk about Loader in general, describe the changes to the Table class
+(i.e., write something about the new class ENT_Table -- Steve, you
+might wanna do that), and make a data element table.
+
+--later on--
+
+Finished up the Data Element Table and emailed it.
+
+~Cliff 
+
+3/13/2003 I've added the Lab1 (Simulator) documentation to the
+Lab3/doc/Simulator/ directory.  I am also going to move all of the
+Lab2 (Assembler) documentation to a folder Lab3/doc/Assembler/. Also,
+I've decided for unity that ALL documentation for the Linker/Loader
+should go into directory lab3/doc/LinkerLoader/.  This way we can
+create an index.htm in the lab3/doc/ folder which will point to each
+part (Simulator, Assembler, Linker/Loader) of the system.  I need
+Ankit to add all the the stuff he's been working on to the CVS so we
+can re-organize stuff.
+
+--later
+Okay, i think all of the docs are now in the correct
+folders.  Need to update stuff for Modified Assembler, and create docs
+for Linker/Loader.
+
+-- later on -- i believe i've got the Assembler user and prog guide
+fixed up (except for error stuff) and now i'm working on the 
+LinkerLoader prog.htm
+
+-- Ok, now it's much later in the day... Mike is running test plans,
+Cliff and Ankit have finishe debugging the Linker/Loader, and I have
+finished up the LL prog.htm (complete w/ lots of pretty pictures), as
+well as the Mod-Assembler prog.htm and user.htm.  Ankit is now working
+on the LL test.htm, and modifying the ASS test.htm.  Cliff is working
+on meeting minutes.  I am going to start on the Integration Guide.
+
+~Steve

@@ -1,0 +1,39 @@
+CIS222 HW#4:								Steve Harman
+
+A)
+object Character_OStream output;
+object Character ch;
+object Text t;
+
+s.Clear();
+
+input.open_external();
+//output.open_external():
+
+//output << "Please enter line of text";
+
+while (not input.At_EOS())
+	{
+		input >> t;
+		
+		if (not s.Is_Member (t))
+		{
+			s.Add (t);
+		}
+		else
+		{
+			t.Clear();
+		}
+	}
+
+//output.close_external ();
+input.close_external ();
+
+
+B)
+	i. ""
+	ii. "Hello"
+	iii. "Hello there!"
+	iv. 	"Here is a line"
+		"and another"
+		"and another..."

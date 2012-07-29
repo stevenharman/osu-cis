@@ -1,0 +1,6 @@
+					CIS222 Hw#11				Steve Harman
+
+1)a.  A company's payroll database, an ID_Name_Table, or a list of OSU's student information.
+
+  b.  no, b/c with a record no field is more important than any other, also you can have
+      identical entries in the first field, but you can't in a partial map.

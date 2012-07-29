@@ -1,0 +1,38 @@
+				CIS222 hw#20			Steve Harman
+
+1.
+function Hash(
+	alters Text phone,
+	produces Integer number
+	)
+{
+	object Character ch;
+	object Text t;
+	
+	while(phone.Length() > 0)
+	{
+		phone.Remove(0,ch);
+		
+		if(ch != '-')
+		{
+			t.Add(t.Length(), ch);
+		}
+	}
+	number = To_Integer(t);
+	return number;
+}
+
+2.A.
+	If you were to use the same implementation for both 292-6446 and 292-OHIO you 
+	would get two different integer values and so two different mappings to the phone
+	number.
+B.	
+	For the hash function to handle this problem i would use a partial map that had each
+	possible character (0-9 and A-Z) and the integer associated with that character on a
+	phone (the integers 0-9).  Then you could use the partial map to find the integer you
+	need.  So if the character was 'D', you would get the integer 3 back, the character 'T' 
+	would return the integer 8, and the character '5' would return the integer 5.  In this way
+	you would always have the correct integer for any phone number.
+C.
+	This case could be handled by simply adding to the partial map the characters a-z
+	the integers associated with them.

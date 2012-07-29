@@ -1,0 +1,82 @@
+Get_Fitness_Record(
+	alters Character_IStream& input,
+	produces Fitness_Record& fr
+)
+{
+	field_name (Fitness_Record, 0, Queue_Of_Integer, rates);
+    	field_name (Fitness_Record, 1, Integer, min);
+   	field_name (Fitness_Record, 2, Integer, max);
+   	field_name (Fitness_Record, 3, Real, fq);
+	
+	object Text t;	
+	object Queue_Of_Integer t_rates;
+	object Integer t_min, t_max;
+	object Real t_fq;
+
+	while(not input.At_EOS())
+	{	
+		object Integer num;
+		input >> t;
+		num = To_Integer(t);
+		while(num > 0)
+		{	
+			object Integer value;
+			input << t;
+			value = To_Integer(t);
+			t_rates.Enqueue(value);
+			num--;
+		}
+			
+	}
+	Fitness_Record[rates] &= t_rates;
+	
+	Find_Min_And_Max (fr[rates], fr[min], fr[max]);
+	fr[fq] = Fitness_Quotient (fr[min], fr[max]);
+
+}
+--------------------
+Find_Min_And_Max(
+	preserves Queue_Of_Integer& q,
+	produces Integer& min,
+	produces Integer& max
+)
+{
+	object Integer temp, count;
+	min = q[current]
+	max = q[current]
+	
+	while(count < q.Length())
+	{
+		q.Dequeue(temp);
+		if(temp < min)
+		{
+			min = temp;
+		}
+		else if(temp > max)
+		{
+			max = temp;
+		}
+		count++;
+		q.Enqueue(temp);
+	}
+}
+--------------------
+Fitness_Quotient(
+	preserves Integer min,
+	preserves Integer max
+)
+{
+	object Integer sum, fq;
+
+	sum = min + max;
+	if(sum == 0)
+	{
+		return sum;
+	}
+	else
+	{
+		fq = (2*min)/(sum);
+		return fq;
+	}
+
+}

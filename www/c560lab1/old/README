@@ -1,0 +1,364 @@
+hey guys, i started getting the skeleton of the Machine Class put 
+together today... i'm having a little trouble remembering how to 
+include headers and stuff and making sure they aren't imported more 
+than one time... i'll do some research later and try and figure it 
+out.
+
+~Steve
+
+1/16/2003 Okay...I wrote ops.cpp, which is basically some of the simpler
+functions (minus any error checking). We can cut and paste out of it
+into whatever header files we need to. I included some pretty decent
+comments at the top of it; you might wanna check it out. I also went
+ahead and declared the global variables in Machine.cpp.
+
+~Cliff
+
+
+1/17/2003 Check out conversion.cpp. We can cut and paste it for our
+Hex_To_Decimal operation (modififed a bit, and minus the output
+stuff). 
+
+~Cliff
+
+1/21/2003 Put in a few more header files, and added quite a bit of
+code to the Machine class. (When comiled and run, the simulator
+gets as far as loading all the instructions into 'memory'.) 
+I also definded the hex value of each
+operation as a constant with that operation's name. Changed the name
+of Decimal_To_Hex to Text_To_Hex. Cut-and-pasted the operations from
+ops.cpp into the appropriate class definitions. Note: the Put operations look pretty bad as of right now, cuz I can't get the formatting stuff to work. I'll work on it, though... 
+
+
+~Cliff
+
+1/21/03--if you see Machine2, it is just a copy of the executable b/c i don't have access
+to Machine1
+
+~Mike
+
+1/23/03 Went thru all of the exisiting code and added all variables, 
+functions, and procedures to programmerguide.htm. Made some 
+variables w/in Processor and Memory classes 'private' rather than 
+public. Added default constructor and deconstructor for Memory 
+objects, constructor sets all adresses of memory w/ a Halt & Dump 
+instruction. Changed Machine.cpp to Simulator.cpp which will pull in 
+Machine.h, Memory.h, and Processor.h, Simulator.cpp now contains the 
+Main() and uses the other classes to simulate the system.
+
+Guys, I was trying to get some of the simulation done and noticed a 
+big problem in the way the system is designed as of now... right now 
+Main() has 3 objects: Machine m, Memory mem, and Processor p... but 
+this is not right...Main() should have a Machine m, and then m has 
+Memory mem and Processor p.  Main() is only intended for 
+userinterface, and Machine is supposed to take care of the rest by 
+using mem and p. So... the overall design needs to be modified, and i 
+want to meet w/ you guys to discuss this on Thurs, so someone call my 
+cell at 614.266.8156 when you get to the lab and i'll come down.
+
+OK... so i got all of the stuff from the old Main() moved into 
+Machine and set up Main() to do a user interface... I'm still stuck 
+on how to extract the needed bits from the integer representing 
+memory, but i'm going to try and figure it out tomrrow at work.  
+Also, all of the old Main() and Machine.h are under Simulator_old() 
+amd Machine_old.h. Also, i added some new variables and functions 
+which aren't listed in the programmerguide.htm, so we'll have to 
+revamp that as well.
+
+after you compile the new Simulator.cpp just run the executable w/ no 
+command line parameters... the Simulator now has a User Interface.
+
+ ~Steve
+
+1/23/2003 Changed Text_To_Hex to call a new function Char_To_Text
+(note: the functionality of Text_To_Hex has NOT changed). Modified the
+case_select in Simulator.cpp to include trace, dump. Implemented trace
+and dump operations. Modified Put_Mem to accept a position and a
+length. Added booleans for various reasons [(trace/no trace) and (prog
+loaded correctly/prog NOT loaded correctly)].
+
+
+1/23
+I was wondering how can we access Memory and its functions if the instructions
+(like STORE, I/O) are done in Processor instead of Simulator?
+
+-MIKE
+
+1/23/03
+Got Memory.h all up and going... added member functions to take care
+of all memory accesses and for 'parsing' the OPCodes.  Reworked
+Machine.h so that it has  seperate Load and Simulate
+procedures. Worked on Processor.h and added a case_select to take care
+of the different OPs, and started implementing each OP. LD and LDI are
+on the way but need to have checking for Overflow added, and need to
+get the Trace working in them.
+
+Noticed an oddity in the dump of memory... the memory address are
+suppposed to be decimal ints so it should be like 
+1:c0c0 2:c0c0... 9:c0c0 10:c0c0 11:c0c0 12:c0c0... 
+but instead it goes 
+...9:c0c0 a:c0c0 b:c0c0... f:c0c0 10:c0c0 11:c0c0...
+I don't understand what's going on... something isn't right, but after
+7 hrs working on this my brain is a bit fried, so maybe one of you
+guys will see the problem.
+Well i think if fixed it... i used printf() to output the memory
+address and it looks better.
+
+compile and run the program and use f as your input file... i changed
+the first TextRecord so that i THINK it will will load the data from
+mem_array[64] into R[1]... but it instead seems to be using
+mem_array[43]. I can't figure this out either.
+
+I just added the SHL and SHR OPs to Processor.h, and also have the trace working with 
+them... i just have one small problem... I'm not sure how to keep track of wether or 
+not the number in the register is positive or negative (in 2's complement).  Any Ideas?
+
+~Steve
+
+1/24/2003 Getting some strange results, here, gentlemen. I'm trying to test our
+little simulator here. It loads the input file just fine. When I go to
+simulate this file, it gives me a segmentation fault. That alone, I could
+deal with; BUT, if I do a dump of memory/registers first (after
+loading, before simulating), it works just fine. Anyone have any
+ideas? (Should I just close my eyes and hope it goes away?)
+
+*** Found the soultion - somthing wrong with Get_U1. Don't have time
+to fix it, though...Try commenting out the line that calls it in
+SImulate_This, recompiling, and running...no segmentation fault! ***
+
+Other than that, I uncommented the ST and OR operations, and put in all the old/new
+register/memory output stuff for them. (Hope there wasn't some great
+reason they were commented out...)
+
+~Cliff
+
+1/24/2003 Ok guys, i've got the problem witht the segmentation fault fixed.. after much 
+debugging i tracked down the problem.  Somehow the the call to Get_X() from Machine.h 
+got erased (or not put in) and so when Do_This() of processor.h tried to use X it was 
+getting a segmentation fault, so i put Get_X() back in and all seems to be working 
+well.
+
+I also added the BR (Branch unconditional) OP... it's long and looks kinda messy but 
+you have to deal with all of the S(x) stuff.  The only thing i left out of it was 
+checking for overflow b/c i'm not sure how to do that... but if you guys know how there 
+are sevearl comments that say "//need to check for overflow??? and not sure about the 
+Value range error", and that is where the checking should be done.
+ 
+~Steve
+
+1/24/2003 I just created Twos_Com.cpp, which basically takes any int
+object and makes it the opposite sign, using two's complement
+rules. (It does a NOT, and adds one). I'm thinking we can cut and
+paste this into a seperate operatiopn to be called when doing
+arithmetic operations, so that when we go to store the values that we
+get from these operations, they're 2's complement 20-bit ints. (This
+way, we don't have to worry about 12 leading 0's). Unfortunately, I
+think this might be all I get done tonight, but I'll most likely be
+working onthe lab on Saturday, too. 
+
+~Cliff
+
+1/25/2003 Okay...I put int Twos_Comp(int) into Processor.h. I don't
+think it's going to work quite like we want it to, though. I'm going
+to work on it some more...GOT IT. I renamed it Leading_Ones, b/c it
+now OR's the int passed to
+it with 0xfff00000 (effectively putting 1's in the most significant 12
+bits of the int). We can use this function to change our 20-bit
+negative integers into a 32-bit negative integer with the same value,
+which will make arithmetic operations go a lot more smoothly. I'm
+going to make another op (called Leading_Zeroes) to convert them back 
+afterwards, so that we can store them as 20-bit integers. I did a bit
+of research into just what values we can consider to be negative, and
+0x80000 to 0xfffff (-524288 to 524287 in 20-bit 2's comp) is our
+range. This range in 32-bit 2's complement is from 524288 to
+1048575. In other words, values within this range (inclusive) should
+be considered to be negative by our machine, and thus converted using 
+Leading_Ones before any arithmetic operations are done on them. As for
+overflow error, I'm still working on that one...Changed Simulator.cpp
+so that it will now take the filename to be processed from the
+command line.
+
+~Cliff
+
+1/26/2003 The wee hours...and I'm still at it. Okay, I've done
+something of a major overhaul, here, b/c things were getting so
+complex, they couldn't be understood. (I'm talking mostly about Processor.h. 
+Here's the breakdown:
+	1) Implemented global int error_code, which will keep track of
+	the error when necessary
+	2) Implemented an error system by numbers (as discussed), with
+	error numbers to be in the User's Guide.
+	3) Added int Is_Negative_Number(int) and int S_Of_X(int, int)
+	to the processor class, to clean things up in Do_This.
+	4) Removed all booleans and operations having to do with
+	tracing (since Heym said we needn't check with the user to see
+	if he wants to trace or not, and b/c it was making things all
+	confusing...too many if's)
+	5) Finally, implementation of error-checking within actual
+	operations, and general cleaning up (which I'm still working
+	on).
+And here's a list of Error Codes:
+    #0 - No Error
+    #1 - U1 or U2 != 0
+    #2 - unknown op code
+    #3 - Invalid memory address (<0 or >255)
+    #4 - arithmetic overflow
+    #5 - divide by 0
+    #6 - shift exception (>19 bit shift)
+    #7 - time limit exceeded (>200 instructions)
+    #8 - illegal characters in input record
+    #9 - PC > 255
+
+#7-#9 are fatal errors, resulting in a dump and exit
+We might need to modify this a bit, but its a good start
+
+A note on "if (imm > 0x000fffff || imm < 0xfff80000)":
+  Basically, this is done after S_Of_X(S, X) in LDI. If a negative and
+  a positive are added together, there can be no overflow in 2's
+  complement, so it isn't necessary to check for it. If a positive and a
+  positive are added, it is possible for overflow to occur into the
+  21st bit (hence > 0x000fffff). If two negatives are added
+  (S_Of_X(int, int) uses Leading_Ones(int) to convert these to 32-bit
+  negative integers), it is possible for negative overflow to
+  occur. Negative overflow is any value that is less than 0xfff80000.
+  (I have a feeling I'll have to explain this in more detail some
+  time this week...it took me a while to come up with it. Feel free to
+  ask.) I decided to put this into a seperate operation, since it's
+  used so much.
+
+Alright, guys. It's almost 5 AM, and I can't do this any more. My eyes
+are about to bleed. I got as far with the reformat as IO, and I just
+can't do it any more. Steve - Sorry I changed a lot of that boolean
+stuff around; I'm not sure how it will affect some of the things you
+did (mostly the branches), but all changes I've made were
+relatively easy to do without the boolean. The returning
+error numbers thing might even be able to be done away with (if we
+just pass the error numbers to an error class, which seems to make
+more and more sense as I work on this...for now, I just put cerr <<
+error number). Ankit - Most of the code should be more
+readable/understandable now, so you might want to take another look at
+how things are layed out. I don't know how it will affect any
+documentation you might have done. Mike - I changed some of the things that you
+did, too, but mainly because I put in operations to do some of the
+repetitive stuff in them. Strong work, my man. G'night, all...
+
+~Cliff
+
+1/26/2003 Put Increment_PC() at the end of the case_select. Put
+Text_To_Hex and Char_To_Hex into Processor class, as well (maybe we
+could make these global?) Finished up I/O...it's a little iffy,
+though. We'll have to see how well it works, come testing time.
+
+~Cliff
+
+
+1/26 - i was thinking that we might to account for errors in the error-
+checking codes, for instance in the branching instructions, what if the opcode
+equals "BRZ" the register R doesn't equal zero. Cliff - i went over the IO and
+changed str[8] => str[9] b/c str[n] contains spaces indexedfrom 0 to (n-1). 
+you should check if that doesn't throw code but i dont think it would
+
+-MIKE
+
+1/28/2003 Set up Simulator.cpp to accept 2 input files and 2 output
+files on the command line, and pass the ifstreams and ofstreams to the
+necessary functions (namely, Load_This and Simulate_This). Moved
+Dump_Mem to Memory.h, and Dump_Regs to Processor.h. I'm having some
+problems passing ifstreams and ofstreams between functions. When I
+compile, its giving me an error for 2 of the passes, and I can't see
+what's wrong with it. Any help? I tried making them all fstreams...still giving me an error in Memory.h?
+
+~Cliff
+
+1/28/2003 Cliff, I fixed the problem you were having passing the ifstream and ofstream 
+b/t functions... you need to pass them them reference instead of by value, so now a call 
+looks like this "Do_This(fstream&, fstream&, fstream&);   Do_This(fstream& main_input, 
+fstream& outs, fstream& t_outs)" and it all compiles.
+
+also, i'm going to go into processor.h and redirect all of the cout stuff to t_outs, 
+and reformat a memory dump in memory.h.
+
+OK, I made Do_This returna boolean which tells us wether or not to HALT execution and 
+then set up Simulate_This to check for it and act appropriatly.  I also set up all of 
+the operations (LD, LDI, ADD...) to return the appropriate boolean.  Then i posted a 
+question on the newsgroup trying to figure out which output_file gets what... and then 
+directed all of the outputs so they are like i understand them to be... just read the 
+newsgroup posting and you'll see what i mean.  If i misunderstood how the outputs are 
+to be directed then i'll go back thru and set them up right... but i believe are are 
+correct.  Also, if you compile the prog and then run it with "f1" as your main input 
+and "aux_in" as  your aux input the program seems to run and exit fine... i'm just not 
+sure about the IO R=2... it is outputtin 8 chars like it should but they are "^L" which 
+is a 'Ctrl Shift L'... so i'm not sure what that is... of course this could be because 
+of the aux_in file.  we need a good main_in and aux_in file to do some real testing.
+
+ ~Steve
+
+1/28/2003 Changed cin>> in IO op to aux_in.
+
+1/28 - Please disregard the files:  ts_i, ts_to and ts_o in the 
+documentation b/c i'm only using them to produce the scripts for the procedures/
+functions we've created.
+-MIKE
+
+1/28/2003 Okay...got IO working (using Is_Printable_Ascii). Its lookin
+good so far, gentlemen. Think we just have a whole bunch of error
+testing ahead of us.
+
+I uploaded Processor.htm into the doc folder. It needs some work, and some re-formatting, but mainly I wanted it to be there so that Ankit would have something for Requires/Ensures clauses. All the necessary req/ens should be there.
+~Cliff
+
+1/29/2003
+After talking with Prof. Heym today I have redirected the outputs to the correct 
+streams.  I also added stuff for the trace_out file for the rest of the OPs (IO and 
+some of the BRANCH OPs still needed them.)  I have a question... do we need an error 
+for the case that a char we are trying to output is not printable? like in the IO R=3? 
+If so where should we output the error to the trace_out... i am thinking of doing it 
+from within Is_Printable_ASCII().  what do you guys think?
+
+oh, Wayne also said to be sure and output the PC for every OP in the trace_out... so i 
+did that too.
+
+Ok... its a couple hrs later now... I changed IO R=2 so that it will 'pad' the left 
+side of an incoming string of characters with ' ' if the string is less than 8 chars 
+long. this way we don't get unwanted crap to the right of our string on output.
+
+ ~Steve
+1/29 -  What is to be reported exactly in the two output files?
+-MIKE
+
+1/29 - what i have done is that i have created 4 testing files: "ts_i" for the
+main program, "ts_2" for seconday input, "ts_o" for the output instructions and dumps
+and "ts_to" for tracing and error checking. so far i have done 4 cases and will
+continue a few more. if anyone has interpreted the sample input file in write-up
+for Lab1 in the packet, please send it to me. if not, i'll do later. and i will also
+change the permissions, too, for your thoughts or suggestions.
+-MIKE
+
+1/30/2003
+Mike, there are two output files program_out (which gets the IO output, like when we 
+have to output an 8 char string, and it also gets the output from the BR instructions, 
+like when we have a BR R=0 X=3, we dump all memory and registers to program_out) the 
+second output file is the trace_out (which gets an initial dump of memory and registers 
+after a successful load, and another one at the end of program execution.  trace_out 
+also gets a 'trace' of everything we do, like when we do an ADD we tell what OP we're 
+doing, what registers we're using & their values, and what memory & their values we're 
+using, and then show the result of the OP)
+
+I changed the SHR and SHL OPs a little as they we're working exactly right, and i've 
+tested them and they seem to be working correctly now.
+
+~Steve
+
+1/30/2003 Okay...Leading_Zeroes and Leading_Ones were called wrong in
+a couple of places, so I went through and fixed them. The problem is
+that they're functions, and when called must have some integer value
+to be put into, like int x = Leading_Zeroes(y). In a few places where
+it's called, I accidentally just put Leading_Zeroes(y), so that the
+value is lost and thus not operated on.
+
+~Cliff
+
+1/30 - the test plan is finished. it would have been done yesterday but i had to 
+study for a test the next day. if there are any questions, email me and if not i'll
+cya tomorrow.
+-MIKE

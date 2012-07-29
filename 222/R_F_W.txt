@@ -1,0 +1,17 @@
+procedure_body Remove_First_Word (
+        alters Text& t,
+        produces Text& w )
+{
+	object Character ch;
+	w.Clear ()	;
+	t.Remove (0,ch);
+	while ((t.Length ()>0) and  ((ch == '\n') or (ch == '\t') or (ch == ' ')))
+	{
+		t.Remove (0,ch);
+	}
+	while ((t.Length ()>0) and (ch != '\n') and (ch != '\t') and (ch != ' '))
+	{
+		w.Add (w.Length(),ch);
+		t.Remove (0,ch);
+	}
+}

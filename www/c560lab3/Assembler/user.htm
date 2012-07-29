@@ -1,0 +1,1712 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./u_files/preview.wmf">
+<link rel=Edit-Time-Data href="./u_files/editdata.mso">
+<title>USER'S GUIDE</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoToc3
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	letter-spacing:-.25pt;
+	font-style:italic;}
+.MsoList
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoListBullet
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:#9A1515;
+	text-decoration:none;
+	text-underline:single;}
+.BlockQuotation
+	{text-align:justify;
+	line-height:11.0pt;
+	background:#F2F2F2;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial Narrow";
+	letter-spacing:-.25pt;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.CompanyName
+	{font-size:16.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.25pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.ReturnAddress
+	{line-height:8.0pt;
+	tab-stops:1.5in;
+	font-size:7.0pt;
+	font-family:Arial;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+<link href="../OverDriveStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+<a name="top"></a><div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'>
+  <table width="100%" border="0">
+    <tr> 
+      <td><p class=TitleCover>User's Guide</p></td>
+      <td width="204" align="right"><a href="../index.htm"><img src="../Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+    </tr>
+  </table>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Table Of Contents</p>
+</div>
+<p class=MsoToc1> <span class=MsoToc1><a href="#_Toc31727872">Basics</a></span></p>
+<ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'> <a href="#Architecture">Architecture</a></span></li>
+  </p> 
+  <ul>
+    <li><span class=MsoToc3><a href="#PseudoOps">Pseudo-Ops</a></span></li>
+    <li><span class=MsoToc3><a href="#literal">Literals</a></span></li>
+    <li><span class=MsoToc3><a href="#comments">Comments</a></span></li>
+  </ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a href="#Instructions">Instructions</a></span></li>
+  </p> 
+  <ul>
+    <li><span class=MsoToc3><a href="#OPLD">Hex Opcode 0x0: LD R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#OPLDI">Hex Opcode 0x1: LDI R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#OPST">Hex Opcode 0x2: ST R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670027">Hex Opcode 0x3: ADD R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670028">Hex Opcode 0x4: SUB R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670029">Hex Opcode 0x5: MUL R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670030">Hex Opcode 0x6: DIV R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670031">Hex Opcode 0x7: OR R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670032">Hex Opcode 0x8: AND R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670033">Hex Opcode 0x9: SHL R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670034">Hex Opcode 0xA: SHR R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670035">Hex Opcode 0xB: IO R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670036">Hex Opcode 0xC: BR R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670037">Hex Opcode 0xD: BRZ R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670038">Hex Opcode 0xE: BRN R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31670039">Hex Opcode 0xF: BRS R, S(X)</a></span></li>
+    <li><span class=MsoToc3><a href="#_Toc31673631">NOP</a></span></li>
+  </ul>
+</ul>
+<p class=MsoToc1><span class=MsoToc1><a href="#UsingAssembler">Usage</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#_Toc31670041">Copying and Extracting</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#_Toc31670043">Compiling</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#_Toc31673635">Running</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+
+
+class=MsoToc1><a href="#SourceFile">Source File</a></span></p>
+<ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#recform">RECORD FORMAT</a></span></li>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#rec2">RecorDS</a></span></li>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#limit">LIMITATIONS</a></span></li>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#saminp">SAMPLE INPUT FILE</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+
+
+class=MsoToc1><a href="#TypesOfErr">Types of Errors</a></span></p>
+<ul>
+  <li><span
+
+
+
+class=MsoToc3><a href="#synerr">Syntax Errors</a></span></li>
+  <li><span
+
+
+
+class=MsoToc3><a href="#symerr">Symbol Errors</a></span></li>
+  <li><span
+
+
+
+class=MsoToc3><a href="#literr">Literal Errors</a></span></li>
+  <li><span
+
+
+
+class=MsoToc3><a href="#pseerr">Pseudo-Op Errors</a></span></li>
+  <li><span
+
+
+
+class=MsoToc3><a href="#faterr">Fatal Errors</a></span></li>
+</ul>
+<p class=MsoToc1><a href="#outfile">OUTPUT FILEs</a></p>
+<ul>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#samobj">SAMPLE OBJECT FILE</a></span></li>
+  <li><span style='font-variant:normal;text-transform:uppercase'><a
+
+
+
+href="#samlis">SAMPLE LISTING FILE</a></span></li>
+</ul>
+<p class="MsoToc1"><a href="#Appendix">APPENDIX</a></p>
+<ul>
+  <li><a href="#Apndx_PseudoOps">PSEUDO-OPS</a></li>
+  <li><a href="#Apndx_ObjFileOut">SAMPLE OBJECT FILE OUTPUT</a></li>
+  <li><a href="#errcon">ERROR CONFLICT</a></li>
+</ul>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="_Toc31727872"></a>Introduction</p>
+</div>
+<p class=MsoSubtitle>An introduction into Group Over-Drive’s W03_560 Machine Assembler</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'>
+  <h1><span><font color="#FFFFFF">Basics</font></span></h1>
+</div>
+<p class=MsoBodyText align=left style='text-align:left'>This program converts 
+  W03_560 Machine assembly instructions into W03_560 Machine object code. To use 
+  this program the user should be familiar with:</p>
+<p class=MsoBodyText align=left style='text-align:left'>&middot; The W03_560 Machine 
+  architecture<br>
+  &middot; W03_560 Machine instructions<br>
+  &middot; W03_560 Object code</p>
+<p class=MsoBodyText align=left style='text-align:left'>This document, in turn, 
+  describes how to use this program and understand its input and output. First, 
+  the user will learn the necessary architecture for understanding assembly language 
+  code. Then the user will learn how to install this program and get started. 
+  Then the reader will be guided through the flow of the program so as to know 
+  what to expect. Program input will be discussed in detail, followed by sample 
+  input files with illustrative comments. Next, errors are listed with their corresponding 
+  type and description. Finally, sample outputs are shown. </p>
+<a href="#top">[top]</a> 
+<h2><a name="Architecture"></a><span>Architecture</span> </h2>
+<h3><a name="PseudoOps"></a><span>Pseduo-Ops</span></h3>
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td colspan="2" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> PSEDUO-OPS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Mnemonic</font></span></b></p></td>
+    <td valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>ORI</span></p></td>
+    <td  class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[ORIgin] must be the first non-comment record in the source 
+        program. The operand, if present, must be in the range [0, 255]. The operand 
+        indicates that the program cannot be relocated and indicates where in 
+        memory the program is to be loaded. This instruction requires a label. 
+        The label is interpreted as the name of the segment</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>END</span></p></td>
+    <td  class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[END] signifies that no more assembly instructions are to 
+        follow. An optional operand in the range [0, 255] indicates the address 
+        at which execution is to begin. The absence of an operand tells the assembler 
+        to begin execution at the first machine instruction. The record that contains 
+        an END pseudo-op does not need to be terminated with a newline</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td  nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>EQU</span></p></td>
+    <td  class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[EQUate] is used to set up constants within the assembly 
+        file. The label of this instruction is set to the value in the operand 
+        field. The operand can either be a previously defined symbol, or a decimal 
+        integer in the range [0, 255].</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>NMD</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[NuMeric Data] defines a one word quantity whose contents 
+        is the value of the decimal integer in the operand field. The assembler 
+        places this value in the word in memory that the NMD operation occupies. 
+        The integer must be in the range [-2^19, 2^19 – 1].</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>CCD</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[CharaCter Data] defines a one word quantity whose contents 
+        is the two character ASCII string at the beginning of the operand field. 
+        The assembler places these two characters in the word in memory that the 
+        CCD operation occupies</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>RES</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[REServe Storage] sets up a block of storage. The number 
+        of words reserved is indicated in the operand field. The operand must 
+        be in the range [0, 255]. No values are placed in the reserved block by 
+        the assembler</span></p></td>
+  </tr>
+</table>
+<a href="#top">[top]</a> 
+<h3><a name="literal"></a>Literals</h3>
+<p class=MsoBodyText>      A literal can replace the S and X fields in the operand 
+  field. Literals can only hold integer values in the range [-2^19, 2^19 – 1]. 
+  The user should be aware that this program stores literal values after the last 
+  memory slot. Branch, store, shift, and IO instructions cannot have literals 
+  in their operands. In addition, literals can not be used for a register value, 
+  for indexing, nor with pseduo-ops; any attempt to use literals in such a way 
+  will result in an error message output to the listing file, and a program HALT.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<h3><a name="comments"></a>Comments</h3>
+<p class=MsoBodyText>      This assembler allows two types of comments. One type 
+  allowed is the end-of-line comment, whereby, an instruction’s operand is followed 
+  by any number of spaces and a semicolon (see figure 1–2). This comment type 
+  allows each line to have its own comment. The other type of comment allowed 
+  is a comment record. Comment records are lines that begin with a semicolon (lines 
+  MUST begin with a semicolon, no spaces before). Such a line will be ignored 
+  by the assembler. It is important to note that comment records can exist before 
+  ORI pseudo-ops, and after END pseudo-ops. Instruction records and blank lines 
+  are not permitted in these areas of the code. Blank lines are considered syntax 
+  errors anywhere before the END pseudo-op.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<h2><a name="Instructions" id="Instructions"></a>Instructions</h2>
+<p class=MsoBodyText>The assembler contains 16 valid instructions, each of these 
+  instructions have to contain: a four bit opcode, a two bit register, an eight 
+  bit S value, and two bit indexing value.</p>
+<h3><a name="OPLD" id="OPLD"></a> Hex Opcode 0x0: LD R, S(X)</h3>
+<p class=MsoBodyText>      This is the load instruction.  The program will load 
+  the register given in the instruction with the contents of the memory location 
+  at S(X)</p>
+<h3> <a name="OPLDI" id="OPLDI"></a>Hex Opcode 0x1: LDI R, S(X)</h3>
+<p class=MsoBodyText>      This is the load immediate instruction.  The program 
+  will load the register with the value of S(X) itself instead of going out the 
+  memory location</p>
+<h3><a name="OPST" id="OPST"></a> Hex Opcode 0x2: ST R, S(X)</h3>
+<p class=MsoBodyText>      This is the store instruction.  The program will store 
+  the value of R into the memory location given of S(X)</p>
+<h3><a name="_Toc31670027"></a> Hex Opcode 0x3: ADD R, S(X)</h3>
+<p class=MsoBodyText>      This is the add instruction.  The program will add 
+  the value of the register with the value given by the memory location of S(X) 
+  and store the new value back into the register</p>
+<h3><a name="_Toc31670028"></a> Hex Opcode 0x4: SUB R, S(X)</h3>
+<p class=MsoBodyText>      This is the subtraction instruction.  The program will 
+  subtract the value of the register from the value given by the memory location 
+  of S(X) and store the new value back into the register</p>
+<h3><a name="_Toc31670029"></a> Hex Opcode 0x5: MUL R, S(X)</h3>
+<p class=MsoBodyText>      This is the multiply instruction.  The program will 
+  multiply the value of the register with the value given by the memory location 
+  of S(X) and store the new value back into the register</p>
+<h3><a name="_Toc31670030"></a> Hex Opcode 0x6: DIV R, S(X)</h3>
+<p class=MsoBodyText>      This is the division instruction.  The program will 
+  subtract the value of the register from the value given by the memory location 
+  of S(X) and store the new value back into the register.  It is important to 
+  note that division by zero will output an error code and that division is only 
+  integer division so only the quotient will be stored into the register.</p>
+<h3><a name="_Toc31670031"></a> Hex Opcode 0x7: OR R, S(X)</h3>
+<p class=MsoBodyText>      This is the OR instruction.  The program will do a 
+  bit-wise OR with the register and the contents of the memory location at S(X)</p>
+<h3><a name="_Toc31670032"></a> Hex Opcode 0x8: AND R, S(X)</h3>
+<p class=MsoBodyText>      This is the AND instruction.  The program will do a 
+  bit-wise AND with the register and the contents of the memory location at S(X)</p>
+<h3><a name="_Toc31670033"></a> Hex Opcode 0x9: SHL R, S(X)</h3>
+<p class=MsoBodyText>      This is the shift left instruction.  The program will 
+  shift the register left by S(X) places.  S(X) must be within the range of 0-19 
+  and all new introduced low end bits will be zeros.</p>
+<h3><a name="_Toc31670034"></a> Hex Opcode 0xA: SHR R, S(X)</h3>
+<p class=MsoBodyText>      This is the shift right instruction.  The program will 
+  shift the register right by S(X) places.  S(X) must be within the range of 0-19 
+  and all new introduced high end bits will have the same value of the original 
+  high end bit.</p>
+<h3><a name="_Toc31670035"></a> Hex Opcode 0xB: IO R, S(X)</h3>
+<p class=MsoBodyText>      This is the Input/Output immediate instruction.  The 
+  program will perform one of the following depending on the value of R given:</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 0, the first eight characters of the next input line is read 
+  in as a decimal integer, right justified and stored into the value for the address 
+  of S(X)</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 1, the first eight characters of the next input line is read 
+  in as a character string</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 2, an eight character line of output in decimal, right justified, 
+  which is the value of the contents at the address of S(X)</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 3, an eight character line of output in ASCII,</p>
+<h3><a name="_Toc31670036"></a> Hex Opcode 0xC: BR R, S(X)</h3>
+<p class=MsoBodyText>      This is the branch unconditional instruction.  The 
+  program will do one of the following based on the values given:</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 0, results in a halt</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 0, quiet</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 1, dump all of memory</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 2, dump all registers and PC</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> With X = 3, dump memory, registers, and PX</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 1, dump all registers, PC, and memory and branch to the address 
+  given by S(X)</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 2, branch to address PC + S(X)</p>
+<p class=MsoListBullet> <span
+
+
+
+style='font-size:8.0pt;font-family:Wingdings'>n<span
+
+
+
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> R = 3, branch to address S(X)</p>
+<h3><a name="_Toc31670037"></a> Hex Opcode 0xD: BRZ R, S(X)</h3>
+<p class=MsoBodyText>      This is the branch if zero instruction.  The program 
+  will check to see if the value of the register is equal to zero and if so, branch 
+  to the address given by S(X)</p>
+<h3><a name="_Toc31670038"></a> Hex Opcode 0xE: BRN R, S(X)</h3>
+<p class=MsoBodyText>      This is the branch if negative instruction.  The program 
+  will check to see if the value of the register is negative and if so, branch 
+  to the address given by S(X)</p>
+<h3><a name="_Toc31670039"></a> Hex Opcode 0xF: BRS R, S(X)</h3>
+<p class=MsoBodyText>      This is the branch to subroutine instruction.  The 
+  program will load the register with the value of the program counter and then 
+  branch to the address given by S(X)</p>
+<h3><a name="_Toc31673631"></a>NOP</h3>
+<p class=MsoListBullet>      This is the no operation instruction. It is only 
+  used for non-fatal errors (Please Note: ALL errors for this Assembler are fatal). 
+  When a non-fatal error occurs from the given instruction, the instruction will 
+  be changed to NOP.  Errors will be discussed in a later section.</p>
+<p><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="UsingAssembler" id="UsingAssembler"></a>Using the 
+    Assembler</p>
+</div>
+<p class=MsoSubtitle>A brief overview on how to get the assembler to function 
+</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><a name="_Toc31670040"></a><a name="_Toc31673632"></a> <font color="#FFFFFF">Usage</font></h1>
+</div>
+<p class=MsoBodyText>Before using the assembler it is important to have all the 
+  necessary files stored in the correct location and enough memory resources</p>
+<h2><a name="_Toc31670041"></a> Copying and Extracting</h2>
+<p class=MsoBodyText>The assembler uses close to 1MB hard-drive space so before 
+  attempting to copy the files over, make sure that there is enough space available.  
+  The directory name chosen is unimportant so the zip-file should be copied over 
+  to the directory of your choosing.  Then unzip the zip-file with any extracting 
+  means and make sure that Assembler.cpp, Pass_One.h, Pass_Two.h, and Table.h 
+  are all within the same directory.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<h2><a name="_Toc31670043"></a> Compiling</h2>
+<p class=MsoBodyText>Since the assembler was written in C++, it is important to 
+  use a C++ compiler for the next step.  The compiler used in testing was the 
+  GNU compiler.  It is important that you are in the directory where the 4 files 
+  are location and type in the following command:</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 12.0pt; background:#F2F2F2;'> 
+  <p class=BlockQuotation>g++ -o Assembler Assembler.cpp</p>
+  <p class=BlockQuotation>example screenshot: <img src="compile.jpg" width="482" height="13"></p>
+</div>
+<a href="#top">[top]</a> 
+<h2><a name="_Toc31673635"></a>Running</h2>
+<p class=MsoBodyText>Before running the assembler it is absolutely necessary that 
+  the input file exist and follow the necessary format, which will be described 
+  in the next chapter.  The output file names can be chosen at your discretion, 
+  just remember the names to view the output when you are done using the assembler.  
+  The following is the command line to use when using the assembler with the file 
+  names inserted accordingly:</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 12.0pt; background:#F2F2F2;'> 
+  <p class=BlockQuotation>Assembler [source_file] [intermediate_file] [object_file] 
+    [listing_file]</p>
+  <p class=BlockQuotation>example screenshot: <img src="test.jpg" width="594" height="35"></p>
+</div>
+<a href="#top">[top]</a> <br>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="SourceFile" id="SourceFile"></a>Valid Input Files</p>
+</div>
+<p class=MsoSubtitle>The most vital part for using the simulator is having a valid 
+  input file</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><a name="_Toc31670044"></a><a name="_Toc31673636"></a> <font color="#FFFFFF">Source 
+    File</font></h1>
+</div>
+<p class=MsoBodyText>The input file will consist of at most 200 (non-comment) 
+  records divided into various fields of fixed length. No record can exceed 80 
+  characters in length. A record will either be an assembly instruction, or a 
+  comment. If the record is an instruction, then it must adhere to the syntax 
+  guidelines in table directly below. A breakdown of an example instruction record 
+  is illustrated in figure 1–2.</p>
+<a href="#top">[top]</a> <br>
+  
+<table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+  <tr align="center"> 
+    <td colspan="2" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="recform"></a>RECORD FORMAT</font></span></b></td>
+  </tr>
+  <tr> 
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Record Position</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>1-6</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Label, if any, left justified</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>7-8</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Space</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>9-11</span></p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Operation field</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>12-13</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Space</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>14-newline</span></p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Operands and comments</span></p></td>
+  </tr>
+</table>
+<h2 align="center"><img src="image005.gif" width="673" height="781" align="baseline"></h2>
+<p align="left"><a href="#top">[top]</a> </p>
+<h2><a name="_Toc31670045"></a><a name="_Toc31673637"></a><a name="_Toc31697707"></a><a
+
+
+
+name="_Toc31727898"></a><a name="rec2"></a>Records</h2>
+<p class=MsoBodyText>A record that is a comment must have a semicolon (;) in the 
+  first record position. Symbol/Label names are case sensitive and cannot be more 
+  than six characters long. Names should begin with an alphabetic character, and 
+  continue with alphanumeric characters. Also, symbols/labels can NOT have the 
+  same name as any Op-code nor Pseudo-op. Literals inside the instruction are 
+  signified with a = followed by a value. If the instruction is not a pseudo-op, 
+  than it must have an R field to specify a register, and an S field with an optional 
+  X field to specify a memory address plus an optional indexing register. The 
+  S field must be an integer in the range [0, 255], with the optional X field 
+  being in the range [0, 3]. When an indexing register is used, the format looks 
+  like:</p>
+<p class=MsoBodyText>ST 2,Buff(1)</p>
+<p class=MsoBodyText>In this example, the contents of register two are being stored 
+  in the memory address specified by Buff plus the contents of register one.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<h2><a name="_Toc31670045"></a><a name="_Toc31673637"></a><a name="_Toc31697707"></a><a
+
+
+
+name="_Toc31727898"></a><a name="limit"></a>Limitations</h2>
+<p class=MsoBodyText>No forward references with EQU psuedo-op.</p>
+<p class=MsoBodyText>Limited to 80 characters per line of input assembly file. 
+  A line with more than 80 characters may not result in an error, but will produce 
+  bad output. Also, all records must use space characters for ALL &quot;whitespace&quot;, 
+  using anything other than space characters (such as tabs) may result in bad 
+  output. </p>
+<p class=MsoBodyText>Maximum of 200 (non-comment) instructions in the input assembly 
+  file.</p>
+<p class=MsoBodyText>No empty lines may occur before the END pseudo-op. After 
+  the END pseudo-op, there may be any number of blank lines.</p>
+<p class=MsoBodyText>If NO operands are given with the END psuedo-op, and NO executable 
+  operations are prior to it, the the PC will be set to 0 (zero).</p>
+<p class=MsoBodyText>There is a maximum on symbols and literals and of 100 and 
+  50 respectively.</p>
+<p class=MsoBodyText>Symbols/Labels can NOT have the same name as any Op-code 
+  nor Pseudo-op.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<h2><a name="_Toc31670047"></a><a name="_Toc31673643"></a><a name="_Toc31697713"></a><a name="saminp"></a>Sample 
+  Input File</h2>
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle">Absolute Program</div></td>
+    <td width="3"><div align="center"></div></td>
+    <td><div align="center" class="MsoSubtitle">Relocatable Program</div></td>
+  </tr>
+  <tr>
+    <td><img src="AbsProbInput.jpg" width="238" height="332"></td>
+    <td bgcolor="#333333">&nbsp;</td>
+    <td> <img src="RelocProbInput.jpg" width="238" height="332"></td>
+  </tr>
+</table>
+<p><font color="#0000FF"><a href="#top">[top]</a> </font></p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="TypesOfErr" id="TypesOfErr"></a>Error Messages</p>
+</div>
+<p class=MsoSubtitle>Error messages will be output when an invalid input has been 
+  given</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><a name="_Toc31670048"></a><a name="_Toc31673647"></a><font color="#FFFFFF">Types 
+    of Errors</font></h1>
+</div>
+<p class=MsoBodyText>In the event of a record containing an error, an error listing 
+  will be output to the listing file and compilation will halt. The object file 
+  will be created up to the point that the error occurred, This object file is 
+  INCOMPLETE and is not a valid input for the Simulator of the W03_560 Machine. 
+  The error have been broken into five types, Syntax, Symbol, Literal, Pseudo-Op, 
+  and Miscellaneous. Descriptions of all errors are below.</p>
+<a href="#top">[top]</a> <br>
+  
+<table border=1 cellspacing=0 cellpadding=0 width="80%">
+  <tr align="center"> 
+    <td colspan="3" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="synerr"></a>SYNTAX ERRORS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td width="135" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Number</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Name</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX001</span></p></td>
+    <td> <p>Missing Op Code<br>
+      </p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Operation which requires an operand, has none</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX002</span></p></td>
+    <td> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Illegal 
+        Operand </span></p></td>
+    <td><span style="font-family: &quot;Arial Unicode MS&quot;">Operation has 
+      an Invalid operand</span></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX003</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Unknown Instruction</span></p></td>
+    <td> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>The 
+        c </span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>haracter string in instruction field of record not a valid 
+        instruction or pseudo-op</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX004</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Characters 7-8 not blank</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> Characters 7-8 in non-comment record are not spaces</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX005</span></p></td>
+    <td> <p>R Field Integer &quot; &quot; not in range</p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Integer in register field is less than zero or greater than 
+        three</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX006</span></p></td>
+    <td> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>S 
+        Field Integer &quot; &quot; not in range</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Integer in memory field is less than zero or greater than 
+        255</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX007</span></p></td>
+    <td> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>X 
+        Field Integer &quot; &quot; not in range</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Integer in indexing field is less than zero or greater than 
+        three</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX008</span></p></td>
+    <td>Invalid memory address attempted</td>
+    <td> <p>Trying to access a memory address out of range OR no END pseudo-op</p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX009</span></p></td>
+    <td>First non-comment record &quot; &quot; (not ORI)</td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>The first non-comment record in the input file is something 
+        other than an ORI pseudo-op</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX010</span></p></td>
+    <td> <p>Unexpected ORI</p></td>
+    <td> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>File 
+        contains multiple ORI pseudo-ops</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX011</span></p></td>
+    <td> <p>No operand for &quot; &quot; operation</p></td>
+    <td> <p>Operation or Pseudo-op is missing at least one operand</p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX012</span></p></td>
+    <td> <p>Unexpected operand</p></td>
+    <td> <p>Operation or Psueod-op has extra or illegal operand(s)</p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX013</span></p></td>
+    <td> <p>Instruction/Comment/Label following an END operation</p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A non-comment record exists after END pseudo-op</span></p></td>
+  </tr>
+  <tr valign="middle" class="Normal"> 
+    <td nowrap> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SX014</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Characters 12-13 not blank</span></p></td>
+    <td> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Characters 12-13 in non-comment record are not spaces</span></p></td>
+  </tr>
+</table>
+<a href="#top">[top]</a>
+<table border=1 cellspacing=0 cellpadding=0 width="80%">
+  <tr align="center"> 
+    <td colspan="3" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="symerr"></a>SYMBOL ERRORS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Number</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Name</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB001</span></p></td>
+    <td class="Normal"> <p>Unknown symbol &quot; &quot;<br>
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Symbol in operand field not previously defined</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB002</span></p></td>
+    <td class="Normal"> <p>&quot; &quot; symbol defined twice<br>
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Symbol appears previously in the label field of an instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB003</span></p></td>
+    <td class="Normal"> <p>Invalid Label/Symbol &quot; &quot;</p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>The first character in symbol neither a-z nor A-Z</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB004</span></p></td>
+    <td class="Normal"> <p>Invalid Label/Symbol &quot; &quot;</p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Character in symbol neither a-z nor A-Z nor 0-9</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB005</span></p></td>
+    <td class="Normal"> <p>Use of Op/Pseudo-op as symbol/label name<br>
+      </p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">Operation 
+        or Pseudo-op name is being used as a symbol/label name for another instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB006</span></td>
+    <td class="Normal"><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>External symbol &quot; &quot; illegally defined</span></td>
+    <td class="Normal"><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>External symbols can not be defined within the assembly 
+      program in which they are used</span></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>SB007</span></td>
+    <td class="Normal"><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Not 
+      all entry</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> symbols defined</span></td>
+    <td class="Normal"><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Not 
+      all entry </span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> symbols have been defined within the assembly program</span></td>
+  </tr>
+</table>
+<a href="#top">[top]</a>
+<table border=1 cellspacing=0 cellpadding=0 width="80%">
+  <tr align="center"> 
+    <td colspan="3" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="literr"></a>LITERAL ERRORS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Number</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Name</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT001</span></p></td>
+    <td class="Normal"> <p>Literal not an integer in range</p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>The literal value is either less than -2^19 or greater than 
+        2^19 – 1</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT002</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;SHR&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in SHR instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT003</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;BR&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in BR instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT004</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;BRZ&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in BRZ instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT005</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;BRN&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in BRN instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT006</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;BRS&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in BRS instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT007</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;ST&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in ST instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT008</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;SHL&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in SHL instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT009</span></p></td>
+    <td class="Normal"> <p>Attempt to use a literal with &quot;IO&quot; operation 
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>A literal is illegally used in IO instruction</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>LT010</span></p></td>
+    <td class="Normal"> <p>Attempt to index a literal<br>
+      </p></td>
+    <td class="Normal"> <p><span style="font-family: &quot;Arial Unicode MS&quot;">Value 
+        in X field attempted to index the literal in the S field</span></p></td>
+  </tr>
+</table>
+<a href="#top">[top]</a>
+<table border=1 cellspacing=0 cellpadding=0 width="80%">
+  <tr align="center"> 
+    <td colspan="3" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="pseerr"></a>PSEUDO-OP ERRORS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Number</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Name</font></span></b></p></td>
+    <td nowrap valign=bottom bgcolor="black" class="Normal"> 
+      <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS001</span></p></td>
+    <td class="Normal"> <p>ORI operation has no label</p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Label field of record empty</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS002</span></p></td>
+    <td class="Normal"> <p>EQU operation has no label</p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Label field of record empty</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS003</span></p></td>
+    <td class="Normal"> <p> END operation has label &quot; &quot;</p></td>
+    <td class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Label field of record not empty</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS004</span></p></td>
+    <td class="Normal"> <p>Operand in END pseudo-op &quot; &quot; not an integer 
+        in range</p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Optional 
+        o</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>perand in END pseudo-op either less than zero, or greater 
+        than 255</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> 
+      <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS005</span></p></td>
+    <td class="Normal"> <p>EQU operand &quot; &quot; not in range.</p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Operand in EQU pseudo-op either less than zero, or greater 
+        than 255</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS006</span></p></td>
+    <td class="Normal"> <p>Operand in NMD pseudo-op not an integer in range</p></td>
+    <td class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>Operand</span><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> in NMD pseudo-op either less than -2^19 or greater than 
+        2^19 – 1</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>PS007</span></p></td>
+    <td class="Normal"> <p>Operand in RES pseudo-op not an integer in range<br>
+      </p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Operand in RES pseudo-op either less than 1, or greater 
+        than 255</span></p></td>
+  </tr>
+</table>
+<a href="#top">[top]</a>
+<table border=1 cellspacing=0 cellpadding=0 width="80%">
+  <tr align="center"> 
+    <td colspan="3" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> <a name="faterr"></a>MISCELLANEOUS 
+      ERRORS</font></span></b></td>
+  </tr>
+  <tr> 
+    <td width="12%" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Number</font></span></b></p></td>
+    <td width="38%" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Name</font></span></b></p></td>
+    <td width="50%" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Error Description</font></span></b></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FL001</span></p></td>
+    <td class="Normal"> <p>Invalid memory address attempted<br>
+      </p></td>
+    <td class="Normal"> <p>Trying to access a memory address out of range</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FL002</span></p></td>
+    <td class="Normal"> <p>Line length limit exceeded</p></td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>The given input record has more than 80 characters</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FL003</span></p></td>
+    <td class="Normal"> <p>Blank line(s) in the file</p>
+      </td>
+    <td class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'> A record exists before the ORI pseudo-op that is not a 
+        comment record</span></p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FL004</span></p></td>
+    <td class="Normal"> <p>Blank line(s) in the file</p></td>
+    <td class="Normal"> <p>Line(s) somewhere in the middle of the input file are 
+        blank</p></td>
+  </tr>
+  <tr valign="middle"> 
+    <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>FL005</span></p></td>
+    <td class="Normal"> <p>Blank line(s) in the file</p></td>
+    <td class="Normal"> <p>Blank line(s) exist after the END pseudo-op</p></td>
+  </tr>
+  <tr valign="middle">
+    <td nowrap class="Normal">FL006</td>
+    <td class="Normal">&nbsp;</td>
+    <td class="Normal">Checks for TAB character in source record</td>
+  </tr>
+</table>
+<a href="#top">[top]</a>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="outfile" id="outfile"></a>Sample Output Files</p>
+</div>
+<p class=MsoSubtitle>An Example of the Output Produced by the Assembler</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+
+
+background:black;'> 
+  <h1><font color="#FFFFFF">Output File</font></h1>
+</div>
+<p class=MsoBodyText>The following is an example of what the final result of running 
+  the assembler output files should look like:</p>
+<h2><a name="_Toc31670049"></a><a name="_Toc31673648"></a><a name="_Toc31697718"></a><a name="samobj"></a>
+Sample Object File Output</h2>
+<p class=MsoBodyText><img src="image006.gif" width="577" height="505"></p>
+<h2><a name="_Toc31670049"></a><a name="_Toc31673648"></a><a name="_Toc31697718"></a><a name="samlis" id="samlis"></a> 
+  Sample Listing File Output</h2>
+<p class=MsoBodyText><img src="image008.gif" width="601" height="560"></p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'>
+  <p class=MsoTitle><font color="#FFFFFF"><a name="Appendix" id="Appendix"></a>Appendix</font></p>
+</div>
+<p class=MsoSubtitle>Appendix of changes for the Assembler for the W03_560 Machine</p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class="MsoSubtitle"><a name="Apndx_PseudoOps"></a>Pseudo-Ops</p>
+  <p>The modified Assembler was required to handle two new pseudo-ops, ENT and 
+    EXT. The description of these two new pseudo-ops is below.</p>
+  <table width="80%" border=1 align="center" cellpadding=0 cellspacing=0>
+    <tr align="center"> 
+      <td colspan="2" valign=bottom nowrap bgcolor="black" class="Normal"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF"> PSEDUO-OPS</font></span></b></td>
+    </tr>
+    <tr> 
+      <td nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Mnemonic</font></span></b></p></td>
+      <td valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Description</font></span></b></p></td>
+    </tr>
+    <tr valign="middle"> 
+      <td nowrap class="Normal"> <p><span style='font-family:&quot;Arial Unicode MS&quot;; letter-spacing:0pt'>ENT</span></p></td>
+      <td  class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[ENTry name] The operand field of this pseudo-op is a list 
+          of symbols that must be defined in the current segment, and are permitted 
+          to be referenced by other segments.</span></p></td>
+    </tr>
+    <tr valign="middle"> 
+      <td nowrap class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>EXT</span></p></td>
+      <td  class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>[EXTernal name] The operand fild is a list of symbols that 
+          may be referenced legitimately by this segment, but are not defined 
+          in this segment. The symbols must be defined in some other segment.</span></p></td>
+    </tr>
+  </table>
+  <p>There are some other limitations placed on these two pseudo-ops, such as:</p>
+</div>
+<ul>
+  <li>For both the ENT and EXT pseudo-ops, there must be no label</li><br>
+    <li>For both the ENT and EXT pseudo-ops, there must be at least one, but no more 
+    thena four operands</li><br>
+    <li>All instances of both the ENT and EXT pseudo-ops must precede all other pseudo-ops 
+    and executable instructions (except ORI).</li>
+</ul>
+<p><a href="#top">[top]</a> </p>
+<p class="MsoSubtitle"><a name="Apndx_ObjFileOut"></a>Sample Object File Output</p>
+<p class="Normal">The modifed Assembler has a modified output file format. After 
+  an error-free assembly, the resulting object file output should consist if an 
+  EXTeral Symbol Table, followed by a Header Record, and then a number of Text 
+  records. Each field of the Header and Text record is followed by a '.' [dot] 
+  character (which will later be used by the loader). The value last field of 
+  a text record can be one of three things:</p>
+<ol>
+  <li>It will be left blank if the record is not relocatable.</li>
+  <li>It will be an 'X' character followed by the name of the external symbol 
+    (ONLY if the symbol is BOTH relocatable and external).</li>
+  <li>It will be an 'M' character (ONLY if the symbol relocatable).</li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="center"><img src="sampleout.gif" width="392" height="179"></div></td>
+  </tr>
+</table>
+<p align="center" class="Normal">&nbsp;</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<p class="MsoSubtitle"><a name="errcon" id="errcon"></a>Error Conflict</p>
+<p class="Normal">The modifed Assembler may produce an error or unwanted output 
+  when the user enters 4 operands for ENT and/or EXT. Only the first four operands 
+  are used so if one of the later operands is needed, it will not be used.</p>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<p class=MsoBodyText>&nbsp;</p>
+</body>
+</html>

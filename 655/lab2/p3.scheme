@@ -1,0 +1,20 @@
+(define (make-stream n f)
+	(define (next m)
+		(cons m (lambda () (next (f m)))))
+	(next n))
+(define head car)
+(define (tail stream)
+	((cdr stream)))
+(define (nth stream n)
+	(if (eq? n 0) (head stream)
+	    (nth (tail stream) (b- n 1))))
+(define even (make-stream 0 (lambda (n) (b+ n 2))))
+
+
+(head even)
+(head (tail even))
+(head (tail (tail even)))
+(head (tail (tail (tail even)))
+(nth even 5)
+(nth even 1000)
+

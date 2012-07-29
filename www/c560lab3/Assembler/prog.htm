@@ -1,0 +1,1053 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./pg_files/preview.wmf">
+<link rel=Edit-Time-Data href="./pg_files/editdata.mso">
+<title>PROGRAMMER'S GUIDE</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoList
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoListNumber
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+.BlockQuotation
+	{text-align:justify;
+	line-height:11.0pt;
+	background:#F2F2F2;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial Narrow";
+	letter-spacing:-.25pt;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+<link href="../OverDriveStyles.css" rel="stylesheet" type="text/css">
+</head>
+<a name="top"></a>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+<div style='border:none;border-top:solid windowtext 6.0pt;padding:0pt 0in 0in 0in'> 
+  <table width="100%" border="0">
+    <tr> 
+      <td>
+<p class=TitleCover>Programmer's Guide</p></td>
+      <td width="204" align="right"><a href="../index.htm"><img src="../Overdrivelogo.gif" width="204" height="125" border="0"></a></td>
+    </tr>
+  </table>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Table Of Contents</p>
+</div>
+<p class=MsoToc1><a href="#Implementation">IMPLEMENTATION</a></p>
+<p class=MsoToc1><a href="#DataElements">Data Elements</a></p>
+<p class=MsoToc1><a href="#DesignModules">Design Modules</a></p>
+<ul>
+  <li><a href="#AssemblerCPP">Assembler.cpp</a></li>
+  <ul> 
+    <li><em><a href="#AssemblerPC">Assembler Pseudo Code</a></em></li>
+    <li><em><a href="#FlowDiagram">Overall Flow Diagram</a></em></li>
+  </ul>
+  <li><a href="#PassOneH">Pass_One.h</a></li>
+  <ul>
+    <li><em><a href="#Pass_OnePC">Pass_One Pseudo Code</a></em></li>
+    <li><em><a href="#IsValidLabelPC">Is_Valid_Label Pseudo Code</a></em></li>
+    <li><em><a href="#IsInRangePC">Is_In_Range Pseudo Code</a></em></li>
+  </ul>
+  <li><a href="#PassTwoH">Pass_Two.h</a></li>
+  <ul>
+    <li><em><a href="#Pass_TwoPC">Pass_Two Pseudo Code</a></em></li>
+    <li><em><a href="#GetSPC">Get_S Pseudo Code</a></em></li>
+    <li><em><a href="#GetRPC">Get_R Pseudo Code</a></em></li>
+    <li><em><a href="#IsLiteralPC">Is_Literal Pseudo Code</a></em></li>
+    <li><em><a href="#In_Addr_RangePC">In_Addr_Range Pseudo Code</a></em></li>
+  </ul>
+  <li><a href="#TableH">Table.h</a></li>
+  <ul>
+    <li><em><a href="#TableH">Table Class</a></em></li>
+    <li><a href="#NVPDescription"><em>Name_Value_Pair Class</em></a></li> 
+  </ul>
+</ul>
+<p class=MsoToc1><span
+
+
+
+class=MsoTOC1><a href="#KnownErrors">Errata Section</a></span></p>
+<p class=MsoToc1><a href="#Appendix">APPENDIX</a></p>
+<ul>
+  <li><a href="#Apndx_TableH">Table.h</a></li>
+  <li><a href="#err2">Errata</a></li>
+</ul>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle><a name="Implementation"></a>Implementation</p>
+</div>
+<p class=MsoSubtitle>The implementation of the Assembler for the W03_560 Machine</p>
+<hr>
+<p>The W03_560 assembler is a two pass assembler. With this in mind, it was separated 
+  into two distinct modules, named Pass_One and Pass_Two. Pass_One is responsible 
+  for defining symbols and literals and checking the overall syntax of the input 
+  file. Then, in Pass_Two, operation arguments were interpreted and syntax was 
+  checked in more detail. After two successful passes, the data structures which 
+  hold all information of the input file including the original source file text 
+  are ready to be used in the creation of the object file and object listing. 
+  This, of course, will only occur if no errors were encountered during compilation. 
+  The Data Element Dictionary lists each variable, local and global, along with 
+  their types and purposes. Following that, each module and their interrelationships 
+  are described along with a detailed look at the modules themselves. This guide 
+  will give the programmer all he or she needs understand this implementation 
+  of the assembler for the W03_560 Machine.</p>
+<p><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt; background:black;'>
+<h1><font color="#FFFFFF"><a name="DataElements"></a>Data Elements</font></h1>
+</div>
+<p class=MsoBodyText>Listed below is the table of the data elements used for the 
+  Assembler implementation of the W03_560 Machine.</p>
+<table border="1" align="center" class="Normal">
+  <tr> 
+    <td width="120" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Variable Name</font></span></b></p></td>
+    <td width="109" valign=bottom nowrap bgcolor="black" class="Normal"> <p><font color="#FFFFFF"><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'>Type</span></b></font></p></td>
+    <td width="192" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Declaring Module</font></span></b></p></td>
+    <td width="413" valign=bottom nowrap bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+
+
+  letter-spacing:0pt'><font color="#FFFFFF">Purpose</font></span></b></p></td>
+  </tr>
+  <tr> 
+    <td>Add_Symbol</td>
+    <td>bool</td>
+    <td>Pass_One</td>
+    <td>true = the current line of input has a label</td>
+  </tr>
+  <tr> 
+    <td>buffer</td>
+    <td>char[80]</td>
+    <td>Pass_One and Pass_Two</td>
+    <td>holds lines of input from source</td>
+  </tr>
+  <tr> 
+    <td>data</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds the value of the data portion of the text record being produced</td>
+  </tr>
+  <tr> 
+    <td>End_Of_File</td>
+    <td>bool</td>
+    <td>Pass_One</td>
+    <td>true = END pseudo-op has been found</td>
+  </tr>
+  <tr> 
+    <td>first_exe_op</td>
+    <td>bool</td>
+    <td>Pass_One</td>
+    <td>true = first executable instruction has been reached</td>
+  </tr>
+  <tr> 
+    <td>First_To_Execute</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds address of the first executable instruction in the segment</td>
+  </tr>
+  <tr> 
+    <td>i</td>
+    <td>int</td>
+    <td>Is_Valid_Label</td>
+    <td>counter integer</td>
+  </tr>
+  <tr> 
+    <td><a name="DataI"></a>i</td>
+    <td>int</td>
+    <td>Is_In_Range and In_Addr_Range</td>
+    <td>holds an integer value or memory address</td>
+  </tr>
+  <tr> 
+    <td>Initial_Load_Address</td>
+    <td>char*</td>
+    <td>Pass_One</td>
+    <td>holds value of initial load address</td>
+  </tr>
+  <tr> 
+    <td>Initial_Load_Address</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds initial load address for the segment</td>
+  </tr>
+  <tr> 
+    <td><a name="DataIntermediate"></a>intermediate</td>
+    <td>ofstream</td>
+    <td>Assembler</td>
+    <td>output stream attached to intermediate file</td>
+  </tr>
+  <tr> 
+    <td>Is_Relocatable</td>
+    <td>bool</td>
+    <td>Pass_Two</td>
+    <td>true = the program or the S field of the current instruction is relocatable</td>
+  </tr>
+  <tr> 
+    <td><a name="DataLabel"></a>label</td>
+    <td>char[6]</td>
+    <td>Pass_One</td>
+    <td>holds symbol for each line of input</td>
+  </tr>
+  <tr> 
+    <td><a name="DataListing"></a>listing</td>
+    <td>ofstream</td>
+    <td>Assembler</td>
+    <td>output stream attached to listing file</td>
+  </tr>
+  <tr> 
+    <td>literal </td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds value of literal</td>
+  </tr>
+  <tr> 
+    <td><a name="DataLitTable"></a>literal_table</td>
+    <td>Table</td>
+    <td>Assembler</td>
+    <td>stores literal names and their corresponding address values</td>
+  </tr>
+  <tr> 
+    <td><a name="DataLocCount"></a>location_counter</td>
+    <td>Table</td>
+    <td>Assembler and Pass_Two</td>
+    <td>holds the address of the current instruction being parsed</td>
+  </tr>
+  <tr> 
+    <td>Look_For_Literal</td>
+    <td>bool</td>
+    <td>Pass_One</td>
+    <td>true = the current line of input has a literal</td>
+  </tr>
+  <tr> 
+    <td>m</td>
+    <td>char*</td>
+    <td>Pass_Two</td>
+    <td>holds 'M' if the program is relocatable; else, NULL</td>
+  </tr>
+  <tr> 
+    <td>middlein</td>
+    <td>ifstream</td>
+    <td>Assembler</td>
+    <td>input stream attached to intermediate file</td>
+  </tr>
+  <tr> 
+    <td>n </td>
+    <td>int</td>
+    <td>Pass_Two and Table Class</td>
+    <td>counter integer</td>
+  </tr>
+  <tr> 
+    <td>Name</td>
+    <td>char*</td>
+    <td>Name_Value_Pair Class</td>
+    <td>holds text description of data</td>
+  </tr>
+  <tr> 
+    <td>num</td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds value of RES operand</td>
+  </tr>
+  <tr>
+    <td>Num_Source_Records</td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds the number of source records which have been processed</td>
+  </tr>
+  <tr> 
+    <td>number_of_items</td>
+    <td>int</td>
+    <td>Table Class</td>
+    <td>holds the current number of elements in the table</td>
+  </tr>
+  <tr> 
+    <td>nvp</td>
+    <td>Name_Value_Pair*</td>
+    <td>Table Class</td>
+    <td>stores text descriptions of data and the corresponding values</td>
+  </tr>
+  <tr> 
+    <td><a name="DataObj"></a>obj</td>
+    <td>ofstream</td>
+    <td>Assembler</td>
+    <td>output stream attached to object file</td>
+  </tr>
+  <tr> 
+    <td>op_code</td>
+    <td>char[3]</td>
+    <td>Pass_One</td>
+    <td>holds op code for each line of input</td>
+  </tr>
+  <tr> 
+    <td>op_table</td>
+    <td>Table</td>
+    <td>Pass_One and Pass_Two</td>
+    <td>stores op names and their corresponding machine code values</td>
+  </tr>
+  <tr> 
+    <td>output</td>
+    <td>bool</td>
+    <td>Pass_Two</td>
+    <td>true = the current instruction requires output to the object file</td>
+  </tr>
+  <tr> 
+    <td>R</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds value of the R field of data</td>
+  </tr>
+  <tr> 
+    <td><a name="DataRelocatable"></a>relocatable</td>
+    <td>bool</td>
+    <td>Get_S</td>
+    <td>used to flag an instruction as absolute or relocatable</td>
+  </tr>
+  <tr> 
+    <td>S</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds value of the S field of data</td>
+  </tr>
+  <tr> 
+    <td>Segment_Length</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds the length of the segment</td>
+  </tr>
+  <tr> 
+    <td>SegmentName</td>
+    <td>char[6]</td>
+    <td>Pass_Two</td>
+    <td>holds name of segment</td>
+  </tr>
+  <tr> 
+    <td><a name="DataSource"></a>source</td>
+    <td>ifstream</td>
+    <td>Assembler</td>
+    <td>input stream attached to source file</td>
+  </tr>
+  <tr> 
+    <td>start_addr</td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds address of the first executable instruction in the program being 
+      parsed</td>
+  </tr>
+  <tr> 
+    <td><a name="DataStr"></a>str</td>
+    <td>char*</td>
+    <td>Get_S, Get_R, Is_Literal</td>
+    <td>holds name of the incoming symbol/literal or is the ascii rep of decimal 
+      int. </td>
+  </tr>
+  <tr> 
+    <td><a name="DataSymTable"></a>symbol_table</td>
+    <td>Table</td>
+    <td>Assembler</td>
+    <td>stores symbol names and their corresponding address values</td>
+  </tr>
+  <tr> 
+    <td>table_size</td>
+    <td>int</td>
+    <td>Table Class</td>
+    <td>holds the maximum number of elements allowable in the table</td>
+  </tr>
+  <tr> 
+    <td>temp_tok</td>
+    <td>char*</td>
+    <td>Pass_One and Pass_Two</td>
+    <td>holds temporary token value of part of operand</td>
+  </tr>
+  <tr> 
+    <td>temp_tok2</td>
+    <td>char*</td>
+    <td>Pass_Two</td>
+    <td>holds temporary token value of part of operand</td>
+  </tr>
+  <tr> 
+    <td>tok_val</td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds value of END operand</td>
+  </tr>
+  <tr> 
+    <td>token</td>
+    <td>char*</td>
+    <td>Pass_One and Pass_Two</td>
+    <td>holds tokenized input from buffer</td>
+  </tr>
+  <tr> 
+    <td>token</td>
+    <td>char*</td>
+    <td>Table Class</td>
+    <td>holds the text representation of the value of a literal</td>
+  </tr>
+  <tr> 
+    <td>token2</td>
+    <td>char*</td>
+    <td>Pass_Two</td>
+    <td>holds tokenized input from buffer</td>
+  </tr>
+  <tr> 
+    <td>value</td>
+    <td>int</td>
+    <td>Pass_One</td>
+    <td>holds value of EQU operand</td>
+  </tr>
+  <tr> 
+    <td>Value</td>
+    <td>int</td>
+    <td>Name_Value_Pair Class</td>
+    <td>holds integer value of data</td>
+  </tr>
+  <tr> 
+    <td>X</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds value of the X field of data</td>
+  </tr>
+  <tr> 
+    <td>z</td>
+    <td>int</td>
+    <td>Pass_Two</td>
+    <td>holds the string length of token2</td>
+  </tr>
+</table>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'> 
+  <p class=MsoTitle><a name="DesignModules"></a><font color="#FFFFFF">Design Modules</font></p>
+</div>
+<p class=MsoSubtitle>The Design Modules Used in the Assembler</p>
+<table border="0" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle">Dependency Diagram for the Assembler</div></td>
+  </tr>
+  <tr> 
+    <td><div align="center" class="CommentSmall">Notice: Clicking certain parts 
+        of this diagram will take you to the respective pseudo-op, description, 
+        or definition.</div></td>
+  </tr>
+  <tr>
+    <td><p><img src="dependancy_diagram.jpg" border="0" usemap="#DependancyMap">
+        <map name="DependancyMap" id="DependancyMap">
+          <area shape="rect" coords="742,368,846,410" href="#In_Addr_RangePC">
+          <area shape="rect" coords="632,370,716,410" href="#IsLiteralPC">
+          <area shape="rect" coords="511,368,615,410" href="#GetRPC">
+          <area shape="rect" coords="835,277,929,321" href="user.htm#samlis">
+          <area shape="rect" coords="335,143,429,187" href="#IntermediateFileSample">
+          <area shape="rect" coords="833,210,927,254" href="user.htm#samobj">
+          <area shape="rect" coords="3,228,332,272" href="#Pass_OnePC">
+          <area shape="rect" coords="430,229,763,275" href="#Pass_TwoPC">
+          <area shape="rect" coords="117,6,746,52" href="#MainPseudo">
+          <area shape="rect" coords="155,370,305,409" href="#IsValidLabelPC">
+          <area shape="rect" coords="9,370,96,407" href="#IsInRangePC">
+          <area shape="rect" coords="333,76,427,120" href="user.htm#saminp">
+          <area shape="rect" coords="358,369,462,411" href="#GetSPC">
+          <area shape="rect" coords="56,123,92,137" href="#DataSource">
+          <area shape="rect" coords="31,138,92,150" href="#DataIntermediate">
+          <area shape="rect" coords="60,151,92,163" href="#DataListing">
+          <area shape="rect" coords="8,165,92,176" href="#DataLocCount">
+          <area shape="rect" coords="25,177,92,188" href="#DataSymTable">
+          <area shape="rect" coords="33,189,92,202" href="#DataLitTable">
+          <area shape="rect" coords="6,331,30,354" href="#DataI">
+          <area shape="rect" coords="141,330,183,353" href="#DataLabel">
+          <area shape="rect" coords="638,330,670,356" href="#DataStr">
+          <area shape="rect" coords="727,329,754,355" href="#DataI">
+          <area shape="rect" coords="514,129,551,142" href="#DataSource">
+          <area shape="rect" coords="514,143,576,155" href="#DataIntermediate">
+          <area shape="rect" coords="514,156,546,169" href="#DataListing">
+          <area shape="rect" coords="514,170,546,180" href="#DataObj">
+          <area shape="rect" coords="514,181,579,193" href="#DataSymTable">
+          <area shape="rect" coords="514,194,573,207" href="#DataLitTable">
+          <area shape="rect" coords="390,299,415,312" href="#DataStr">
+          <area shape="rect" coords="354,313,415,325" href="#DataRelocatable">
+          <area shape="rect" coords="346,326,415,339" href="#DataSymTable">
+          <area shape="rect" coords="351,340,415,351" href="#DataLitTable">
+          <area shape="rect" coords="526,313,549,324" href="#DataStr">
+          <area shape="rect" coords="482,339,549,351" href="#DataLitTable">
+          <area shape="rect" coords="483,325,549,338" href="#DataSymTable">
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+<p class=Normal><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="AssemblerCPP" id="AssemblerCPP"></a>Assembler.cpp</font></h1>
+</div>
+<p class=MsoBodyText align="center">Assembler.cpp is the central file for the 
+  Assembler of the W03_560 Machine. This file contains the main procedure of the 
+  Assembler. The main procedure coordinates the entire Assembler. Main begins 
+  by opening the necessary file-streams and then uses the Table class to create 
+  literal_table and symbol_table, all of which will be used throughout the rest 
+  of the Assembler. Next, main, creates a data element by the name of location_counter, 
+  which will be used throughout the rest of the Assembler to keep track of current 
+  location in memory. Control is then passed from main to Pass_One which parses 
+  then incoming &lt;Source_File&gt; and fills literal_table and symbol_table 
+  accordingly. Once Pass_One has finished (without any errors), control returns 
+  to main. At this point main closes both &lt;Source_File&gt; and &lt;Intermediate_File&gt;, 
+  re-opens them, and passes control to Pass_Two, which does the majority of the 
+  work of the Assembler. As long as there are no errors encountered, Pass_Two 
+  will output &lt;Object_File&gt; and &lt;Listing_File&gt; for use by the Simulator 
+  of the W03_560 Machine. Below is the <a href="#AssemblerPC">pseudo code</a> 
+  and <a href="#FlowDiagram">overall flow diagram</a> for the Assembler.</p>
+<a href="#top">[top]</a> 
+<table border="1" align="center">
+  <tr> 
+    <td>
+<div align="center" class="MsoSubtitle"><a name="AssemblerPC"></a>Assembler.cpp 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"> 
+      <pre><a name="MainPseudo"></a>void main(int argc, char *argv[], char *envp[])<br>{<br>	IF(number of arguments &lt; 5)<br>	{<br>		error; not enough arguments<br>		<br>		exit main<br>	}
+  END IF<br>	<br>	source = input line from source input file to Assembler<br>	<br>	intermediate = output line from Assembler to intermediate output file<br>	<br>	obj = output line from Assembler to object output file<br>	<br>	listing = output line from Assembler to output listing file<br>	<br>	<br>	source input line = open to first argument	<br>	<br>	intermediate output line = open to second argument<br>	<br>	obj output line = open to third argument<br>	<br>	listing output = open to fourth argument<br>	<br>	<br>	literal_table = table for literals, up to 50 elements<br>	<br>	symbol_table = table for labels, up to 100 elements<br>	<br>	location_counter = location of instructions and some pseudo-ops in memory<br>	<br>	<br>	Pass_One(source, intermediate, listing, location_counter, symbol_table, literal_table)<br>		= passing the input/output lines and tables to module<br>		<br>	source input line = closed<br>	<br>	source input line = open to first argument <br>	<br>	intermediate output = closed<br>	<br>	middlein = input line from intermediate file to Assembler<br>	<br>	middlein input line = open to second argument<br>	<br>	Pass_Two(source, middlein, obj, listing, symbol_table, literal_table)<br>		= passing input/output lines and tables to module<br>		<br>	output &quot;Object file created successfully&quot;<br>	<br>	exit main	<br>}
+<a href="#top">[top]</a></pre></td>
+  </tr>
+  <tr>
+    <td ><div align="center" class="MsoSubtitle"><a name="FlowDiagram"></a>Overall 
+        Flow Diagram</div></td>
+  </tr>
+  <tr>
+    <td ><div align="center"><img src="image010.jpg"></div></td>
+  </tr>
+</table>
+<p class=MsoBodyText align="center"><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="PassOneH" id="PassOneH"></a>Pass_One.h</font></h1>
+</div>
+<p>Pass_One is passed an ifstream (&lt;Source_File&gt;), two ofstreams (&lt;Intermediate_File&gt; 
+  and &lt;Listing_File&gt;), an integer (location_counter), and two Tables (symbol_table 
+  and literal_table). Then Pass_One parses the incoming &lt;Source_File&gt;, checks 
+  it for errors, and compiles the (initially empty) symbol_table and literal_table, 
+  which hold the address values of the symbols and literals (respectively). Any 
+  errors encountered are output to &lt;Listing_File&gt;. If no errors are encountered, 
+  symbol_table and literal_table are built. Pass_One also outputs the segment 
+  name, initial load address, first executable instruction address, and segment 
+  length to &lt;Intermediate_File&gt;, which is used by Pass_Two. A <a href="#IntermediateFileSample">sample</a> 
+  of this file can be found below. Pass_One uses the function <a href="#IsValidLabelPC">Is_Valid_Label</a> 
+  to ensure possible symbols/labels have correct syntax. Pass_One uses the function 
+  <a href="#IsInRangePC">Is_In_Range</a> to ensure that a value is within representable 
+  range (-2^19 &lt;= integer value &lt;= 2^19 - 1). </p>
+<a href="#top">[top]</a> 
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="Pass_OnePC"></a>Pass_One 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Pass_One(ifstream&amp; source, ofstream&amp; intermediate, ofstream&amp; listing,<br>int&amp; location_counter, Table&amp; symbol_table, Table&amp; literal_table)<br>{<br>    WHILE (first line of source starts with a ; )<br>        remove first line of source;<br>    END WHILE</pre> 
+      <pre> token = the first set of non-space characters from source;</pre> <pre> IF (token == &quot;ORI&quot;)
+         error; cease execution;
+         ELSE
+         IF (token is a valid label)
+         output token to the intermediate file;
+         ELSE
+         error; cease execution;
+         END IF
+         END IF
+         
+         token = the next set of non-space characters from source;</pre> <pre> IF (token != &quot;ORI&quot;)
+         error; cease execution;
+         END IF</pre> <pre> initial_load_address = next set of non-space characters from source;
+         
+         IF (initial_load_address != NULL)
+         output initial_load_address to the intermediate file;
+         ELSE
+         output relocatable symbol to the intermediate file;
+         END IF</pre> 
+      <pre> WHILE (source is not at the end of the file)
+         WHILE (first line of source starts with a ; )
+         remove first line of source;
+         END WHILE
+         
+         IF (the first line of source is not empty)
+         token = the first set of non-space characters from source;
+         IF (token is not an op code) //token must be a label
+         IF (token is a valid label)
+         label = token;
+         token = the next set of non-space characters from source; 
+         ELSE
+         error; cease execution;
+         END IF
+         END IF
+         END IF 
+         
+         op_code = token;
+         token = next set of non-space characters from source;</pre> <pre> IF (op_code is the first executable instruction)
+         start_addr = location_counter;
+         END IF</pre> <pre> IF (op_code == &quot;EQU&quot;)
+         IF (label is not a valid symbol)
+         error; cease execution;
+         END IF
+         value = token;
+         ELSE IF (op_code == &quot;RES&quot;)
+         IF (token &lt; 0 or token &gt; 255)
+         error; cease execution;
+         END IF
+         value = location_counter;
+         ELSE IF (op_code == &quot;END&quot;)
+         IF (there was a label on the END pseudo-op)
+         error; cease execution;
+         END IF
+         value = location_counter;
+         IF (the END pseudo-op has no operand)
+         output start_addr to the intermediate file;
+         ELSE IF (the END pseudo-op has a symbol for an operand)
+         output the value of the symbol to the intermediate file;
+         ELSE 
+         output the operand to the intermediate file; 
+         END IF
+         ELSE IF (op_code == &quot;ORI&quot;)
+         error; cease execution;
+         ELSE
+         isolate the 'S' field of the operand (held in token);
+         value = location_counter;
+         increment location_counter;
+         END IF</pre> 
+      <pre> IF (the line had a label)
+         IF (the label is already in symbol_table)
+         error; cease execution;
+         ELSE
+         put the label into symbol_table;
+         END IF
+         END IF</pre> <pre> IF (the line had a literal)
+         IF (the literal is not already defined in literal_table)
+         put the literal into literal_table;
+         END IF
+         END IF
+         END WHILE</pre> 
+      <pre> update literal_table and location_counter;
+         output location_counter to intermediate file;
+ }
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center" class="MsoSubtitle"><a name="IsValidLabelPC"></a>Is_Valid_Label 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Is_Valid_Label(char* label)
+
+{
+     IF(length(label) &gt; 6)
+          return label_not_valid;
+     ELSE
+         IF(first character is alpha)
+             IF(rest of charaters are alpha-numeric)
+                 return label_valid;
+             ELSE
+                 return label_not_valid;
+             END IF
+         END IF
+     END IF
+
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center" class="MsoSubtitle"><a name="IsInRangePC"></a>Is_In_Range 
+        pseudo code</div></td>
+    <div align="center"></div>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Is_In_Range(int i)
+{
+     IF(-2^19 &lt;= i &lt;= 2^29 -1)
+         return i_in_range;
+     ELSE
+         return i_not_in_range;
+     END IF 
+
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p><a name="IntermediateFileSample" id="IntermediateFileSample"></a><span class="MsoSubtitle">Sample 
+  Intermediate File</span></p>
+<p>Here is an example of a Intermediate_File that is output by Pass_One.</p>
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="MsoSubtitle"><div align="center"><img src="Intermediate_File.jpg" width="385" height="289"></div></td>
+  </tr>
+</table>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'>  
+  <h1><font color="#000000"><a name="PassTwoH" id="PassTwoH"></a>Pass_Two.h</font></h1>
+  <p>Pass_Two is passed two ifstream (&lt;Source_File&gt; and &lt;Intermediate_File&gt; 
+    ), two ofstreams (&lt;Object_File&gt; and &lt;Listing_File&gt;), and two Tables 
+    (symbol_table and literal_table). Pass_Two does the majority of the work and 
+    creates the bulk of the output for the Assembler. It parses &lt;Source_File&gt; 
+    a second time in order to construct &lt;Object_File&gt;. To construct &lt;Object_File&gt;, 
+    Pass_One uses &lt;Intermediate_File&gt; to calculate and output the header 
+    record. It then uses op_table, symbol_table, and literal_table to generate 
+    the correct machine code (that will be used by the Simulator for the W03_560 
+    Machine). In addition to the object file, Pass_One outputs useful information 
+    to &lt;Listing_File&gt;, such as: symbol_table, literal_table, a column-formatted 
+    output matching the source code to the machine (object) code generated for 
+    each (source) instruction giving the respective address, OP, R value, S value, 
+    X value, and Relocation info for each instruction. Pass_Two also outputs any 
+    errors it encounters to &lt;Listing_File&gt;. In addition Pass_Two uses four 
+    helper functions,<a href="#GetSPC">Get_S</a>, <a href="#GetRPC">Get_R</a>, 
+    <a href="#IsLiteralPC">Is_Literal</a>, and <a href="#IsInRangePC">In_Addr_Range</a>. 
+    Pass_Two uses <a href="#GetSPC">Get_S</a> to get the value associated with 
+    a particular S-field symbol/literal/integer and to determine whether or not 
+    the instruction is relocatable. <a href="#GetRPC">Get_R</a> is exactly like 
+    <a href="#GetSPC">Get_S</a>, except it doesn't determine whether or not an 
+    instruction is relocatable. Pass_Two uses <a href="#IsLiteralPC">Is_Literal</a> 
+    to check if an operand is a literal or not. Pass_Two uses <a href="#IsInRangePC">In_Addr_Range</a> 
+    to determine if an operand is within the address range of the segment.</p>
+  <a href="#top">[top]</a> </div>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="Pass_TwoPC"></a>Pass_Two 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Pass_Two(ifstream&amp; source, ifstream&amp; middle, ofstream&amp; obj, ofstream&amp;<br>listing, Table symbol_table, Table literal_table)<br>{<br>    read segment name from intermediate file;<br>    read initial load address from intermediate file;</pre>
+      <pre> IF (initial load address == 'M')
+         initial load address = 0;
+         program is relocatable;
+         END IF</pre>
+      <pre> read address of first executable instruction from intermediate file;
+         read segment length from intermediate file;
+         output header record to object file;</pre>
+      <pre> set location counter to initial load address;</pre>
+      <pre> output column headings to listing file;</pre>
+      <pre> WHILE (source is not empty)
+         WHILE (first line of source starts with a ; )
+         remove first line of source;
+         END WHILE
+         
+         IF (the first line of source is not empty)
+         output instruction number to listing file;
+         increment instruction number;
+         
+         token = the first set of non-space characters from source;
+         IF (token is not an op code) //token must be a label
+         output token to listing file;
+         token = the next set of non-space characters from source;
+         END IF
+         
+         IF (token is not an op code)
+         error; cease execution;
+         END IF</pre>
+      <pre> output token to listing file;
+         token2 = the next set of non-space characters from source;
+         IF (token2 != NULL) //token2 is an operand
+         output token2 to listing file;
+         END IF</pre>
+      <pre> IF (op code is a pseudo-op)
+         IF (op code == &quot;NMD&quot;)
+         data = operand;
+         increment location_counter;
+         ELSE IF (op code == &quot;CCD&quot;)
+         put s-character operand into upper 16 bits of data;
+         increment location_counter;
+         ELSE IF (op code == &quot;RES&quot;)
+         location_counter += operand;
+         END IF
+         ELSE
+         data = op code, R value, X value, S value;
+         END IF</pre>
+      <pre> IF (output of data is required)
+         output text record to object file;
+         END IF
+         END IF
+         END WHILE
+         
+         output literals as text records;
+         output symbol_table to intermediate file;
+         output literal_table to intermediate file;
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center" class="MsoSubtitle"><a name="GetSPC" id="GetSPC"></a>Get_S 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Get_S(char* str, bool&amp; relocatable, Table symbol_table, Table literal_table)
+{
+     IF(Is_In_Symbol_Table(str))
+          return Symbol_Value(str);
+     ELSE IF(Is_In_Literal_Table(str))
+           return Literal_Value(str);
+     ELSE
+            relocatable = false;
+            return Integer_Value(str);
+     END IF
+     END IF
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td class="MsoSubtitle" > <div align="center"><a name="GetRPC" id="GetRPC"></a>Get_R 
+        pseudo code</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode" ><pre>Get_R(char* str, Table symbol_table, Table literal_table)
+{
+     IF(Is_In_Symbol_Table(str))
+          return Symbol_Value(str);
+     ELSE IF(Is_In_Literal_Table(str))
+           return Literal_Value(str);
+     ELSE
+            return Integer_Value(str);
+     END IF
+     END IF
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center"> 
+        <p class="MsoSubtitle"><a name="IsLiteralPC"></a>Is_Literal pseudo code</p>
+      </div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>Is_Literal(char* str)
+{
+     IF(length(str) &lt; 2 OR First_Char(str) 1= '=')
+         return not_literal;
+     ELSE
+         return is_literal;
+     END IF
+
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+  <tr> 
+    <td ><div align="center" class="MsoSubtitle"><a name="In_Addr_RangePC" id="In_Addr_RangePC"></a>In_Addr_Range 
+        pseudo code</div></td>
+    <div align="center"></div>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>In_Addr_Range(int i)
+{
+     IF(0 &lt;= i &lt;= 255)
+         return i_in_range;
+     ELSE
+         return i_not_in_range;
+     END IF 
+
+}
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p class=MsoBodyText>&nbsp;</p>
+<p class=MsoBodyText>&nbsp;</p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000"><a name="TableH"></a>Table.h</font></h1>
+  <p>The Table Class consists of three basic data elements. The first is an array 
+    of <a href="#NVPDescription">Name_Value_Pair</a>, which is used to hold the 
+    op table, symbol table, or literal table names and values. The second is an 
+    integer value which represents the maximum number of items that can be held 
+    in the table. This value is set at initialization time. (Note: If this number 
+    is NOT set by the programmer at initialization time, the Table object declared 
+    will be initialized as an op table). The third data element is another integer 
+    value, which represents the number of items currently in the table. </p>
+  <a href="#top">[top]</a> </div>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td><div align="center" class="MsoSubtitle"><a name="TableClassPC"></a>Table 
+        Class Requires/Ensures</div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><pre>class Table {<br>public:<br>    Table(int number_of_pairs); <br>	Requires:<br>		0 &lt;= number_of_pairs &lt;= 2^32  <br>	Ensures:<br>		An empty table capable of holding number_of_pairs elements<br>		will be created<br>
+    Table(); <br>	Ensures:<br>		An operation table for the WI03-560 Machine will be created.<br>
+    int Size();<br>	Ensures:<br>		Returns the number of name-value pairs held by the Table object<br>
+    bool Is_In_Table(char* name);<br>	 Ensures:<br>		Returns true if name is in Table; else returns false.<br>
+    int Get_Value(char* Name);<br>	 Requires:<br>		Is_In_Table(name)<br>	 Ensures:<br>		Returns value associated with name in table.<br>
+    void Put_In_Table(char* name, int value);<br>	 Requires:<br>		Table.Size() &lt; maximum size of table<br>         Ensures:<br>		Pair (name, value) will be put into the table<br>
+    int Update_Values(int added_value);<br>	 Ensures:<br>		Final value of each name-value pair will be #self + added_value and<br>		Returns added_value + [the number of name-value pairs in the table]<br>
+    void Put_Table(ofstream&amp; out);<br>	 Requires:<br>		out.is_open()<br>	 Ensures:<br>		All entries in table output to file connected to out.<br>
+    void Put_Literals(ofstream&amp; out, int loc);<br>	 Requires:<br>		out.is_open() and<br>		#self is a table of literals<br>	 Ensures:<br>		All entries in the table will be output as object<br>		code in accordance with W03-560 Machine<br>		specifications, starting at loc and ending at <br>		loc + [the number of literals in the table]<br>
+protected:<br>    Name_Value_Pair* nvp; //contains an array of name-value pairs<br>    int table_size; //the maximum allowable number of pairs in the Table<br>    int number_of_items; //the current number of pairs in the Table<br>};
+<a href="#top">[top]</a> </pre></td>
+  </tr>
+</table>
+<p><a name="NVPDescription"></a>The Name_Value_Pair Class is a simple class containing 
+  only 3 data elements (char*, int, and bool) with no member functions. It can 
+  be used in order to match a text description to an integer value and determine 
+  if the &quot;pair&quot; has been defined.</p>
+<table width="588" border="1" align="center">
+  <tr> 
+    <td ><div align="center"> 
+        <p class="MsoSubtitle"><a name="NVPPC"></a>Name_Value_Pair, Table &amp; 
+          ENT_Table Classes</p>
+      </div></td>
+  </tr>
+  <tr> 
+    <td class="PseudoCode"><div align="center"><img src="object_diagram.jpg" width="392" height="257"></div></td>
+  </tr>
+</table>
+<p><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'>
+<p class=MsoTitle><font color="#FFFFFF"><a name="KnownErrors"></a>Errata Section</font></p>
+</div>
+<p class=MsoSubtitle>Errata section of the Assembler for the W03_560 Machine</p>
+
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <h1><font color="#000000">Known Errors</font></h1>
+</div>
+<ul>
+  <li>The instruction format specifies a certain number of spaces in between separate 
+    parts of an instruction. However, the OverDrive Assembler will, in most cases, 
+    assemble programs (correctly) as long as this number of spaces is greater 
+    than 0. However, do not depend on this feature working, as it may cause incorrect 
+    output.</li>
+  <li>The use of any Op-code or Pseudo-op as a symbol/label name will not cause 
+    an error, but will produce bad output. We have stated in the user's guide 
+    that a symbol/label cannot have a name that is also an Op code or Pseudo-op.</li>
+</ul>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt; border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+background:black;'>
+  <p class=MsoTitle><font color="#FFFFFF"><a name="Appendix" id="Appendix"></a>Appendix</font></p>
+</div>
+<p class=MsoSubtitle>Appendix of changes for the Assembler for the W03_560 Machine</p>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'>
+  <p class="Normal">This is a list of all major changes in made in the Assembler. 
+    Most of the non-trivial details have been documented above, but extremly trivial 
+    details have been left out of this document.
+  <p class="MsoSubtitle"><a name="Apndx_TableH"></a>Table.h  <ul>
+    The modified W03_560 Assembler needed a few changes from the original Assembler. 
+    The <a href="#NVPDescription">Name_Value_Pair</a> class has an added data 
+    field, bool Is_Defined, which is used a flag to determine whether a particular 
+    pair has been defined in the assembly program. Name_Value_Pair also has a 
+    new default constructor that initializes Is_Defined to false. The <a href="#TableH">Table</a> 
+    class was also changed a little. The Op table constructor was modified to 
+    create a table that included the two new Op-codes, ENT and EXT respectively, 
+    to the end of the existing Op-code table. A new class, called <a href="#ENTTableClassPC">ENT_Table</a>, 
+    was also created (a visual can be seen <a href="#NVPPC">here</a>). This class 
+    is a derived class from the <a href="#TableH">Table</a> base class. ENT_Table 
+    class inherited all of the Table class's public and protected data members 
+    and procedures. The ENT_Table class also has a default constructor which creates 
+    an ENT_Table object with an empty Name_Value_Pair array or size number_of_pairs. 
+    ENT_Table also has two helper functions, Define_This and Put_ENT_Table. The 
+    ENT_Table class is used by the Assembler to keep a list of all ENTrance labels 
+    in the assembly program, and then to make sure each ENTry point is defined 
+    somewhere in the assembly program. 
+  </ul>
+  </p>
+  <table width="588" border="1" align="center">
+    <tr> 
+      <td><div align="center" class="MsoSubtitle"><a name="ENTTableClassPC" id="ENTTableClassPC"></a>ENT_Table 
+          Class Requires/Ensures</div></td>
+    </tr>
+    <tr> 
+      <td class="PseudoCode"><pre>class ENT_Table:public Table {<br>public:<br>    ENT_Table(int number_of_pairs); <br> Requires:<br>		0 &lt;= number_of_pairs &lt;= 2^32  <br>	Ensures:<br>		An empty table capable of holding number_of_pairs elements<br>		will be created<br>
+    void Define_This(char* name, int value);<br> Requires:<br>		ENT_Table.size() &lt; maximum size of table.<br> Ensures:<br>    If name is in ENT_Table, then nvp.name=#nvp.name, nvp.value=value, and nvp.Is_Defined=true. 
+
+    bool All_Defined();<br>	Ensures:<br>    returns True if for all i , nvp[i].Is_Defined=true, else returns False.<br>
+    void Put_ENT_Table(ofstream&amp; outs);<br> Requires:<br>    out.is_open();
+ Ensures:
+    All entries in table output to file connected to outs.<br>};
+<a href="#top">[top]</a> </pre></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</div>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+<p class="MsoSubtitle"><a name="err2" id="err2"></a>Errata Section
+<ul>
+  The modified W03_560 Assembler was tested and a few error tests failed. When 
+  ENT or EXT has more than 4 operands, the program will use only the first four 
+  instead of declaring an error in the code. In addition, an error happens when 
+  an ENT variable is unused. 
+</ul>
+<p class=MsoBodyText><a href="#top">[top]</a> </p>
+</body>
+</html>

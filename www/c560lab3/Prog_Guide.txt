@@ -1,0 +1,150 @@
+Pseudocode for Create_Table:
+
+void Create_Table(Table& ES_Table, ifstream& inputs, int Total_Length)
+{
+    remove External Symbol Table (EST) header line from assembled object file;
+    get the next line of input;
+    while (the next line of input is not the EST footer line)
+    {
+        char* symbol = current line's symbol name;
+	int address = current line's symbol address;
+	if (the symbol is already defined)
+	{
+	    error; halt execution;
+	}
+	put the symbol into the table;
+	get the next line of input;
+    }
+}
+
+Pseudocode for Loader_One:
+
+int Loader_One(Table& ES_Table, ifstream*& inputs, int number_of_files,  
+               int& Begin_Execution)
+{
+    while (there are still files to be processed)
+    {
+        pass the current file to Create_Table;
+        remove the header record from the current input stream;
+	if (the header record is incomplete/incorrect)
+	{
+	    error; halt;
+	}
+	if (the segment name is already in the External Symbol Table (EST))
+	{
+	    error; halt;
+	}
+	put the segment name and address into the EST;
+	add the segment length to Total_Length;
+	output (program load address + segment length) to intermediatefile;
+	start on the next input file;
+    }
+    return Total_Length;
+}
+
+Pseudocode for Loader_Two:
+
+void Loader_Two(Table ES_Table, int IPLA, int Begin_Execution, int
+                Total_Length, ifstream*& inputs, ofstream& outs,
+		ifstream& middle, int number_of_files)
+{
+    int PLA = (first line of intermediate file + IPLA);
+    output header record;
+    while (there are still files to be processed)
+    {
+        while (the current file is not empty)
+	{
+	    take in the first line of input;
+	    output (address from text record + PLA);
+	    if (S field is not relocatable)
+	    {
+		do nothing;
+	    }
+	    else if (S field is internally relocatable)
+	    {
+	        data field of text record += PLA;
+	    }
+	    else if (S field is externally relocatable)
+	    {
+	        if (the external relocation symbol is not defined)
+		{
+		    error; halt;
+		}	
+		data field of text record += (IPLA + value of symbol);
+	    }
+	    output data field of text record;
+	}
+	start on the next input file;
+	PLA = (load address of next segment + IPLA);
+    }
+    
+}
+
+
+Pseudocode for Loader.cpp:
+
+void main(int argc, char* argv[], char* envp[])
+{
+    if the user has not supplied enough command-line arguments, halt;
+    connect an input stream to each assembled object file;
+    call Loader_One to get the total length and create the EST;
+    connect an output stream to the loaded object file;
+    connect an input stream to the intermediate file;
+    call Loader_Two to parse the rest of the input file(s) and output
+         the loaded program;
+}
+
+----------------------------------------------------------------------------------------
+
+Description of Create_Table:
+
+    The Create_Table procedure is responsible for building an External
+Symbol Table (EST), which will be used for linking purposes by the
+Loader. In order to do this, the input which must be passed to it is
+as follows:
+
+   1) an EST header; this header should be one line, and have the format:
+      
+      ***Begin External Symbol Table***
+
+   2) lines of input containing the external symbol names and
+      addresses (seperated by one space), with a terminating period:
+
+      symb1 <address(in decimal)>.
+      symb2 <address(in decimal)>.
+      symb3 <address(in decimal)>.
+
+   3) an EST footer; this footer should be one line, and have the format:
+
+      ***End External Symbol Table***
+
+    It is important to note that the External Symbol Table is modified
+by Create_Table, NOT produced (i.e., overwritten). Thus, it can be
+called multiple times, passing the same Table each time, in order to
+create an external symbol table for multiple files.
+
+Description of Loader_One:
+
+    Loader_One is responsible for creating an external symbol table
+(which it does by calling Create_Table for each file which it
+processes). It also parses the header record of each loaded object
+file that it processes, in order to do the following:
+     
+     1) Find the first executable instruction (which is the first
+        executable instruction of the first assembled object file that
+	the user inputs on the command line),
+     2) Define each segment name as an external symbol in the EST,
+     3) output the program load address (PLA) to the intermediate file,
+     4) Calculate the total length of all loaded segments.
+
+    Finally, the total length of all loaded segments is the return value of
+the Loader_One function.
+
+Description of Loader_Two:
+
+    Loader_Two is responsible for outputting the absolute (i.e., linked and
+loaded) object file. It does this by first outputting a header record
+containing the necessary information, and then parsing all text records of all
+input files, modifying each using the IPLA, the EST, and the relative
+address of each segment. After the necessary values have been
+modified, it outputs the update text record to the absolute object file.

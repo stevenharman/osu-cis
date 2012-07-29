@@ -1,0 +1,52 @@
+				CIS222 HW#7		Steve Harman
+1.
+procedure Remove_Min (
+	alters Queue_Of_Test& q,
+	produces Text& min
+)
+
+{
+	object Text t, comp;
+	object Integer count;
+
+	q.dequeue(min);
+
+	while(count < q.Length())
+	{
+		q.dequeue(t);
+		comp = min.Compare(t);
+
+		if(comp =< 0)
+		{
+			q.enqueue(t);
+		}
+		else if (comp > 0)
+		{
+			min &= t;
+			q.enqueue(t);
+		}
+		
+		count++;
+	}
+}
+
+2.
+procedure Sort (
+	alters Queue_Of_Text& q
+)
+
+{
+	object Queue_Of_Text temp;
+	object Text min;
+	
+	while(q.length() > 1)
+	{
+		Remove_Min(q,min);
+		temp.enqueue(min);
+	}
+
+	q.dequeue(min);
+	temp.enqueue(min);
+
+	temp &= q;
+}

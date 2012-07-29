@@ -1,0 +1,209 @@
+2/7/2003 Alright...I went ahead and copied my Table.h file (which
+contains the Table class) into the lab2 directory, and made a simple
+Compiler.cpp (which just opens the file streams, creates a symbol
+table, op table, and literal table, and outputs them to the listing
+file). It's not a whole lot, but it's a start.
+
+~Cliff
+
+2/10/2003 Cliff, it all looks good so far, and i agree w/ you that we 
+need to get CVS going on this project... it should make coding much 
+easier.  Also, we need to get some type of design put together.  
+Perhaps Pass1 and Pass2 objects to take care of the main parsing and 
+output?  I like the idea of Table class for working with the various 
+look-up tables. Also, as wayne said, this could be a very procedural 
+lab due to the hight amount of parsing.
+~Steve
+
+2/11/2003 Alright...I went ahead and created a few .h files to hold the Pass
+One, Intermediate, and Pass Two procedures, and I started on Pass
+One. Haven't done much otherwise, but I might work on it some tonight.
+
+~Cliff
+
+Is the CVS set up for lab2?
+-MIKE
+
+2/12/2003 Changed Pass_One quite a bit (kinda had to re-vamp it...I
+was going about it the wrong way the first time around). It's still
+not extremely far along...but I have high hopes. Gonna go to bed; I'll
+try and work on it tomorrow, if studying for the midterm doesn't kill me.
+
+~Cliff
+
+2/14/2003 Okay...I got Pass One working as far as creating symbol
+tables goes. I haven't set it up to create a literal table (yet), but
+I'm planning on having Pass One done by the end of this weekend
+(hopefully by tonight, b/c I don't think that literal tables will be
+all that hard). Anyways, you gentlemen have a good weekend, and let me
+know if you'll be working on the lab at all before Monday. 
+
+~Cliff
+
+2/15 and 2/16  FINALLY, got the thing to create a correct literal
+table. I'm going to add an Update_Values function to the Table class,
+so that it will put correct addresses in for all the literals (since
+they have to be tacked on to the end of the segment).
+
+The Change_Value function is completed and working, as is Pass_One! :)
+Gonna move along to figuring out what to output to the Intermediate
+File (Pass One outputs the symbol and literal tables).
+
+I'm setting up the intermediate file to receive the segment name, the
+initial program load address, the initial address for program
+execution, and the segment length (in that order).
+
+Working on Pass Two...
+
+SUCCESS! For the sample source file I have, Pass One and Pass Two
+create a correct object file, and a listing
+file that outputs the literal and symbol tables. Still a lot of
+error-checking and other stuff to be done, but its looking good so far. :)
+
+~Cliff
+
+2/19/2003  Trying to clean up the implementation of Pass_One...might not 
+run correctly right now (but in old is a working implementation).
+
+--after class--
+
+Okay...fixed up a few things, and now it's running strong (and with
+about a half-page less code in Pass_One). It could prolly use a bit
+more cleaning up, but I'm more interested in sticking in
+error-checking, and testing it. Prolly start in on that tonight after work...
+
+~Cliff
+
+2-20 I have added a new variable in along with a few error checks; you should 
+be able to recognize my work by my comments :) And I will add more either to-
+night or, definitely, tomorrow.
+-MIKE
+
+2/20/2003 Added the function Is_Valid_Label(char* token) to make sure
+the label is legal (strlen(label) <=6, 1st char is alpha & rest are 
+alpha/numeric). Also, I have CVS up and running.  
+
+It's now a few hrs later... I added/fixed the END psuedo-op so 
+that if no operand is given, Pass_One can still figure out where the 
+first executable address is and output it to the intermediate 
+file.
+
+Ok, now its' really later... but there is good news... I've got 
+Pass_Two working so that it is now getting the correct values for 
+the R field, and I believe also getting the correct values for 
+the S(X) field, and is even adjusting them for the 
+Initial_Load_Address offset!  Still seem to be having some 
+trouble when ORI doesn't have a operand (the program is 
+relocatable) but it's late and I can't see straight!
+
+ ~Steve
+
+2/21/2003 Set up the boolean for relocatable programs as discussed
+after class. I've got it set up to output an 'M' for the Header
+Record (I changed Pass_One to output an M for the initial load address
+if there's no operand), and I'm working on setting it up to output an
+'M' for each relocatable text record.
+
+Okay...I had to change Get_Data a bit (now, you have to pass it a
+boolean value since the S field is what is modified in the case of a
+relocatable program). Seems to be working just fine (I used the
+example program in class, and just removed the operand on ORI). I
+haven't had a chance to really analyze the object file, but it looks
+right, at any rate.
+
+~Cliff
+
+2/21/2003 I verified Cliff's work and it all looks good.  I Also fixed
+Pass_Two so that it now correctly updates the S field and outputs and
+M for all OPs except BR R=0... it wasn't quite right before.
+~Steve
+
+2/23/2003 Added error checking in Pass Two for unknown
+instructions. Added a check to make sure symbols can't be defined
+twice (in Pass One). Changed cerr to listing in Pass One, and had the
+output include the invalid input (in relevant cases). Also, added a
+cerr << "Program exited abnormally" in the case of fatal errors in
+Pass One. At this point, it seems like Pass Two should have a bit more
+error checking in it, b/c there are some errors that will be more
+easily found in Pass Two. I'm going to start working on outputing more
+stuff to the listing file, though, and get around to error checking a
+little bit later on.
+
+--A little later-- Take a look at how Pass Two outputs info to the
+listing file now. Let me know if you think anything should be added to
+it.
+
+
+--After the Grammy's-- Wrote Pass_One.txt (in doc folder), which has
+pseudocode for Pass_One. Also, I changed Pass_One so that instead of
+checking for ORI as an operand of END, it checks for ORI as an op_code
+after the initial ORI. Going to bed soon...
+
+~Cliff
+
+2/24/2003 Added error checking in Pass_One to make sure the operand of
+END psuedo-op (can either be a symbol or integer) is in range.  Added
+error checking in Pass_Two that makes sure no literals are ever
+present in the R-field nor the X-field (created helper function
+bool Is_Literal(char* str) to check a string and see if it is a
+literal or not), and also made sure that the X-field is never a
+symbol. 
+
+--Later-- added Err checking to Pass_One to make sure EQU, RES, and
+END operands aren't out of range.  ERR checking in Pass_Two to make
+sure R, S, X fields aren't out of range.  also did a few other small
+err checks.
+
+~Steve
+
+2/24/2003 Got the pseudocode for Pass_Two written. I think that's
+really all the pseudocode that should be needed for this lab. We have
+req/ens for Table, and we can cut-and-paste the smaller helper fxn.'s
+directly.
+
+~Cliff
+
+2/25/2003 Got Pass Two to output correctly to the listing file. The
+only thing it does wrong, is in some cases it outputs no S field, and
+the relocatable symbol M is therefor off-center and ends up being
+printed out in the S column. I can't figure out where the problem is,
+though.
+
+Also, I put the output of the symbol and literal tables at the END of
+the listing file, as opposed to the beginning (i.e., I moved them to
+the end of Pass_Two).
+
+--later-- Figured out the problem with the listing file output. Got it
+fixed; it should be working right now.
+
+--later still-- Got Pass One set up to make sure literals are in
+range. After quite a bit of dicking with it, it works now (WITHOUT
+segmentation faults). Also did a bit of housecleaning...moved and
+renamed most of the old source files into the tests directory, and got
+rid of most of the old object/middle/listing files. Also got the "ORI
+256" problem fixed...Pass_Two now checks to make sure
+Initial_Load_Address + Segment_Length < 256.
+
+~Cliff
+
+2/25/2003 Played w/ some of the error checking. Fixed up the lab1
+documentation so that it looks like the lab2 docs WILL look when they
+are all finished.  also created a .css style sheet for all the .html
+pages to keep them all looking the same, and set up a dummy index.htm
+for lab2 docs.  also ran an initial pass of the source code thru Adobe
+Distiller and created the source code .pdf's (i'll do this again when
+all the source is finalized just prior to submitting lab2).  Tomorrow
+(or maybe yet tonight) i'm going to do some dependancy diagrams and
+class diagrams using MS Visio, and i'll put them in the docs ASAP.
+~Steve
+
+2/26/2003 Chaged Get_Data into Get_S (which has a boolean as a
+parameter), and Get_R (which does not). This fixed the problem we were
+having with non-relocatable ops.
+
+~Cliff
+
+The wee hours of 2/27  Got CCD to work in the case of one or more
+spaces as the operand.
+
+~Cliff

@@ -1,0 +1,42 @@
+				CIS 222 HW#18			Steve Harman
+2)
+Add
+{
+	Set_Length_Of_Before(self[before], self[after], pos);
+	self[before].Push(x);
+}
+
+Remove
+{
+	Set_Length_Of_Before (self[before], self[after], pos);
+	self[after].Pop(x);
+}
+
+Length
+{
+	object Integer len;
+	len = self[before].Length() + self[after].Length();
+	return len;
+}
+
+Set_Length_Of_Before
+{
+	object Item x;
+
+	if(before_stack.Length() > pos)
+	{
+		while(before_stack.Length() > pos)
+		{
+			before_stack.Pop(x);
+			after_stack.Push(x);
+		}
+	}
+	esle if(before_stack.Length() < pos)
+	{
+		while(before_stack.Length() < pos)
+		{
+			after_stack.Pop(x);
+			before_stack.Push(x);
+		}
+	}
+}

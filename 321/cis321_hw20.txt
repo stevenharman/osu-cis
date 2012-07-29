@@ -1,0 +1,33 @@
+									Steve Harman
+									CIS321 HW#20
+									Long - 12:30
+1. convention: if the sorting machine is in insertion phase then the heap is
+empty.  If the sorting machine is NOT in insertion phase then the array has a lower 
+bound of 1 and the heap has a size between 0 and the upper-bound of the array and all
+elements of the array from 1 - the size of the heap are an ARE_IN_ORDER heap according
+to the mapping from binary tree to array, and the queue is empty.
+
+   correspondence: if the sorting machine is in inserting phase then all elements of
+the machine are in the queue.  if the machine is not in inserting phase then for
+any item x, x is in the machine if and only if it is in the array at some location 
+between the lower bound and the size of the heap.
+
+2.
+
+				Sorting_Machine_Type
+
+					   ext
+
+				Sorting_Machine_Kernel
+
+					   i
+
+General_Are_  i      u		Sorting_Machine_Kernel_2	Array_Are_In_Order_At
+In_Order
+				enc	    u		u	i
+
+
+								i
+			i		    i		i	     Array_Exchange_At
+
+		Representation	    Queue_Kernel    Array_Kernel

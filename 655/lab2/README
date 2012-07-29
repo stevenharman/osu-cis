@@ -1,0 +1,242 @@
+5/12/2003  I went ahead and modified the Makefile and copied in all
+the other files we need. Take a look at it, and make sure that I got
+it right. (It seems to compile right, but that's not always a good
+thing). :) I'm gonna go ahead and try and figure out what it is we
+gotta do, and get started on it. Oh...I also ran dos2unix on closure.*
+(they all had ^M's all over the place...I assume you coded some of
+this on your machine and FTP'd it back to the server), and renamed
+them Closure.* (capital C) so that it would jive with the Makefile targets.
+
+--Okay...so I looked at the thing, and I'm a little daunted. Since I
+have other labs to work on, too, I'm prolly gonna try and get back to
+this tomorrow, when I have all day to spend on it...
+
+
+~Cliff
+
+5/15/2003 Looked over this stuff some more... still don't have an idea
+what the hell is going on.  I read through the docs and tried to take a
+stab at some of the //TODO stuff.  Since we're using our Lab1
+stuff... lets make a convention, that any new code added for lab2
+start with a "//LAB #2" comment.  I tried adding a few things in
+Tree.h (to take care of the //TODO stuff from Closure.h) but not sure
+if i have it right.  will look at this stuff some more.
+
+--Ok, I also went into Environment.cpp and tried implementing
+Environment::define() and Environment::assign()... take a look at them.
+
+~Steve
+
+5/17/2003 Updated Main() a bit, so that it defines the BuiltIn
+environment (as long as your Environment::define() is good, and it
+looks okay to me, as far as I understand things).
+We'll need to modify Main() a bit further (there's a newsgroup message
+about it), but we can't do that until we've implemented Eval() (and
+thus, implemented Apply()), which is what I'm gonna go ahead and
+start on.
+
+--I went ahead and added the eval(Environment * env) method to the
+headers of Node and BuiltIn, and I'm gonna try to start the code for BuiltIn::eval().
+
+--Looks like I got a bit ahead of myself...we're prolly going to have
+to implement Node::eval() before we do anything, b/c that's what's
+going to lookup() whatever it is the Node is, and return the
+evaluation of it (if I'm understanding this right). Anyways, I gotta
+get away from this for a while; I'll work on it some more tommorrow...
+
+~Cliff
+
+5/18/2003  I put eval() functions in the Special header file and .cpp
+file, and in the class Cons. I have not implemented them, as
+I'm not quite sure what it is they need to do. I gotta go to my
+fiance's birthday cookout, though, so it'll have to wait till later
+on.
+
+
+--Okay, it's looking like I might just be getting a grip on just how
+this thing needs to be layed out. I'm dicking around with define and
+lambda right now, and if I can get those to work, I'm reasonably
+certain that I can get the rest of this to work.
+
+--Got (define x 6) to work (i.e., if you do that, and then type x, it
+returns 6). Not sure if it's the solution we're looking for, but it
+works for now...now I just gotta figure out how to get it to work for
+defining functions.
+
+--Gotta take a break from this. We'll talk about it tomorrow, I'm
+sure, and I plan to work on this tomorrow night like mad.
+
+~Cliff
+
+5/19/2003  I realized that I'd forgotten to put in the eval() methods
+for IntLit, StrLit, etc...so I went ahead and did that. Working on
+BuiltIn::apply() now.
+
+--Frustration; nothing is working; disaster.
+
+~Cliff
+
+5/19/2003 Implemented/Fixed If::eval(). Tested and is working for trivial
+expressions (EX: (if #t 2 3) -> 2. (if #f 2 3) -> 3. (if #f 2) ->
+Error, and Nil is returned.  Also implemented Cond:eval(). Getting
+segfault, prob in Cons::parseList() (Tree.cpp line #85). Could be a
+problem w/ Regular::eval(). Going to try and debug, but will submit
+as-is.  Also going to get eval() for BuiltIn, Closure, &
+Environment to return ERROR (prob. Nil() also).
+
+-- Added BuiltIn::apply->"b-" w/ err chk.
+
+~Steve
+
+5/20/2003 -- The Wee Hours -- Had to change up Environment::lookup() a
+bit to get it to jive with our definition of an environment; now, i
+can go to TOWN on Builtin::apply() (now that the segfaults are
+gone). :)
+
+--Making progress; the b{+/-*} ops are taken care of...
+
+--Fixed the Define problem...I'm gonna go ahead and take care of eval,
+so we can evaluate things we've defined more easily. To be done:
+account for only 1 arg being passed to number?
+
+--eval works, BUT it suffers the same problem as number? (since it
+only takes one argument)
+
+--BedTime
+
+~Cliff
+
+5/20/2003 I think that eval_list() is still wrong... a list of
+expressions could be 1,2,3,... expressions long... not just 1 or 2. so
+we either need to implement eval_list recursivly (checking for the
+existence of a Nil Node (Node * ->isNull();)) or w/ a while loop (also
+checking for a Nil Node. In either case, we need to construct a new
+tree w/ each exp evaluated fully (which is why recursion seems the
+best way to go). If we can get eval_list implemented like this, then
+we won't have to worry about cases of only having one (as opposed to
+two) arguments (like in number? and eval) b/c it will stop evaluating
+expressions as soon as it come across the Nil Node. If I get a chance
+I'll try and look into this a little deeper.
+
+~Steve
+
+5/20/2003 Fixed eval_list to work in a correctly recursive fashion,
+and accordingly modified BuiltIn::apply() (so that arg2 =
+args->getCdr()->getCar()). I think I'm actually gonna try and finish
+BuiltIn (or a good portion of it) before the UPE induction tonight, if
+at all possible, as well as adding in some error-checking stuff here
+and there. Now that the correct args are getting passed in, it
+shouldn't be too bad, really. :) Oh, I'm also gonna do a cerr check
+and take most of them out, since we don't really need them any more,
+and I'm tired of seeing Cons::eval. :)
+One more thing; something is still going wrong with define, b/c when
+you do:
+
+(define x 1)
+(define x 2)
+(eval x)
+
+The returned value is 1. Not sure what's going on there. This is
+pretty key, as I started to try and implement Closure, and realized
+that I don't know if it is going to work if Define doesn't work...
+
+
+
+
+***BUILTINS THAT WORK SO FAR:***
+     b+, b-, b*, b/, b<, b=, number?, null?, car, cdr, cons, pair?,
+     eval, symbol?, set-car!, set-cdr!, procedure?, newline, eq?
+
+
+
+
+--Closure::Apply WORKS (I think). :) I tried it out using the
+following:
+
+(define (foo x y) (b+ x y))
+(foo 1 2)
+...and it returned 3! :)
+
+--Nope...I tried:
+(define (double x) (b* x 2))
+(double 7)
+
+...and I got a segfault. <sigh> At least it's close, though. :)
+
+-- Closure::apply() works for REAL now (I made a stupid little mistake
+before). The only problem we're having with it thus far, is that
+Define isn't re-defining variables. We're gonna have to do some
+serious looking at Define::eval, and get that fixed.
+
+--Okay...I temporarily fixed Environment::define (although at some point, we're
+gonna have to fix it for real, which might mean putting some kind of
+remove function in Environment.cpp). Basically, all I did was have
+Define make a new Cons out of scope no matter WHAT find
+returns. Because lookup uses find, and find looks at the first element
+first, this works pretty well, b/c it "finds" the re-defined value
+first. This is kind of an impractical solution, though, b/c the
+environment could get HUGE if, say, you re-defined x 1000
+times. (There would be 1000 values of x stored in the environment,
+only the LAST of which would be seen and returned by the lookup
+function). I couldn't get it to work any other way, though.
+
+
+
+--Note: not sure if set-car!, set-cdr! work quite right...
+--Note: in order to implement newline, I had to change Ident::print() a
+bit; basically, for newline I return a new Ident("\n"), and then in
+Ident::Print(), it checks to see if the value of the Ident is \n. If
+it is, it prints a newline and returns; else, it just prints as usual.
+
+--Working on eq?, and it sucks...but it's coming along.
+
+--eq? works now; it took a while to write, but it's done
+
+~Cliff
+
+5/21/2003
+
+-Fixed Environment::define() and updated Environment::lookup() accordingly.
+-Added a new bool (called printQuotes) to the StrLit class,
+ and changed StrLit::print() so that if(!printQuotes), it just outputs
+ strVal; else, it calls Prof. Baumgartner's print method. (We can use
+ this to implement newline, write, and display)
+-Implemented the BuiltIn write.
+-Removed what MIGHT have been the last cerr (in If::eval()). We should
+ prolly start looking a little more carefully for these, and taking
+ them out.
+-Had to fix Regular::eval() a bit; for (define head car), it was only
+ looking up 'head', which was returning the Ident("car"), and trying
+ to run apply on that. So, I just put in a while loop that keeps
+ looking up a symbol's returned value until it finally finds a function.
+TODO:
+
+-Implement display, apply, interaction-environment, and read
+-Maybe we could change all of our error cases to output an error
+ message and then, instead of returning a new Nil() (in which case a ()
+ prints after the message) we could return a new StrLit(""), so that
+ the Nil isn't printed; also, we could return a new StrLit(SomeString) in
+ cases where we don't want the Node to be pretty-printed. (For
+ example, for a call to (define x 1), we could return a new StrLit("x
+ = 1"), or something like that)
+-Make sure lambdas work (pretty crucial)
+
+
+--Lambda's aren't quite working. I know what the problem is, but I
+have to go to work. I'll take care of it when I get home...for now,
+ignore the cerr's. :)
+
+
+--Got lambdas AND functions to work right...almost. I went ahead and
+added "p3.scheme" to the CVS, so you can use it as input, if ya
+want. It's the problem from the homework, with a shit-ton full of
+lambdas and things. It isn't quite running, with our implementation. I
+also added fib.scheme (another function which works in scheme48).
+
+~Cliff
+
+5/22/2003  Implemented interaction-environment by creating a static
+Environment * in BuiltIn, and putting in a new constructor that will
+make that vairable point to the BuiltIn env.
+
+~Cliff

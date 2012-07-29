@@ -1,0 +1,51 @@
+Pseudocode for Loader.cpp
+
+void main(int argc, char* argv[], char* envp[])
+{
+	if(number of arguments < 4)
+	{
+		error: invalid call
+		exit program
+	}
+	
+	EST_Table =  table for external symbols, up to 50 elements
+	inputs = input stream set up like an array, for (argc - 3) arguments
+	File_Number = integer == 0
+	while(File_Number < (argc - 3))
+	{
+		input line to file is opened
+		File_Number++
+	}
+	
+	Total_Length, Begin_Execution = integers == 0
+	Total Length = return value from Loader_One(ES_Table, inputs, argc, Begin_Execution)
+	if(Total_Length > 255)
+	{
+		error: program is too large for memory
+		exit program
+	}
+	
+	object_out = output line from Loader to object file
+	object_out = open to file (argc - 2)
+	IPLA = integer value that is equal to integer (argc - 1)
+	if((IPLA + Total_Length) > 255)
+	{
+		error: not enough memory for program
+		exit program
+	}
+	
+	middle = input line for file to Loader
+	middle input stream = open to file "intermediate"
+	Loader_Two(ES_Table, IPLA, Begin_Execution, Total_Length, inputs, object_out, middle, argc)
+	output "Promgram ended successfully"
+	exit program
+}
+
+Description for Loader:
+
+    The Group OverDrive Linking Loader is a useful tool for the
+W03-560 Machine  user who wants to write code segments in seperate
+files. Using external reference symbols as a means of attachment, it 
+has the ability to take several file names (along with an Initial
+Program Load Address, or IPLA) as input from the command line and
+output one absolute object file that is executable by the W03-560 Machine.

@@ -1,0 +1,1757 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Preview href="./pg_files/preview.wmf">
+<link rel=Edit-Time-Data href="./pg_files/editdata.mso">
+<title>PROGRAMMER'S GUIDE</title>
+<style><!--
+.Normal
+	{font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoToc1
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;
+	letter-spacing:-.25pt;
+	font-weight:bold;}
+.MsoToc2
+	{font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-variant:small-caps;
+	letter-spacing:-.25pt;}
+.MsoList
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoListNumber
+	{text-align:justify;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoTitle
+	{border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.5pt;}
+.MsoBodyText
+	{text-align:justify;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:Arial;
+	letter-spacing:-.25pt;}
+.MsoSubtitle
+	{line-height:17.0pt;
+	font-size:16.0pt;
+	font-family:Arial;
+	letter-spacing:-.8pt;}
+.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+.BlockQuotation
+	{text-align:justify;
+	line-height:11.0pt;
+	background:#F2F2F2;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial Narrow";
+	letter-spacing:-.25pt;}
+.PartLabel
+	{text-align:center;
+	line-height:18.0pt;
+	background:black;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:white;
+	letter-spacing:-.8pt;}
+.PartTitle
+	{text-align:center;
+	line-height:33.0pt;
+	background:black;
+	font-size:42.0pt;
+	font-family:"Arial Black";
+	color:white;
+	letter-spacing:-2.0pt;}
+.CompanyName
+	{font-size:16.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-1.25pt;}
+.TitleCover
+	{line-height:32.0pt;
+	tab-stops:0in;
+	border:none;
+	padding:0in;
+	font-size:32.0pt;
+	font-family:"Arial Black";
+	letter-spacing:-2.4pt;
+	font-weight:bold;}
+.ReturnAddress
+	{line-height:8.0pt;
+	tab-stops:1.5in;
+	font-size:7.0pt;
+	font-family:Arial;}
+.SubtitleCover
+	{line-height:24.0pt;
+	border:none;
+	padding:0in;
+	font-size:24.0pt;
+	font-family:Arial;
+	letter-spacing:-1.5pt;}
+-->
+</style>
+</head>
+<body lang=EN-US link=blue vlink=blue class="Normal" bgcolor="#FFFFFF" text="#000000">
+<table border=0 cellspacing=0 cellpadding=0 width=815>
+  <tr> 
+    <td width=272 valign=top class="Normal"> <p class=CompanyName>Group Over-Drive</p></td>
+    <td width=272 valign=top class="Normal"> <p class=ReturnAddress>Ankit Garg                                
+        garg.13@osu.edu</p>
+      <p class=ReturnAddress>Clifton L. Snyder                     snyder.496@osu.edu</p>
+      <p class=ReturnAddress>Steve Harman                         harman.30@osu.edu</p>
+      <p class=ReturnAddress>Mike Young                             young.772@osu.edu</p></td>
+    <td width=272 valign=top class="Normal">&nbsp; </td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext 6.0pt;padding:31.0pt 0in 0in 0in'> 
+  <p class=TitleCover>Programmer’s Guide</p>
+</div>
+<div style='border:none;border-top:solid windowtext .75pt;padding:24.0pt 0in 0in 0in'> 
+  <p class=SubtitleCover>Table Of Contents</p>
+</div>
+<p class=MsoToc1> <span
+
+class=MsoHyperlink><a href="#_Toc31728736">Data Structure</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728737">Memory</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728738">Registers</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728739">Program Counter</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728740">Data Elements</a></span></p>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728741">Simulator.cpp</a></span></p>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728742">Machine.h</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728743">Global Variables</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728744">Private Operations</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728745">Public Operations</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728746">Processor.h</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728747">Constants</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728748">Private Operations</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728749">Public Operations</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728750">Memory.h</a></span></p>
+<ul>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728751">Private Operations</a></span></li>
+  <li><span class="MsoToc2" style='font-variant:normal;text-transform:uppercase'><a
+
+href="#_Toc31728752">Public Operations</a></span></li>
+</ul>
+<p class=MsoToc1><span
+
+class=MsoHyperlink><a href="#_Toc31728753">Known Errors</a></span></p>
+<br clear=all
+
+style='page-break-before:always;'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>1</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Implementation</p>
+</div>
+<p class=MsoSubtitle>The implementation of the simulator for the W03_560 Machine</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31557873"></a><a name="_Toc31557997"></a><a name="_Toc31697555"></a><a
+
+name="_Toc31728736"><font color="#FFFFFF">Data Structure</font></a></h1>
+</div>
+<p class=MsoBodyText>The implementation of simulator is divided into four segments 
+  consisting of Simulator.cpp, Machine.h, Memory.h, and Processor.h.  The simulator 
+  is a C++ implentation of the W03_Machine.  This chapter will go into the data 
+  structure required by the simulator while the next will explain each segment</p>
+<h2><a name="_Toc31557874"></a><a name="_Toc31557998"></a><a name="_Toc31697556"></a><a
+
+name="_Toc31728737">Memory</a> </h2>
+<p class=MsoBodyText>The memory designed in the simulator contains 256 addresses, 
+  or addresses 0-225.  The memory is structure is implemented in Memory.h and 
+  is in an array of integers.  The integer values of the memory are between the 
+  hex values 0x0 and 0xFFFF.  Seen below is the private declaration used for memory 
+  and each value within memory is a default halt value of 0xC0C0.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>int mem_array[256] 
+    = 0xC0C0;</p>
+</div>
+<h2><a name="_Toc31557876"></a><a name="_Toc31558000"></a><a name="_Toc31697557"></a><a
+
+name="_Toc31728738">Registers</a></h2>
+<p class=MsoBodyText>The simulator uses a four-element integer array to represent 
+  registers for data.  These registers can be used for indexing except for register 
+  0.  Each register is 20 bits in length and any number outside this range is 
+  either fixed or could result in an error message being produced.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>int reg_array[4];</p>
+</div>
+<h2><a name="_Toc31697558"></a><a name="_Toc31728739">Program Counter</a></h2>
+<p class=MsoBodyText>The simulator uses a single integer value for the program 
+  counter.  This value is 20 bits in length and always-positive using 2’s complement.  
+  This value always stores the address of the memory of the next instruction to 
+  be executed.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>int P_Counter;</p>
+</div>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697559"></a><a name="_Toc31728740"><font color="#FFFFFF">Data 
+    Elements</font></a></h1>
+</div>
+<p class=MsoBodyText>Listed below is the table of the data elements used for the 
+  simulator implementation of the W03_560 Machine.</p>
+<table border=1 cellspacing=0 cellpadding=0 width=584>
+  <tr> 
+    <td width=135 nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'><font color="#FFFFFF">Variable Name</font></span></b></p></td>
+    <td width=90 nowrap valign=bottom bgcolor="black" class="Normal"> <p><font color="#FFFFFF"><b><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local/Global</span></b></font></p></td>
+    <td width=74 nowrap valign=bottom bgcolor="black" class="Normal"> <p><font color="#FFFFFF"><b><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Type</span></b></font></p></td>
+    <td width=109 nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'><font color="#FFFFFF">Declaring Module</font></span></b></p></td>
+    <td width=176 nowrap valign=bottom bgcolor="black" class="Normal"> <p><b><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'><font color="#FFFFFF">Purpose</font></span></b></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>addr</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[2]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>holds memory addr where text records begin </span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>addr</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>address of memory to loaded</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>aux_input</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>fstream</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Simulator</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>input file stream declaration</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>ch</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[2]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>used to remove '\n' char after getting a decimal number 
+        from the input file</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>data</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[5]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>holds data to/from memory</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>diff</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>diff is the value of the register minus val</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>HALT</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>bool</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Stop/No Stop execution</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>header_buffer</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[13]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>string to hold header of infile</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>hex_num</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>holds an integer in 'hex format'</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>i</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>used to propogate one or zero on a shift</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>imm</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>address of memory to loaded</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>init_seg_addr</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>address where initial loading of program begins</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>input</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[8]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>buffer holding incoming character string</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>instruction_counter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Keep track of # of instructions executed</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>junk_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing opcode</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>m</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>machine</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Simulator</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>machine class used</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>main_input</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>fstream</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Simulator</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>input file stream declaration</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mem</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Global</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory class used</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mem_array</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int[256]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>array of 256 integers represented in memory</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>n</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temporary integer counter</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>n</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temporary integer counter</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>n</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temporary integer counter</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>OP</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>opcode returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>OP</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int of OPCode from instruction</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>op</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>character from memory to be output</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>op_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing opcode</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>outs</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>fstream</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Simulator</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>output file stream declaration</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>p</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Global</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor class used</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>P_Counter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>holds value of the Program Counter</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>product</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>product is the value of the register times val</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>quotient</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>quotient is the value of the register divided by val</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>R</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>R returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>R</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Register involved in instruction, or branch mode &amp; IO</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>r_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing r</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>reg_array</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int[4]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>array of 4 ints to represent R[0] - R[3]</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>reg_contents</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>contents of register X in S_Of_X(int, int)</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>reg_value</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>data to/from R[0] - R[3]</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>S</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>S returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>S</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>value to be used in instruction/operation</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>segment_length</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>length of the memory segment</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>shifted</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>used to check if a 20-bit integer is negative</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>sigf</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>used to turn a 20-bit two's complement number into a 32-bit 
+        two's complement number</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>store_it</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>integer value of two incoming characters to be stored in 
+        memory</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>sum</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>sum is the value of the register plus val</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Sx</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>number of bits to shift register by</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>t_outs</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>fstream</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Simulator</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>output file stream declaration</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temp</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temporary integer</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temp</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>used to check the sign bit on a shift</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>text_buffer</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[8]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>8 char array to hold incoming text records of infile</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>thirtytwobit</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>32 bit representation of a 20-bit number</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>twentybit</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>20-bit representation of a 32-bit number</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>two_char_buffer</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>char[2]</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>temp string for 2 hex chars</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U1</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U1 returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U1</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Unused Field 1</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>u1_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing u1</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U2</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U2 returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>U2</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Unused Field 2</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>u2_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing u2</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>val</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>value of S(X) or register R or incoming integer</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>val2</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Processor Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>value of memory mem[addr]</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>X</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>X returned</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>X</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>indicates indexing, 1=indexing, 0=no indexing </span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>x</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Machine Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Get string length of a hex text</span></p></td>
+  </tr>
+  <tr> 
+    <td width=135 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>x_shifter</span></p></td>
+    <td width=90 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Local</span></p></td>
+    <td width=74 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>int</span></p></td>
+    <td width=109 nowrap valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>Memory Class</span></p></td>
+    <td width=176 valign=bottom class="Normal"> <p><span style='font-family:"Arial Unicode MS";
+
+  letter-spacing:0pt'>mask for parsing x</span></p></td>
+  </tr>
+</table>
+<br clear=all
+
+style='page-break-before:always'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>2</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Design Modules</p>
+</div>
+<p class=MsoSubtitle>The Design Modules Used in the Simulator</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697560"></a><a name="_Toc31728741"><font color="#FFFFFF">Simulator.cpp</font></a></h1>
+</div>
+<p class=MsoBodyText align="center"><img src="model.gif" width="362" height="295" align="middle"></p>
+<p class=MsoBodyText>Simulator.cpp is the core file for the simulator it creates 
+  a machine type using Machine.h.  It is passed in four arguments from the command 
+  line, all four of which are file types, a check to see if four files are input 
+  is immediately performed before going any further.  Simulator.cpp declares the 
+  file streams, names them, and opens them accordingly to the format for the command 
+  line.  Simulator.cpp has five small tasks that it performs.</p>
+<p class=MsoListNumber> <span style='font-size:9.0pt;
+
+font-family:"Arial Black"'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Using Machine.h it calls Load_This and begins to get the necessary 
+  input for simulating</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>m.Load_This(main_input, 
+    outs, t_outs);</p>
+</div>
+<p class=MsoListNumber> <span style='font-size:9.0pt;
+
+font-family:"Arial Black"'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Next, using Machine.h again, it calls Simulate_This to begin 
+  simulating the W03_560 Machine</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>m.Simulate_This(aux_input, 
+    outs, t_outs);</p>
+</div>
+<p class=MsoListNumber> <span style='font-size:9.0pt;
+
+font-family:"Arial Black"'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> After the final results are reached, dump the values of the registers</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>p.Dump_Regs(outs);</p>
+</div>
+<p class=MsoListNumber> <span style='font-size:9.0pt;
+
+font-family:"Arial Black"'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> In addition to dumping the values of the registers, the memory 
+  array is no longer needed as well</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>mem.Dump_Mem(outs);</p>
+</div>
+<p class=MsoListNumber> <span style='font-size:9.0pt;
+
+font-family:"Arial Black"'>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> Provide tracing output to indicate where the program is in simulating</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697561"></a><a name="_Toc31728742"><font color="#FFFFFF">Machine.h</font></a></h1>
+</div>
+<p class=MsoBodyText>The Machine class encapsulates the W03_560 machine, creating 
+  the Memory and Processor objects upon instantiation and acting as a common link 
+  between them. In this way, it allows data to be passed between the elements 
+  of the machine, as well as keeping track of the number of instructions that 
+  are executed overall. In other words, the Machine class is the essential class, 
+  which keeps the basic functioning parts of the W03_560 machine within scope, 
+  and allows them to communicate with each other.</p>
+<h2><a name="_Toc31697562"></a><a name="_Toc31728743">Global Variables</a> </h2>
+<p>int start, length;</p>
+<p>      Memory mem;</p>
+<p>      Processor p;</p>
+<h2><a name="_Toc31697563"></a><a name="_Toc31728744">Private Operations</a></h2>
+<p>There are only 2 private operations in the Machine class, which are used exclusively 
+  by the operation Load_This (which is described in more detail below). These 
+  operations are used in tandem to take a string of characters which represents 
+  a hexadecimal value, and convert it to an integer which holds that hex value. 
+  It is useful to note that Char_To_Text is used by Text_To_Hex in order to find 
+  the values of the characters, which are shifted into their correct value places 
+  in the outgoing integer.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Machine::Char_To_Hex(char 
+    c)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Requires</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    c is a hex digit in the form of a char</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    Return value = hex value of c</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Machine::Text_To_Hex(char* 
+    str)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Requires</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    str is  a string of chars which represent hex digits</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    Return value = hex value of str</p>
+</div>
+<h2><a name="_Toc31697564"></a><a name="_Toc31728745">Public Operations</a></h2>
+<p>While the requires clauses for Load_This and Simulate_This seem a bit light, 
+  it is important for the user (as well as the programmer) to note that, as indicated 
+  in the User’s Manual, if an invalid or incorrectly formatted main input file 
+  is passed to the W03-560 machine simulator, an error message will be produced, 
+  and the machine will never begin execution. Similarly, if an incorrect auxiliary 
+  input file is passed, Simulate_This will halt execution. (See the section of 
+  the User’s Manual on Error Codes for more information).</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Machine::Load_This(fstream&amp; 
+    main_input, fstream&amp; main_output, fstream&amp; trace_output)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Requires</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    main_input.is_open() and is an input stream and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    main_output.is_open() and is an output stream and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    trace_output.is_open() and is an output stream</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    The set of instructions coming in on the main_input stream will be loaded 
+    into machine memory.</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Machine::Simulate_This(fstream&amp; 
+    aux_input, fstream&amp; main_output, fstream&amp; trace_output)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Requires</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    aux_input.is_open() and is an input stream and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    main_output.is_open() and is an output stream and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    trace_output.is_open() and is an output stream</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    The set of instructions loaded into memory by Load_This and input provided 
+    by the auxiliary input file (if any) will be processed by the Processor Class 
+    as per W03-560 machine instruction execution parameters.</p>
+</div>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697565"></a><a name="_Toc31728746"><font color="#FFFFFF">Processor.h</font></a></h1>
+</div>
+<p class=MsoBodyText>In addition to holding the array of integers that represents 
+  the registers of the W03_560 machine, the Processor class does the bulk of the 
+  work for the Simulator, as is suggested by the name of the function Processor::Do_This. 
+  A programmer who wants to understand or modify the inner workings of the machine 
+  would do well to understand the various operations and data structures that 
+  the Processor class makes use of in order to execute the instructions given 
+  to the simulator.</p>
+<h2><a name="_Toc31697566"></a><a name="_Toc31728747">Constants</a></h2>
+<p>The private operations for Processor objects mainly do small but important 
+  and repetitive tasks. Due to their extensive use, however, it is necessary to 
+  understand their operation to some level of detail. It is also important to 
+  keep in mind that, because the Simulator has been written in C++, using its 
+  built-in 32-bit data type <i>int </i>extensively, many of these helper functions 
+  have no other purpose but to make the conversions that are necessary to correctly 
+  represent 20-bit values. Perhaps most interesting are the Is_Negative_Value 
+  and Leading_Ones functions, which test the lower 20 bits determine whether or 
+  not the value of an integer is negative in 20-bit two’s complement, and convert 
+  an integer to a 32-bit two’s complement integer, respectively. Conversely, there 
+  is the Leading_Zeroes function, which effectively converts said negative integer 
+  back to a form representable in 20-bit two’s complement.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Processor::Leading_Ones(int 
+    x)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    Return value #x|0xfff00000</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Processor::Leading_Zeroes(int 
+    x)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    Return value #x&amp;0x000fffff</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Processor::Is_Negative_Value(int 
+    x)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    if  (x &gt;= 0x00080000)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                                  
+     then Is_Negative_Value(x)</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Processor::S_Of_X(int 
+    s, int x)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    if (x = 0)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                                
+    then return value s</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                
+    else</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                                
+    return value s +  reg_array[x]</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Processor::Is_Overflow(int 
+    x)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    if (x  &gt; 0x000fffff or x &lt; 0xfff80000)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                                
+    then Is_Overflow(x)  </p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'> Processor::Is_Printable_Ascii(char 
+    c)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures  
+  </p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    if c has an ASCII value is the set {9, [32, 126)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                                
+    then Is_Printable_Ascii(c))  </p>
+</div>
+<h2><a name="_Toc31697568"></a><a name="_Toc31728749">Public Operations</a> </h2>
+<p>When considering calls made to them by other classes of the W03-560 machine 
+  simulator, the public operations of the Processor class are used just as frequently 
+  as the private operations. They are more in the forefront of the simulation 
+  of instructions, however. It may help to think of the private operations in 
+  terms of those which do non-trivial “behind-the-scenes” work, whereas the public 
+  operations cause actual changes to occur in data. They are indispensable for 
+  data access, both in terms of input <i>and </i>output. Because of the obvious 
+  nature of the workings of most of the public operations, as well as the fact 
+  that most of them are one or two lines of code at the most, the Do_This function 
+  will be concentrated on here. For more information on the other public functions, 
+  a simple glance at the source code should suffice.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'> Processor::Do_This(Memory&amp;, 
+    int OP, int R, int X, int S, fstream&amp; aux_in, fstream&amp; outs, fstream&amp; 
+    t_outs)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Requires</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 11.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  0 
+    &lt;= OP &lt;= 15 and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                0 &lt;= 
+    R &lt;= 3 and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  0 
+    &lt;= X &lt;= 3 and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                0 &lt;= 
+    S &lt;= 255 and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  aux_in.is_open() 
+    and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  outs.is_open() 
+    and</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                t_outs.is_open()</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                [The 
+    required operation, as specified by OP, will be executed in accordance with  
+    the instruction format of the W03-560 machine, returning a value of false 
+    after each instruction if instruction execution is to continue, and true if 
+    instruction execution is to halt after the current instruction.</p>
+</div>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697569"></a><a name="_Toc31728750"><font color="#FFFFFF">Memory.h</font></a></h1>
+</div>
+<p class=MsoBodyText>The first and most important feature that Memory.h does is 
+  declare and initialize the memory array mem_array as shown below in private 
+  operations.  In addition to the public operations listed below, Memory.h uses 
+  6 individual operations to parse the input text record into 6 different variables 
+  for later error checking and instruction handling.</p>
+<h2><a name="_Toc31697570"></a><a name="_Toc31728751">Private Operations</a> </h2>
+<p>Memory.h declares a private integer array to hold the values of the memory 
+  address.</p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>int mem_array[256];</p>
+</div>
+<h2><a name="_Toc31697571"></a><a name="_Toc31728752">Public Operations</a></h2>
+<p class=MsoBodyText>Memory.h uses four important public operations to perform 
+  the necessary tasks called upon it by Machine.h. </p>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Memory::Load_Memory(int 
+    x, int y)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    mem_array[int x] = int y;</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Memory::Dump_Mem(fstream&amp;)</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    outs &lt;&lt; mem_array;</p>
+</div>
+<div style='border:solid white .75pt;border-top:solid white 1.5pt;padding:12.0pt 12.0pt 12.0pt 11.0pt;
+
+background:#F2F2F2;'> 
+  <p class=BlockQuotation style='border:none;padding:0in;'>Memory::Get_Memory(int 
+    x);</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                  Ensures</p>
+  <p class=BlockQuotation style='border:none;padding:0in;'>                                  
+    return mem_array[int x];</p>
+</div>
+<br clear=all
+
+style='page-break-before:always'>
+<table border=0 cellspacing=0 cellpadding=0 width="100%">
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartLabel>Chapter</p></td>
+    <td width="86%" rowspan=2 class="Normal">&nbsp; </td>
+  </tr>
+  <tr> 
+    <td width="13%" valign=top class="Normal"> <p class=PartTitle>3</p></td>
+  </tr>
+</table>
+<div style='border:none;border-top:solid windowtext .75pt;padding:16.0pt 0in 0in 0in'> 
+  <p class=MsoTitle>Errata Section</p>
+</div>
+<p class=MsoSubtitle>Errata section of the simulator for the W03_560 Machine</p>
+<div style='border-top:solid white 6.0pt;border-left:solid white .75pt;
+
+border-bottom:solid white .75pt;border-right:none;padding:3.0pt 0in 3.0pt 3.0pt;
+
+background:black;'> 
+  <h1><a name="_Toc31697572"></a><a name="_Toc31728753"><font color="#FFFFFF">Known 
+    Errors</font></a></h1>
+</div>
+<p class=MsoBodyText>Each opcode was thoroughly tested in addition to possible 
+  causes for errors and no known remaining errors remain.</p>
+</body>
+</html>

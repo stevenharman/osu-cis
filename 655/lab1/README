@@ -1,0 +1,172 @@
+CIS 655 Lab #1 (due April 30)
+Cliff Snyder (snydercl) and Steve Harman (harman)
+
+Just type "make -k", and the Makefile provided will produce an
+executable called spp. It should work for any given Scheme
+expression (in theory), and most of our design choices should be pretty well
+documented in our "running commentary"/design log below. The one thing
+that might have been implemented a bit better is the Special::Print()
+functions, in which we ended up using while loops instead of
+recursion. However, this shouldn't really affect the efficiency of any
+of the functions to any great degree, as the while loops are doing the same
+work that the recursion would be doing...and our tree structure is
+sound, as far as we can see. Happy grading!
+
+***design log***
+
+4/21/2003 Changed Makefile.txt to Makefile; just type "make -k" to
+build the project, and it will create and executable file called spp
+
+~Cliff
+
+4/22/2003 (the wee hours) I started in on the scanner. So far, I've
+gotten it to discard whitespaces, scan strings into the buffer, and return
+a correct integer value. I tried my hand at identifiers (hope I got the
+right combination of characters that can be an identifier). Anyhow,
+it's looking like, unless I made some mistake somwhere along the line,
+the Scanner part is done. 
+
+--later--
+
+Took a crack at getting the Parser started. It's kinda slow going; I'm
+not 100% sure where it is I need to go with some things, and this
+Gerald fella is awfully friggin fond of pointers. I think I actually
+got a few things accomplished, though. Anyways, I'm gonna go to
+bed. I'll prolly work on it some more tomorrow. G'nite...
+
+~Cliff
+
+4/22/2003 Worked on Parser.cpp... tried to clean up the code a bit ( i
+put a note that i think all of the returns can be done in one step. we
+don't need the "Node * n = new BoolLit(true); return n;" but can do it
+all with: "return new BoolLit(true);").  Also, i took care of the case
+where TokenType == QUOTE, take a look and let me know what you
+think. Started working on parseRest() but realized that we need a way
+of putting the lookahead (i suppose thats what you call it) token,
+NextToken back on before recursivly calling parseExp();. we may need
+to implement a Token * LookAheadToken; as a private data type in the
+Parser.h interface. This would mean having two ways of doing
+parseExp(); one where LookAheadToken == NULL (meaning we have already
+read the first token of an exp) and one where LookAheadToken != NULL
+(so we haven't read the first token of an exp, which is what the
+current implementation assumes) we would also need a public function
+to reset the LookAheadToken = NULL for cases where we get an
+unexpected token (error).  With this, we could simply do
+"LookAheadToken = NextToken;" just before calling parseExp();
+
+Ok, also looked at Scanner.cpp and made a few changes: 1)Null
+terminated buf[] strings  2)made sure we also skip all comments
+3)delt with '+' and '-' identifiers and made sure that buf[] strings
+were in lowercase.  Think that's it.  I'm going to get studying for my
+EE300 exam that I have tomorrow.  talk to you in class.
+
+~Steve
+
+4/23/2003 I changed all the returns in Parser (i.e., return new
+BoolLit(true);) I must have been doing something wrong before, b/c I
+changed them all this time, and it compiles. I was wondering about the
+ELSE part of that long IF in the parser...do we need to tell it to
+ParseRest() if it is an erroneous type? It seems that the error case
+is handled by the return NULL; statement, unless I'm misunderstanding
+something here. I left it for now; let me know what you think.
+
+--a bit later--
+
+Okay, I set up Parser.h with a private Token * LookAheadToken and bool
+Lookhead, and I set up parseExp and parseRest to use them. I had a bit
+of trouble getting things to work right (related to my use of the
+LookAheadToken), but I think I got all that worked out now. 
+
+~Cliff
+
+4/24/2003 Fixed parseRest() to handle a DotNode.  Also, I think I'm
+going to get rid of the bool LookAhead, we could do that just as
+easily by checking if LookAheadToken == NULL.  Also, we need to work
+on parseExp()... there are really two cases, one where we have the
+LookAheadToken, and one where we don't. As it is now, we are getting
+the next token, t, and if we already have a LookAheadToken, then
+nothing is getting done w/ t.
+
+--later-- Ok, also realized we're going to need a way to reset the
+LookAheadToken from other classes, so i made a public function
+resetLookAheadToken(); which simply does: LookAheadToken = NULL; We
+need to call this from Main() just before we call
+root=parser->parseExp() otherwise each new input exp would have the
+last one's LookAheadToken.
+
+--Ok, some I'm having some weird damn problem w/ a Seg Fault... i
+think it is either in Parser or a prob w/ Main calling parse_Exp().  I
+added some couts to try and find it, but to no avail. before I commit,
+I'm going to create a file called Parser_bak.h and Parser_bak.cpp
+(which will be copies of those files which don't get seg faults, but
+also don't work right?)  Oh, I also Started working on Special.cpp,
+and I *THINK* I've got Tree.h taken care of... still need to implement
+some things in Tree.cpp though.
+
+--Later on-- Ok, i finished implementing Tree.cpp, which has a
+function parseList(), which is used by the Cons constructor... i think
+thats where the Seg fault was. so that is fixed, but our output is
+alittle messed up, getting an extra DOT?
+
+~Steve
+
+4/24/2003 Okay...I found the extra dot, and I took care of it. Now,
+I'm working on the print functions. I've got Quote::Print() working
+(sorta)...I can't quite figure out how to get it to print '(1 2 3)
+correctly; it wants to print it as '(
+				      1
+				      2
+				      3
+				      )
+I'm trying to find where the faulty '\n' is...
+
+--Okay...I went ahead and implemented the rest of the print() fxns
+(and I'm still having the \n problem). The problem is, it's in the
+virtual print functions...it's designed such that every time an Int or
+a Ident or whatever is printed, it is followed by a newline. I think
+I'm gonna take out that newline, and put it where it should be (i.e.,
+in the Special print fxns).
+
+--Took out all the endl's in Tree.cpp, and I changed Regular::print to
+accomodate my changes. Things seem to be working great now; I just
+have to go ahead and fill in Define::print and Lambda::print (b/c they
+have special requirements). The only problem we seem to have stems
+from a bit of a contradiction on Gerald's part. In the lab1 specs, he
+tells us that output should look like (1 2 3), but in the notes, he
+gives the output looking like (
+			        1
+				2
+				3
+			      )
+...I went with the lab specs, so I think we'll be alright. Just one
+other note - I saw that SET! was filled in, and I haven't touched it;
+I don't know if it will be affected by the changes I made or not. If I
+get a chance after doing Lambda and Define, I'll check it out.
+
+--Alright; I hesitate to say it, but I think this lab is DONE! I got
+all the rigamarole with the printing taken care of (I think), and it
+should accept and print any given expression now. (I added a file
+named 'test' to the repository; it has the define example in the lab
+specs all typed in, and it works great). I did end up changing SET!,
+for the purpose of standardization. Unfortunately, my solution isn't
+the most elegant (using while loops, instead of recursion), but using
+recursion is problematic. We can talk about it in class; for now, I'm
+gonna start in on other homework.
+
+~Cliff
+
+4/26/2003 I fixed the Scanner so that it accepts '...' as an
+IdentToken now.
+
+~Cliff
+
+4/30/2003 Fixed Scanner.cpp so that it correctly deals w/comments,
+'\r' - carriage returns, and '\f' - form feeds.  Also working on
+Parser.cpp trying to get DOT to work right... for some reason an
+expression like (2 . 3) gets printed: "(2 3"  The RPAREN is missing?
+Also need to deal w/ case like: (. 5)  This SHOULD be error, but as of
+now it is not.
+
+~Steve
+
+***end design log***

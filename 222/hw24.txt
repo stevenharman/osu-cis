@@ -1,0 +1,77 @@
+				CIS222 hw#24		Steve Harman
+1.  Names_1.cpp
+object Text one_name;
+object Character ch;
+
+while( not input.At_EOS() )
+{
+	input >> one_name;
+	output << one_name << '\n';
+	one_name.Remove(0,ch);
+	ch = To_Lower(ch);
+	one_name.Add(0,ch);
+	output << one_name << '/n';
+}
+
+2.
+object Character_IStream input;
+object Character_OStream output;
+object Stack_Of_Names all_names;
+input.Open_External ("");
+output.Open_External ("");
+
+while( not input.At_EOS() )
+{
+	object Text one_name, one_name_lower;
+	input >> one_name;
+	one_name_lower = one_name;
+	output << one_name << '\n';
+	all_names.Push(one_name);
+	one_name_lower[0] = To_Lower(one_name[0])
+	output << one_name << '\n';
+	all_names.Push(one_name_lower);
+}
+output << "Names in reverse order:\n";
+while( all_names.Length() > 0 )
+{
+	all_names.Pop(one_name);
+	output << one_name < '\n';
+}
+input.Close_External ();
+output.Close_External ();
+
+3.
+Stack_Of_Names all_names;
+while(! cin.eof() )
+{
+	char* one_name = new char[30];
+	char* one_name_lower = new char[30];
+	
+	cin >> one_name;
+	for (int i = 0; i <  strlen(one_name); i++)
+	{
+		one_name_lower[i] = one_name[i];
+	}
+	one_name_lower[0] = tolower (one_name[0]);
+	cout << one_name << '\n';
+	all_names.Push (one_name);
+	cout << one_name_lower << '\n';
+	all_names.Push( one_name_lower);
+}
+cout << "Names in reverse order:\n";
+while(all_names.Length() > 0)
+{
+	char* one_name = new char[30];
+
+	all_names.Pop (one_name);
+	cout << one_name << '\n';
+}
+
+4.a. There are very few differences in the two programs, other than a missing if loop,
+and some syntax changes.
+b.  One major difference is that in the normal C++ you don't have to make a copy of 
+the one_name because the variable is not consumed in a Push operation as it is in 
+Resolve/C++.
+c.  The changes to get between the normal versions were very similar to the changes 
+needed to get between the RCPP versions, that is the same concepts were added and/or
+changed just with different syntax.

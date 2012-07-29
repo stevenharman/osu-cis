@@ -1,0 +1,30 @@
+based on the newtests.txt, it may differ when comparing to 0__.txt files and
+the numbered lines w/ the test described are the ones I was sure about what was
+the expected output or behavior -
+
+1 p
+2 p
+3 p
+4 p
+5 p
+6 p
+7 p
+8 p
+9 p
+10 f ###
+11 f ###
+12 p
+13 p
+14 f ### (S.F.)
+15 f ###
+16 p
+17 p
+18 p
+19 f ###
+20 the relocatable R field (rel)                 20 & 21 using 018.txt
+21 the relocatable R field (indirect rel)
+22 the relocatable X field (rel)                 22 & 23 using 019.txt
+23 the relocatable X field (indirect rel)        
+24 f ###
+25 f ###
+26 IO writing uses literal

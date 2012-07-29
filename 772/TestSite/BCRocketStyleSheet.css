@@ -1,0 +1,88 @@
+/*
+--------- OUR COLORS --------------------
+	#B1AD9C : Tan-ish, brown - header, nav, etc...
+	#828282 : Light Grey #1 - "Down" navbar buttons 
+	#CCCCCC : Light Grey #2 - Alternating Row color for tables
+	#4C4C4C : Dark Grey - "up" navbar buttons, etc...
+	#990000 : Red - all over the place!
+*/
+
+body {	margin: 0 0 0 0; padding: 0;
+		SCROLLBAR-FACE-COLOR: #990000; SCROLLBAR-HIGHLIGHT-COLOR: #993333; SCROLLBAR-SHADOW-COLOR: #666666; 
+		SCROLLBAR-3DLIGHT-COLOR: #FFFFFF; SCROLLBAR-ARROW-COLOR:  #B1AD9C; SCROLLBAR-TRACK-COLOR: #B1AD9C; 
+		SCROLLBAR-DARKSHADOW-COLOR: #4C4C4C;
+}
+	 
+a {  text-decoration: none; color: #990000}
+a:hover {	text-decoration: underline;}
+	 
+.Footer-txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	color: #4C4C4C;
+}
+.Header-Title-txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #990000;
+	font-weight: bold;
+}
+.Header-Subtitle-txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	font-weight: bold; 
+}
+.HeadNavFoot {
+	background-color: #B1AD9C; /* Tan-ish */
+	/* background-image: url(/images/scanlinebg.gif); */
+	/* background-image: url(/images/scanlinebg2.gif); */
+}
+.Body-Std-txt {
+	color: #4C4C4C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+}
+.Cart-Title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: capitalize;
+	text-decoration: none;
+	color: #4C4C4C;
+}
+.Body-Std-Bold-txt {
+	color: #4C4C4C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+
+}
+.Body-Small-txt {
+	color: #4C4C4C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+}
+table {
+	color: #4C4C4C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+}
+.Table_AltColor_1 {
+	background-color: #EEEEEE;
+}
+.Table_AltColor_2 {
+	background-color: #FFFFFF;
+}
+img {
+	border: none;
+}
+/* This style is used in the vwd_justsopw.js JustSoPicWindow Function to
+	set the background color behind the images. */
+.Popup-Images {
+	background-color: #B1AD9C;
+}

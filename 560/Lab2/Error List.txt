@@ -1,0 +1,46 @@
+KEY: P1 = Pass_One()	P2 = Pass_Two()
+	XX-- = Error has been checked
+
+Error List (partial):
+
+SYNTAX ERRORS:
+	Unexpected end of line
+	Unexpected comment
+	Unknown comment syntax
+	Instruction not recognized
+XX-- P2	Register(R) field not an integer in range 
+XX-- P2	Memory(S) field not an integer in range 
+XX-- P2	Index(X) field not an integer in range 
+	No END pseudo-op
+XX-- P1	First non-comment record not ORI pseudo-op
+XX-- P1	Unexpected ORI pseudo-op
+	Missing operand
+	Unexpected operand
+	Instruction following an END operation
+ 
+SYMBOL ERRORS:
+	Symbol not defined
+XX-- P1	Symbol multiply defined 
+XX-- P1	First character in symbol not alphabetic 
+XX-- P1	Characters in symbol no alphanumeric
+	Symbol not absolute
+ 
+LITERAL ERRORS: 
+	Literal used in branch, store, shift, or input IO instruction
+XX-- P2	Indexing a literal
+	Literal not an integer in range 
+ 
+PSEUDO-OP ERRORS:
+XX-- P1	ORI operation has no label
+XX-- P1	EQU operation has no label
+XX-- P1	END operation has a label
+XX-- P1	Optional operand in END pseudo-op not an integer in range 
+XX-- P1	Operand in EQU pseudo-op not an integer in range 
+	Operand in NMD pseudo-op not an integer in range 
+XX-- P1	Operand in RES pseudo-op not an integer in range 
+ 
+FATAL ERRORS:
+	File not found
+	Segment length out of range 
+	Line length limit exceeded
+	Blank line(s) at the beginning of file
